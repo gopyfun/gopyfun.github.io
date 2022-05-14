@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on GoPY Fun</title>
-    <link>https://gopy.fun/tags/</link>
+    <link>https://gopy.fun/tags.html</link>
     <description>Recent content in Tags on GoPY Fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://gopy.fun/tags/index.xml" rel="self" type="application/rss+xml" />
