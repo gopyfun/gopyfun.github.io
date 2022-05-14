@@ -2,16 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://gopy.fun/</loc>
-    <lastmod>2022-05-15T01:45:43+08:00</lastmod>
-  </url><url>
-    <loc>https://gopy.fun/posts/hello.html</loc>
-    <lastmod>2022-05-15T01:45:43+08:00</lastmod>
-  </url><url>
-    <loc>https://gopy.fun/posts.html</loc>
-    <lastmod>2022-05-15T01:45:43+08:00</lastmod>
-  </url><url>
     <loc>https://gopy.fun/categories.html</loc>
+  </url><url>
+    <loc>https://gopy.fun/</loc>
   </url><url>
     <loc>https://gopy.fun/tags.html</loc>
   </url>
