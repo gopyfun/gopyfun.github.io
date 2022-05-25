@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>规范 on GoPY Fun</title>
+    <link>https://gopy.fun/tags/%E8%A7%84%E8%8C%83.html</link>
+    <description>Recent content in 规范 on GoPY Fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 May 2022 12:58:39 +0800</lastBuildDate><atom:link href="https://gopy.fun/tags/%E8%A7%84%E8%8C%83/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>代码规范集</title>
+      <link>https://gopy.fun/nav/code-style-guide.html</link>
+      <pubDate>Sun, 15 May 2022 12:58:39 +0800</pubDate>
+      
+      <guid>https://gopy.fun/nav/code-style-guide.html</guid>
+      <description>以下是收集代码风格指导
+版本管理  Git 风格指南 @ aseaday/git-style-guide: A Git Style Guide：  参考 </description>
+    </item>
+    
+  </channel>
+</rss>

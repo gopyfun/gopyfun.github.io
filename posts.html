@@ -66,6 +66,163 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://gopy.fun/posts/note/mongodb-note.html" title="MongoDB Note">MongoDB Note</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年5月24日
+        </date>
+        
+        <div class="post-content">
+            install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:
+cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开启强制验证 security:  authorization: &#34;enabled&#34; EOF  mongo &gt; show dbs &gt; use admin &gt; db.createUser({  user: &#39;admin&#39;, // 用户名  pwd: &#39;123456&#39;, // 密码  roles:[{  role: &#39;root&#39;, // 角色  db: &#39;admin&#39; // 数据库  }] }) &gt; exit  brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 ……
+        </div>
+        <p class="readmore"><a href="https://gopy.fun/posts/note/mongodb-note.html">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://gopy.fun/posts/note/python-flask-note.html" title="Python Flask Note">Python Flask Note</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年5月24日
+        </date>
+        
+        <div class="post-content">
+            一、flask基础教程 jinja2 模板 数据处理
+ {% if %}标签   {% if age &lt; 18 %}  &lt;p&gt;还未成年,不能进网吧上网&lt;/p&gt; {% elif age == 18 %}  &lt;p&gt;刚刚成年，先去庆祝一下吧，再去上网&lt;/p&gt; {% else %}  &lt;p&gt;已经成年了，可以去网吧上网了&lt;/p&gt; {% endif %} {% for %}标签
+&lt;ul&gt;  {% for user in users %}  &lt;li&gt;{{ user }}&lt;/li&gt; &lt;!-- 如果没有值，空的列表之类的，就会执行else语句 --&gt;  {% else %}  &lt;li&gt;没有任何值&lt;/li&gt;  {% endfor %} &lt;/ul&gt;   &lt;!-- 遍历字典: ---&gt;  {% for key,value in person.……
+        </div>
+        <p class="readmore"><a href="https://gopy.fun/posts/note/python-flask-note.html">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://gopy.fun/posts/note/python-note.html" title="Python note">Python note</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年5月24日
+        </date>
+        
+        <div class="post-content">
+            内容 基本部分笔记记录在这里其他内容参考：
+ Python Flask Note  python基础 虚拟环境  python3 -m venv venv source ./venv/bin/activate  deactivate ……
+        </div>
+        <p class="readmore"><a href="https://gopy.fun/posts/note/python-note.html">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://gopy.fun/posts/note/js-note.html" title="JS note">JS note</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年5月20日
+        </date>
+        
+        <div class="post-content">
+            一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是：
+ undefined（未定义）、 null（空） boolean（布尔型） string（字符串） symbol number（数字） bigint（可以表示任意大的整数） object（对象）  js中的变量名称推荐使用驼峰命名法（camelCase）。 定义变量
+var myName; var myName;  //var声明的变量，可以被覆盖变量声明 var camper = &#34;James&#34;; var camper = &#34;David&#34;; console.log(camper); // 使用 let 时，同名的变量只能声明一次 (ES6特性) let camper2 = &#34;James&#34;; let camper2 = &#34;David&#34;; console.log(camper2); // const定义只读变量， 只读变量建议大写 const FAV_PET = &#34;Cats&#34;; 1.2 运算 var sum = 2+2; var add = 1+4; var diff = 2-1; var pus = 2*6; const quotient = 66 / 33;  // 数字递增 i++ i=i+1  i--  // remainder 求余运算符 % 返回两个数相除得到的余数 5 % 2 = 1  // 复合赋值 myVar += 5;  //   // 1.……
+        </div>
+        <p class="readmore"><a href="https://gopy.fun/posts/note/js-note.html">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://gopy.fun/posts/note/html5-note.html" title="HTML重学 &amp; HTML5笔记">HTML重学 &amp; HTML5笔记</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年5月17日
+        </date>
+        
+        <div class="post-content">
+            HTML标签  HTML声明类型  &lt;!DOCTYPE html&gt; &lt;html&gt;  &lt;/html&gt;  行内标签  &lt;a&gt;&lt;/a&gt;: a (Anchor)  href属性: 指向跳转的目的地 target属性：_blank 表示在新窗口打开     段落标签   &lt;ul&gt;&lt;/ul&gt;:
+  &lt;ol&gt;&lt;/ol&gt;:
+  input : &lt;input type=&quot;text&quot;&gt;
+     css基础 HTML 元素都是以矩形为基础, 每个 HTML 元素所占有的矩形空间由这三个重要的属性来控制： - 内边距 padding、 - 外边距 margin 、 - 边框 border。
+css中的绝对单位与相对单位 像素是一个长度单位，它告诉浏览器应该如何调整元素的大小和位置。 其实除了 px，CSS 也有其他单位供我们使用。
+单位长度的类型可以分成 2 种：相对和绝对。 绝对单位与长度的物理单位相关。 例如，in 和 mm 分别代表着英寸和毫米。 绝对长度单位会接近屏幕上的实际测量值，不过不同屏幕的分辨率会存在差异，这就可能会造成误差。……
+        </div>
+        <p class="readmore"><a href="https://gopy.fun/posts/note/html5-note.html">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://gopy.fun/posts/soft/adobe.html" title="Adobe">Adobe</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年5月16日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/%E8%BD%AF%E4%BB%B6'>软件</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Adobe软件下载备份
+软件下载   vposy破解（mac一般安装2021 sp版），默认解压密码 @vposy,
+ 说明：  大师版：全家桶安装包，压缩包里含有所有Adobe软件，需要全部下载后方可解压安装； SP版：单个软件安装包，按需下载，无需下载所有软件。   vposy破解Adobe全系更新（密码：3jek） 网友备份1（密码：7wx1）    PR2022破解版本下载
+ PR2022 v22 didixk破解（密码：oj96）     ……
+        </div>
+        <p class="readmore"><a href="https://gopy.fun/posts/soft/adobe.html">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://gopy.fun/posts/mac/mac-dev-env.html" title="苹果开发环境部署">苹果开发环境部署</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年5月16日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/mac'>Mac</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            mac开发环境说明 这个是我个人喜欢部署的mac软件的环境，记录备用
+一、基础环境 1.1 Homebrew安装 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34;  # 如果安装失败或请求失败，需要绕过ssl验证 /bin/bash -c &#34;$(curl -fsSL --insecure https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34;  # 以上方法还无法下载，就先把install.sh 这个文件直接下载到本地，然后执行安装 bash install.sh  # 使用国内源(不建议) /bin/zsh -c &#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&#34; homebrew安装后，可以使用以下命令进行管理
+brew version  brew install {name} brew install --cask {name}   brew list brew search brew 1.2 zsh安装配置 二、系统核心命令操作 2.1 开启允许所有软件安装 OSX移除下载镜像的quarantine属性 苹果系统有一个GateKeeper保护机制（自 OSX 10.5 加入）。从互联网上下载来的文件，会被自动打上com.apple.quarantine标志，翻译过来就是免疫隔离，系统根据这个附加属性对这个文件作出限制。 在安装软件的时候需要移除quarantine属性，步骤如下：
+# 开启任何来源代码 sudo spctl --master-disable # 移除quarantine属性代码 sudo xattr -r -d com.……
+        </div>
+        <p class="readmore"><a href="https://gopy.fun/posts/mac/mac-dev-env.html">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://gopy.fun/posts/hello.html" title="GopyFun创世文">GopyFun创世文</a>
             </h1>
         </header>
@@ -131,6 +288,34 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://gopy.fun/posts/note/mongodb-note.html" title="MongoDB Note">MongoDB Note</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/python-flask-note.html" title="Python Flask Note">Python Flask Note</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/python-note.html" title="Python note">Python note</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/js-note.html" title="JS note">JS note</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/html5-note.html" title="HTML重学 &amp; HTML5笔记">HTML重学 &amp; HTML5笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/soft/adobe.html" title="Adobe">Adobe</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/mac/mac-dev-env.html" title="苹果开发环境部署">苹果开发环境部署</a>
+    </li>
+    
+    <li>
         <a href="https://gopy.fun/posts/hello.html" title="GopyFun创世文">GopyFun创世文</a>
     </li>
     
@@ -143,12 +328,36 @@
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
+    <li><a href="https://gopy.fun/categories/mac.html">Mac (1)</a></li>
+    
+    <li><a href="https://gopy.fun/categories/resource.html">Resource (3)</a></li>
+    
+    <li><a href="https://gopy.fun/categories/%E8%BD%AF%E4%BB%B6.html">软件 (1)</a></li>
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
+    
+    <a href="https://gopy.fun/tags/adobe.html">adobe</a>
+    
+    <a href="https://gopy.fun/tags/cdn.html">CDN</a>
+    
+    <a href="https://gopy.fun/tags/%E6%95%99%E7%A8%8B.html">教程</a>
+    
+    <a href="https://gopy.fun/tags/%E6%A8%A1%E6%9D%BF.html">模板</a>
+    
+    <a href="https://gopy.fun/tags/%E8%8B%B9%E6%9E%9C.html">苹果</a>
+    
+    <a href="https://gopy.fun/tags/%E8%A7%84%E8%8C%83.html">规范</a>
+    
+    <a href="https://gopy.fun/tags/%E8%AE%BE%E8%AE%A1.html">设计</a>
+    
+    <a href="https://gopy.fun/tags/%E8%B5%84%E6%BA%90.html">资源</a>
+    
+    <a href="https://gopy.fun/tags/%E8%BD%AF%E4%BB%B6.html">软件</a>
     
 </div>
     </section>

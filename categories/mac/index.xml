@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on GoPY Fun</title>
+    <link>https://gopy.fun/categories/mac.html</link>
+    <description>Recent content in Mac on GoPY Fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 May 2022 17:33:03 +0800</lastBuildDate><atom:link href="https://gopy.fun/categories/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>苹果开发环境部署</title>
+      <link>https://gopy.fun/posts/mac/mac-dev-env.html</link>
+      <pubDate>Mon, 16 May 2022 17:33:03 +0800</pubDate>
+      
+      <guid>https://gopy.fun/posts/mac/mac-dev-env.html</guid>
+      <description>mac开发环境说明 这个是我个人喜欢部署的mac软件的环境，记录备用
+一、基础环境 1.1 Homebrew安装 /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34;  # 如果安装失败或请求失败，需要绕过ssl验证 /bin/bash -c &amp;#34;$(curl -fsSL --insecure https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34;  # 以上方法还无法下载，就先把install.sh 这个文件直接下载到本地，然后执行安装 bash install.sh  # 使用国内源(不建议) /bin/zsh -c &amp;#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&amp;#34; homebrew安装后，可以使用以下命令进行管理
+brew version  brew install {name} brew install --cask {name}   brew list brew search brew 1.2 zsh安装配置 二、系统核心命令操作 2.1 开启允许所有软件安装 OSX移除下载镜像的quarantine属性 苹果系统有一个GateKeeper保护机制（自 OSX 10.5 加入）。从互联网上下载来的文件，会被自动打上com.apple.quarantine标志，翻译过来就是免疫隔离，系统根据这个附加属性对这个文件作出限制。 在安装软件的时候需要移除quarantine属性，步骤如下：
+# 开启任何来源代码 sudo spctl --master-disable # 移除quarantine属性代码 sudo xattr -r -d com.</description>
+    </item>
+    
+  </channel>
+</rss>

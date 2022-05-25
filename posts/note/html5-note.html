@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>HTML重学 &amp; HTML5笔记 | GoPY Fun</title>
+    <meta property="og:title" content="HTML重学 &amp; HTML5笔记 - GoPY Fun">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2022-05-17T14:56:43&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2022-05-17T14:56:43&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="HTML重学 &amp; HTML5笔记">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://gopy.fun/posts/note/html5-note.html">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://gopy.fun/">
+                        GoPY Fun
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://gopy.fun/">首页</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">HTML重学 &amp; HTML5笔记</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年5月17日
+        </date>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="html标签">HTML标签</h2>
+<ul>
+<li>HTML声明类型</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><ul>
+<li>行内标签
+<ul>
+<li><code>&lt;a&gt;&lt;/a&gt;</code>: a (Anchor)
+<ul>
+<li>href属性: 指向跳转的目的地</li>
+<li>target属性：<code>_blank</code> 表示在新窗口打开</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>段落标签
+<ul>
+<li>
+<p><code>&lt;ul&gt;&lt;/ul&gt;</code>:</p>
+</li>
+<li>
+<p><code>&lt;ol&gt;&lt;/ol&gt;</code>:</p>
+</li>
+<li>
+<p>input : <code>&lt;input type=&quot;text&quot;&gt;</code></p>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="css基础">css基础</h2>
+<p>HTML 元素都是以矩形为基础, 每个 HTML 元素所占有的矩形空间由这三个重要的属性来控制：
+- 内边距 padding、
+- 外边距 margin 、
+- 边框 border。</p>
+<p>css中的绝对单位与相对单位
+像素是一个长度单位，它告诉浏览器应该如何调整元素的大小和位置。 其实除了 px，CSS 也有其他单位供我们使用。</p>
+<p>单位长度的类型可以分成 2 种：相对和绝对。 绝对单位与长度的物理单位相关。 例如，in 和 mm 分别代表着英寸和毫米。 绝对长度单位会接近屏幕上的实际测量值，不过不同屏幕的分辨率会存在差异，这就可能会造成误差。</p>
+<p>相对单位长度，比如 em 和 rem，它们的实际值会依赖其他长度的值而决定。 比如 em 的大小基于元素字体的字体大小。 如果使用它来设置 font-size 值，它的值会跟随父元素的 font-size 值来改变。</p>
+<p>Note: 有些单位长度选项是相对视窗大小来改变值的， 这种设定符合响应式网页设计的原则。</p>
+<h3 id="css优先等级">css优先等级</h3>
+<p>内联样式 &gt; id &gt; class</p>
+<ul>
+<li>同个等级的，后面设置的优先应用；</li>
+<li>添加关键词 <code>!important</code> 可以最优先展示</li>
+</ul>
+<h3 id="css颜色设置">css颜色设置</h3>
+<p>属性：
+color
+background-color</p>
+<ul>
+<li>值：
+<ul>
+<li>关键字： blue， yellow， white 等</li>
+<li>HEX颜色码（hex code）： #00FF00  或者简写 #0F0</li>
+<li>rgb： rgb(255,0,0)</li>
+<li>色相 HSL(纯色，饱和度，亮度): 蓝色： hsl(240,100%,50%)</li>
+</ul>
+</li>
+<li>常见颜色hex：
+<ul>
+<li>橙色 orange：</li>
+<li>深青色 ： 一般白字标题的背景色</li>
+<li>蓝绿色 cyan: hsl(180,100%,50%)</li>
+<li>品红： hsl(300,100%,50%)</li>
+<li>浅灰色（#D3D3D3）</li>
+<li>深灰色（#636363）</li>
+<li>黄色（#FFFF33）</li>
+<li>绿色（#33FF33）</li>
+<li>深蓝色（#003366）</li>
+</ul>
+</li>
+</ul>
+<h3 id="css-中使用变量">css 中使用变量</h3>
+<p>在变量名前添加两个连字符号，并赋值即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>--penguin-skin: black;
+</span></span><span style="display:flex;"><span>.penguin-top {
+</span></span><span style="display:flex;"><span>    top: <span style="color:#ae81ff">10</span>%;
+</span></span><span style="display:flex;"><span>    left: <span style="color:#ae81ff">25</span>%;
+</span></span><span style="display:flex;"><span>    background: <span style="color:#66d9ef">var</span>(--penguin-skin, gray); <span style="color:#75715e">// gray可以不写，这里是赋予默认值 </span>
+</span></span><span style="display:flex;"><span>    width: <span style="color:#ae81ff">50</span>%;
+</span></span><span style="display:flex;"><span>    height: <span style="color:#ae81ff">45</span>%;
+</span></span><span style="display:flex;"><span>    border-radius: <span style="color:#ae81ff">70</span>% <span style="color:#ae81ff">70</span>% <span style="color:#ae81ff">60</span>% <span style="color:#ae81ff">60</span>%;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>降级兼容</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  :<span style="color:#a6e22e">root</span> {
+</span></span><span style="display:flex;"><span>    --red-color: <span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">red-box</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">red</span>; <span style="color:#75715e">/*追加兼容的代码*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">red</span><span style="color:#f92672">-</span><span style="color:#66d9ef">color</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><p>继承 CSS 变量
+当创建一个变量时，变量会在创建变量的选择器里可用。 同时，在这个选择器的后代选择器里也是可用的。 这是因为 CSS 变量是可继承的，和普通的属性一样。</p>
+<p>CSS 变量经常会定义在 :root 元素内，这样就可被所有选择器继承。</p>
+<p>:root 是一个伪类选择器，它是一个能够匹配文档根元素的选择器，通常指的是 html 元素。 我们在 :root 里创建变量在全局都可用，即在任何选择器里都生效。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>:<span style="color:#a6e22e">root</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 只修改这一行下面的代码 */</span>
+</span></span><span style="display:flex;"><span>    --penguin-belly: <span style="color:#66d9ef">pink</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 只修改这一行上面的代码 */</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>penguin<span style="color:#f92672">-</span>belly, <span style="color:#ae81ff">#c6faf1</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">penguin</span> {
+</span></span><span style="display:flex;"><span>    --penguin-skin: <span style="color:#66d9ef">gray</span>;
+</span></span><span style="display:flex;"><span>    --penguin-beak: <span style="color:#66d9ef">orange</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin</span>: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">300</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">300</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><h3 id="不同宽度显示不同样式">不同宽度显示不同样式</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>:<span style="color:#a6e22e">root</span> {
+</span></span><span style="display:flex;"><span>    --penguin-size: <span style="color:#ae81ff">300</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    --penguin-skin: <span style="color:#66d9ef">gray</span>;
+</span></span><span style="display:flex;"><span>    --penguin-belly: <span style="color:#66d9ef">white</span>;
+</span></span><span style="display:flex;"><span>    --penguin-beak: <span style="color:#66d9ef">orange</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">350px</span><span style="color:#f92672">)</span> { <span style="color:#75715e">/* 当显示宽度小于350时应用这个样式 */</span>
+</span></span><span style="display:flex;"><span>    :<span style="color:#a6e22e">root</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">/* 只修改这一行下面的代码 */</span>
+</span></span><span style="display:flex;"><span>      --penguin-size: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>      --penguin-skin: <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">/* 只修改这一行上面的代码 */</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><h3 id="文本控制">文本控制</h3>
+<ul>
+<li><code>&lt;u&gt;</code>: 添加下划线 ，等同属性 <code>font-decoration: underline;</code></li>
+<li><code>&lt;s&gt;</code>: 添加删除线，等同属性 <code>font-decoration: line-through;</code></li>
+<li><code>&lt;em&gt;</code>: 添加斜体，等同属性 <code>font-style: italic;</code></li>
+</ul>
+<h3 id="heading"></h3>
+<ul>
+<li>
+<p><code>box-shadow</code> 属性用来给元素添加阴影，该属性值是由逗号分隔的一个或多个阴影列表。box-shadow 属性按顺序采用以下值：</p>
+<ul>
+<li>
+<p><code>offset-x</code> （阴影的水平偏移量），</p>
+</li>
+<li>
+<p><code>offset-y</code> （阴影的垂直偏移量），</p>
+</li>
+<li>
+<p><code>blur-radius</code> (可选)</p>
+</li>
+<li>
+<p><code>spread-radius</code> （可选）</p>
+</li>
+<li>
+<p><code>color</code></p>
+</li>
+<li>
+<p>参考：</p>
+<ul>
+<li>文档： <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow">box-shadow - CSS（层叠样式表） | MDN</a></li>
+<li>工具： <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Backgrounds_and_Borders/Box-shadow_generator">Box-shadow generator - CSS（层叠样式表） | MDN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>opacity</code> 属性用来设置元素的透明度, 属性值的设置比如：</p>
+<ul>
+<li>属性值为 <code>1</code> 代表完全不透明。</li>
+<li>属性值为 <code>0.5</code> 代表半透明。</li>
+<li>属性值为 <code>0</code> 代表完全透明。</li>
+</ul>
+</li>
+<li>
+<p><code>text-transform</code> 属性可以改变英文字母的大小写。 使用这个属性时，我们无需改变 HTML 元素中的文本也可以统一页面里英文的显示。<code>text-transform</code>属性有：</p>
+<ul>
+<li><code>lowercase</code>:   结果如：&ldquo;transform me&rdquo;</li>
+<li><code>uppercase</code>:   结果如：&ldquo;TRANSFORM ME&rdquo;</li>
+<li><code>capitalize</code>:  结果如：&ldquo;Transform Me&rdquo;</li>
+<li><code>initial</code>: 使用默认值</li>
+<li><code>inherit</code>: 使用父元素的 text-transform 值。</li>
+<li><code>none</code>:    Default:不改变文字。</li>
+</ul>
+</li>
+<li>
+<p><code>font-size: 15px;</code> 设置文本字体大小</p>
+</li>
+<li>
+<p><code>font-weight: 100;</code> 设置文本字体的粗细</p>
+</li>
+<li>
+<p><code>line-height: 16px;</code> 属性来设置行间的距离</p>
+</li>
+<li>
+<p><code>position</code> 更改元素的相对位置</p>
+<ul>
+<li>在 CSS 里一切 HTML 元素皆为盒子，也就是通常所说的盒模型。 块级元素自动从新的一行开始（比如标题、段落以及 div），行内元素排列在上一个元素后（比如图片以及 span）。 元素默认按照这种方式布局称为文档的普通流，同时 CSS 提供了 position 属性来覆盖它。</li>
+<li>当元素的定位设置为 relative 时，它允许你通过 CSS 指定该元素在当前文档流页面下的相对偏移量。 CSS 里控制各个方向偏移量的属性是 left、right、top 和 bottom。 它们代表从原来位置向远离该方向偏移指定的像素、百分比或者 em。 下面的例子展示了段落向上偏移 10px：
+<code>p {position: relative; bottom: 10px;}</code></li>
+<li>属性：
+<ul>
+<li><code>relative</code>:</li>
+<li><code>absolute</code>: 相对于其包含块定位. 和 relative 定位不一样，绝对定位会将元素从当前的文档流里面移除，周围的元素会忽略它。 这样我们就可以用 CSS 的 top、bottom、left、right 属性来调整元素的位置。</li>
+<li><code>fixed</code>: 一种特殊的绝对（absolute）定位，将元素相对于浏览器窗口定位。 类似于绝对位置，它与 CSS 偏移属性一起使用，并且也会将元素从当前的文档流里面移除。 其它元素会忽略它的存在，这样也许需要调整其他位置的布局。但 fixed 和 absolute 的最明显的区别在于，前者定位的元素不会随着屏幕滚动而移动。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>float:</p>
+</li>
+<li>
+<p>z-index： 当一些元素在位置上重叠时（例如，使用 position: absolute | relative | fixed | sticky 时），在 HTML 里后出现的元素会默认显示在更早出现的元素的上面。 你可以使用 z-index 属性指定元素的堆叠次序。 z-index 的取值是整数，数值大的元素会叠放到数值小的元素上面。</p>
+</li>
+<li>
+<p>margin: 块级元素水平居中 <code>margin: auto;</code></p>
+</li>
+<li>
+<p>background 设置背景</p>
+<ul>
+<li><code>background: linear-gradient(gradient_direction, color 1, color 2, color 3, ...);</code> css渐变。第一个参数指定了颜色过渡的方向——它的值是角度，90deg 表示垂直渐变（从左到右），45deg 表示沿对角线渐变（从左下方到右上方）。 其他参数指定了渐变颜色的顺序：<code>background: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));</code></li>
+<li><code>background: repeating-linear-gradient(45deg,yellow 0px,yellow 40px,black 40px,black 80px);}</code> : 重复渐变，repeating-linear-gradient() 函数和 linear-gradient() 很像，主要区别是前者会重复指定的渐变。 repeating-linear-gradient() 有很多参数，为了便于理解，本关只用到角度值和色标。</li>
+<li><code>url: (&quot;link&quot;);</code>  : 设置图片</li>
+</ul>
+</li>
+<li>
+<p>transform 属性</p>
+<ul>
+<li>scale() : SS 属性 transform 里面的 <code>scale()</code> 函数可以用来改变元素的显示比例。 这个例子把页面的段落元素放大到了原来的 2 倍: <code>transform: scale(2);</code>
+<ul>
+<li>设置当鼠标移过时放大1.1 倍： <code>div:hover {transform: scale(1.1);}</code></li>
+</ul>
+</li>
+<li>skewX() : 它使选择的元素沿着 X 轴（横向）倾斜指定的角度 : <code>transform: skewX(-32deg);</code></li>
+<li>skewY() : 使指定元素沿 Y 轴（垂直方向）翻转指定角度:</li>
+</ul>
+</li>
+</ul>
+<h4 id="关键帧和动画">关键帧和动画</h4>
+<p>如果要给元素添加动画，你需要了解 animation 属性以及 @keyframes 规则。 animation 属性控制动画的外观，@keyframes 规则控制动画中各阶段的变化。 总共有 8 个 animation 属性。 为了便于理解，本挑战中我们只会暂时涉及到两个最常用的属性。</p>
+<p>animation-name 用来设置动画的名称，也就是我们稍后要在 @keyframes 里用到的名称。</p>
+<p>animation-duration 设置动画所花费的时间。</p>
+<p>@keyframes 可以通过设置特定时间点的行为来创建动画。 为此，我们只需要给持续时间内的特定帧（从 0% 到 100%）加上 CSS 规则。 如果用一部电影来做类比，那么 CSS 里面的 0% 关键帧就像是电影里面的开场镜头；100% 关键帧就像是电影里的片尾，就是那个之后会出现演职人员列表的片尾。 在动画设定的时间内，CSS 会根据关键帧的规则来给元素添加动画效果。 100% 位置的 CSS 属性就是元素最后的样子，相当于电影里的演职员表或者鸣谢镜头。 然后CSS 应用魔法来在给定的时间内转换元素以使其脱离场景。 下面举例说明 @keyframes 和动画属性的用法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span>anim {
+</span></span><span style="display:flex;"><span>  animation-name: colorful;
+</span></span><span style="display:flex;"><span>  animation-duration: <span style="color:#ae81ff">3</span>s;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@keyframes colorful {
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">0</span>% {
+</span></span><span style="display:flex;"><span>    background-color: blue;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">100</span>% {
+</span></span><span style="display:flex;"><span>    background-color: yellow;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>id 为 anim 的元素，我们在代码中将它的 animation-name 设置为 colorful，同时设置 animation-duration 为 3 秒。 然后我们把 @keyframes 规则添加到名为 colorful 的动画属性上。 在动画开始时（0%）的背景颜色为蓝色，在动画结束时（100%）的背景颜色为黄色。 注意我们不只可以设置开始和结束，而是从 0% 到 100% 间的任意位置都可以设置。</p>
+<p>给 id 为 rect 的元素添加动画，设置其 animation-name 为 rainbow，设置其 animation-duration 为 4 秒。 然后声明 @keyframes 规则，设置动画开始时（0%）的 background-color 为蓝色，动画中间时（50%）为绿色，动画结束时（100%）为为黄色。</p>
+<ul>
+<li><code>animation-fill-mode: forwards; </code> : 指定了在动画结束时元素的样式, forwards 指的是一直存在</li>
+<li>animation-name: bounce;  ： 指定动画名称，然后在 <code>@keyframes bounce {代码}</code>设置动画内容</li>
+<li>animation-duration: 2s; ： 指定动画执行时长</li>
+<li>animation-iteration-count: infinite; ： 指定动画运行次数，infinite只无限运行</li>
+<li>animation-timing-function: [linear | ease-out]; : 定义动画的速度曲线
+<ul>
+<li>linear对应：</li>
+<li>ease-out对应： cubic-bezier(0, 0, 0.58, 1)</li>
+<li>模拟杂耍球运动：cubic-bezier(0.3, 0.4, 0.5, 1.6);</li>
+</ul>
+</li>
+<li><code>animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);</code> : 贝塞尔曲线（Bezier curves）来更细致地控制动画的速度曲线, 这里的例子就是 CSS 贝塞尔曲线</li>
+<li></li>
+</ul>
+<h3 id="css网格">CSS网格</h3>
+<p>CSS 网格是一个较新的标准，用于构建复杂的响应布局。它通过把 HTML 元素转换为具有行和列的网格容器，以便将子元素放置在所需要的位置。</p>
+<p>通过将属性 display 的值设为 grid，HTML 元素就可以变为网格容器。但是，简单地添加一个网格元素并不会有任何明显的效果。 你还需要明确网格的结构。</p>
+<ul>
+<li>
+<p><code>grid-template-columns: 50px 50px; </code>添加列，指定没一列的宽度有多少，堆满2个后又重新起</p>
+</li>
+<li>
+<p><code>grid-template-rows: 50px 50px;</code> ： 请给网格添加两行，使每行高度均为 50px。</p>
+</li>
+<li>
+<p>网格单位:</p>
+<ul>
+<li><code>fr</code>：设置列或行占剩余空间的比例，</li>
+<li><code>auto</code>：设置列宽或行高自动等于它的内容的宽度或高度，</li>
+<li><code>%</code>：将列或行调整为它的容器宽度或高度的百分比，</li>
+</ul>
+</li>
+<li>
+<p>grid-column-gap: 10px; 创建多列之间的间距</p>
+</li>
+<li>
+<p>grid-row-gap : 创建多行之间的间距</p>
+</li>
+<li>
+<p>grid-gap:  ; : 为网格添加间距, 如果 grid-gap 只有一个值，那么这个值表示行与行之间、列与列之间的间距均为这个值。 如果有两个值，那么第一个值表示行间距，第二个值表示列间距</p>
+</li>
+<li>
+<p><code>grid-column</code> 来控制空间大小。</p>
+</li>
+<li>
+<p><code>grid-row</code> 来控制空间大小。</p>
+</li>
+<li>
+<p>justify-self 水平对齐项目</p>
+<ul>
+<li>stretch: 默认值</li>
+<li>start：使内容在单元格左侧对齐</li>
+<li>center：使内容在单元格居中对齐，</li>
+<li>end：使内容在单元格右侧对齐，</li>
+</ul>
+</li>
+<li>
+<p>align-self 垂直对齐项目</p>
+<ul>
+<li>属性同justify-self</li>
+</ul>
+</li>
+<li>
+<p>justify-items 水平对齐所有项目</p>
+<ul>
+<li>属性同justify-self</li>
+</ul>
+</li>
+<li>
+<p>align-items 垂直对齐所有项目</p>
+</li>
+<li>
+<p><code>grid-template-areas</code>: 将网格划分为区域模板.将网格中的一些单元格组合成一个区域（area），并为该区域指定一个自定义名称</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">grid-template-areas</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;header header header&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;advert content content&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;advert footer footer&#34;</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div><ul>
+<li>上面的代码将网格单元格分成四个区域：header、advert、content 和 footer。 每个单词代表一个单元格，每对引号代表一行。</li>
+</ul>
+</li>
+<li>
+<p>grid-area 属性将项目放置在网格区域中.在为网格添加区域模板后，可以通过引用你所定义的区域的名称，将元素放入相应的区域。  grid-area: header;</p>
+</li>
+<li>
+<p>grid-area。 如果网格中没有定义区域模板，你也可以像这样为它添加一个模板 <code>grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at</code>;</p>
+</li>
+<li>
+<p>使用 repeat 函数减少重复
+grid-template-rows: repeat(3, 50px); = grid-template-rows: 50px 50px 50px;
+grid-template-columns: repeat(2, 1fr 50px) 20px; = grid-template-columns: 1fr 50px 1fr 50px 20px;</p>
+<ul>
+<li>使用 minmax 函数限制项目大小:
+grid-template-columns: repeat(3, minmax(90px, 1fr));</li>
+<li>使用 auto-fill 创建弹性布局
+repeat(auto-fill, minmax(60px, 1fr));</li>
+<li>使用 auto-fit 创建弹性布局: auto-fit 效果几乎和 auto-fill 一样。 不同点仅在于，当容器的大小大于各网格项之和时，auto-fill 会持续地在一端放入空行或空列，这样就会使所有网格项挤到另一边；而 auto-fit 则不会在一端放入空行或空列，而是会将所有网格项拉伸至合适的大小。
+grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h2 id="html5标签">HTML5标签</h2>
+<p>新增标签</p>
+<ul>
+<li>header 标题</li>
+<li>main 主题</li>
+<li>artical 文章内容</li>
+<li>footer 底部内容</li>
+<li>nav: 导航</li>
+<li>audio 标签用于呈现音频内容或音频流，它也具有语义化特性
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">audio</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meowClip&#34;</span> <span style="color:#a6e22e">controls</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;audio/meow.mp3&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;audio/mpeg&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;audio/meow.ogg&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;audio/ogg&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">audio</span>&gt;
+</span></span></code></pre></div></li>
+<li>figure 标签以及与之相关的 figcaption 标签。 它们一起用于展示可视化信息（如：图片、图表）及其标题。 这样通过语义化对内容进行分组并配以用于解释 figure 的文字，可以极大地提升内容的可访问性。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">figure</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;roundhouseDestruction.jpeg&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Photo of Camper Cat executing a roundhouse kick&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">figcaption</span>&gt;
+</span></span><span style="display:flex;"><span>    Master Camper Cat demonstrates proper form of a roundhouse kick.
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">figcaption</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">figure</span>&gt;
+</span></span></code></pre></div></li>
+<li>label： label 元素提高表单的可访问性
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;Email:&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;
+</span></span></code></pre></div></li>
+<li>fieldset: 用来包裹单选按钮，提供更好的可访问性，一般用 legend搭配内容
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">fieldset</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">legend</span>&gt;Choose one of these three items:&lt;/<span style="color:#f92672">legend</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;one&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;items&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;one&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;one&#34;</span>&gt;Choice One&lt;/<span style="color:#f92672">label</span>&gt;&lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;two&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;items&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;two&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;two&#34;</span>&gt;Choice Two&lt;/<span style="color:#f92672">label</span>&gt;&lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;three&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;items&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;three&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;three&#34;</span>&gt;Choice Three&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">fieldset</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+</span></span></code></pre></div></li>
+<li>time
+<ul>
+<li>content <!-- raw HTML omitted -->last Wednesday<!-- raw HTML omitted -->, content</li>
+</ul>
+</li>
+<li></li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://gopy.fun/">GoPY Fun By </a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://gopy.fun/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/mongodb-note.html" title="MongoDB Note">MongoDB Note</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/python-flask-note.html" title="Python Flask Note">Python Flask Note</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/python-note.html" title="Python note">Python note</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/js-note.html" title="JS note">JS note</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/note/html5-note.html" title="HTML重学 &amp; HTML5笔记">HTML重学 &amp; HTML5笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/soft/adobe.html" title="Adobe">Adobe</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/mac/mac-dev-env.html" title="苹果开发环境部署">苹果开发环境部署</a>
+    </li>
+    
+    <li>
+        <a href="https://gopy.fun/posts/hello.html" title="GopyFun创世文">GopyFun创世文</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://gopy.fun/categories/mac.html">Mac (1)</a></li>
+    
+    <li><a href="https://gopy.fun/categories/resource.html">Resource (3)</a></li>
+    
+    <li><a href="https://gopy.fun/categories/%E8%BD%AF%E4%BB%B6.html">软件 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://gopy.fun/tags/adobe.html">adobe</a>
+    
+    <a href="https://gopy.fun/tags/cdn.html">CDN</a>
+    
+    <a href="https://gopy.fun/tags/%E6%95%99%E7%A8%8B.html">教程</a>
+    
+    <a href="https://gopy.fun/tags/%E6%A8%A1%E6%9D%BF.html">模板</a>
+    
+    <a href="https://gopy.fun/tags/%E8%8B%B9%E6%9E%9C.html">苹果</a>
+    
+    <a href="https://gopy.fun/tags/%E8%A7%84%E8%8C%83.html">规范</a>
+    
+    <a href="https://gopy.fun/tags/%E8%AE%BE%E8%AE%A1.html">设计</a>
+    
+    <a href="https://gopy.fun/tags/%E8%B5%84%E6%BA%90.html">资源</a>
+    
+    <a href="https://gopy.fun/tags/%E8%BD%AF%E4%BB%B6.html">软件</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://gopy.fun/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
