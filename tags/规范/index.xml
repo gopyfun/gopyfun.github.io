@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>规范 on GoPY Fun</title>
     <link>https://gopy.fun/tags/%E8%A7%84%E8%8C%83.html</link>
@@ -14,7 +14,7 @@
       
       <guid>https://gopy.fun/nav/code-style-guide.html</guid>
       <description>以下是收集代码风格指导
-版本管理  Git 风格指南 @ aseaday/git-style-guide: A Git Style Guide：  参考 </description>
+版本管理 Git 风格指南 @ aseaday/git-style-guide: A Git Style Guide： 参考 </description>
     </item>
     
   </channel>

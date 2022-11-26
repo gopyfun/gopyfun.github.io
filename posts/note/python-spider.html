@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Python爬虫笔记 | GoPY Fun</title>
+<meta name="keywords" content="">
+<meta name="description" content="一、爬虫概述 什么是爬虫？ 不知道各位是否遇到过这样的需求.就是我们总是希望能够保存互联网上的一些重要的数据信息为己所用。比如，
+在浏览到一些优秀的让人血脉喷张的图片时．总想保存起来留为日后做桌面上的壁纸 在浏览到一些重要的数据时(各行各业)，希望保留下来日后为自己进行各种销售行为增光添彩 在浏览到一些奇奇怪怪的劲爆视频时，希望保存在硬盘里供日后慢慢品鉴 在浏览到一些十分优秀的歌声曲目时，希望保存下来供我们在烦闷的生活中增添一份精彩 那么恭喜你.本课程将十分的适合于你．因为爬虫就是通过编写程序来爬取互联网上的优秀资源(图片，音频，视频，数据）
+爬虫和Python 爬虫一定要用Python么？非也～用Java也行，C也可以.请各位记住，编程语言只是工具.抓到数据是你的目的.用什么工具去达到你的目的都是可以的。和吃饭一样，可以用叉子也可以用筷子，最终的结果都是你能吃到饭.那为什么大多数人喜欢用Python呢？答案：因为Python写爬虫简单．不理解？问：为什么吃米饭不用刀叉？用筷子？因为简单！好用！
+而Python是众多编程语言中，小白上手最快，语法最简单．更重要的是，这货有非常多的关于爬虫能用到的第三方支持库.说直白点儿.就是你用筷子吃饭，我还附送你一个佣人．帮你吃！这样吃的是不是更爽了．更容易了~
+爬虫合法么？ 首先，爬虫在法律上是不被禁止的．也就是说法律是允许爬虫存在的.但是，爬虫也具有违法风险的.就像菜刀一样，法律是允许菜刀的存在的.但是你要是用来砍人，那对不起.没人惯着你.就像王欣说过的，技术是无罪的.主要看你用它来干嘛.比方说有些人就利用爬虫&#43;一些黑客技术每秒钟对着bilibill撸上十万八千次.那这个肯定是不被允许的.
+爬虫分为善意的爬虫和恶意的爬虫
+善意的爬虫，不破坏被爬取的网站的资源（正常访问，一般频率不高，不窃取用户隐私） 恶意的爬虫，影响网站的正常运营(抢票，秒杀，疯狂solo网站资源造成网站宕机） 综上，为了避免进， 我们还是要安分守己.时常优化自己的爬虫程序避免干扰到网站的正常运行.并且在使用爬取到的数据时,发现涉及到用户隐私和商业机密等敏感内容时，一定要及时终止爬取和传播
+爬虫的矛与盾 反爬机制 门户网站，可以通过制定相应的策略或者技术手段，防止爬虫程序进行网站数据的爬取。
+反反爬策略 爬虫程序可以通过制定相关的策略或者技术手段，破解门户网站中具备的反爬机制，从而可以获取门户网站中相关的数据。
+robots.txt协议： 君子协议。规定了网站中哪些数据可以被爬虫爬取哪些数据不可以被爬取。
+二、爬虫入门 2.1 第一个爬虫 from urllib.request import urlopen url = &#39;http://www.baidu.com&#39; resp = urlopen(url) print(resp.read().decode(&#34;utf-8&#34;)) 2.2 request模块入门 安装
+pip3 install requests pip3 install -i 第三方镜像地址 requests import requests url = &#34;https://fanyi.baidu.com/sug&#34; hehe = { &#34;kw&#34;：input(&#34;请输入一个单词&#34;) } resp = requests.post(url, data=hehe) print(resp. text)# 拿到的是文本字符串 print(resp.json()）#此时拿到的直接是json数据 hehe = {&#39;type&#39;=13, &#39;start&#39;=&#39;0&#39;} headers = {&#39;User-Agent&#39;: &#34;xxxx&#34;} resp = requests.">
+<meta name="author" content="">
+<link rel="canonical" href="https://gopy.fun/posts/note/python-spider.html">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://gopy.fun/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://gopy.fun/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://gopy.fun/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://gopy.fun/apple-touch-icon.png">
+<link rel="mask-icon" href="https://gopy.fun/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-24073861-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Python爬虫笔记" />
+<meta property="og:description" content="一、爬虫概述 什么是爬虫？ 不知道各位是否遇到过这样的需求.就是我们总是希望能够保存互联网上的一些重要的数据信息为己所用。比如，
+在浏览到一些优秀的让人血脉喷张的图片时．总想保存起来留为日后做桌面上的壁纸 在浏览到一些重要的数据时(各行各业)，希望保留下来日后为自己进行各种销售行为增光添彩 在浏览到一些奇奇怪怪的劲爆视频时，希望保存在硬盘里供日后慢慢品鉴 在浏览到一些十分优秀的歌声曲目时，希望保存下来供我们在烦闷的生活中增添一份精彩 那么恭喜你.本课程将十分的适合于你．因为爬虫就是通过编写程序来爬取互联网上的优秀资源(图片，音频，视频，数据）
+爬虫和Python 爬虫一定要用Python么？非也～用Java也行，C也可以.请各位记住，编程语言只是工具.抓到数据是你的目的.用什么工具去达到你的目的都是可以的。和吃饭一样，可以用叉子也可以用筷子，最终的结果都是你能吃到饭.那为什么大多数人喜欢用Python呢？答案：因为Python写爬虫简单．不理解？问：为什么吃米饭不用刀叉？用筷子？因为简单！好用！
+而Python是众多编程语言中，小白上手最快，语法最简单．更重要的是，这货有非常多的关于爬虫能用到的第三方支持库.说直白点儿.就是你用筷子吃饭，我还附送你一个佣人．帮你吃！这样吃的是不是更爽了．更容易了~
+爬虫合法么？ 首先，爬虫在法律上是不被禁止的．也就是说法律是允许爬虫存在的.但是，爬虫也具有违法风险的.就像菜刀一样，法律是允许菜刀的存在的.但是你要是用来砍人，那对不起.没人惯着你.就像王欣说过的，技术是无罪的.主要看你用它来干嘛.比方说有些人就利用爬虫&#43;一些黑客技术每秒钟对着bilibill撸上十万八千次.那这个肯定是不被允许的.
+爬虫分为善意的爬虫和恶意的爬虫
+善意的爬虫，不破坏被爬取的网站的资源（正常访问，一般频率不高，不窃取用户隐私） 恶意的爬虫，影响网站的正常运营(抢票，秒杀，疯狂solo网站资源造成网站宕机） 综上，为了避免进， 我们还是要安分守己.时常优化自己的爬虫程序避免干扰到网站的正常运行.并且在使用爬取到的数据时,发现涉及到用户隐私和商业机密等敏感内容时，一定要及时终止爬取和传播
+爬虫的矛与盾 反爬机制 门户网站，可以通过制定相应的策略或者技术手段，防止爬虫程序进行网站数据的爬取。
+反反爬策略 爬虫程序可以通过制定相关的策略或者技术手段，破解门户网站中具备的反爬机制，从而可以获取门户网站中相关的数据。
+robots.txt协议： 君子协议。规定了网站中哪些数据可以被爬虫爬取哪些数据不可以被爬取。
+二、爬虫入门 2.1 第一个爬虫 from urllib.request import urlopen url = &#39;http://www.baidu.com&#39; resp = urlopen(url) print(resp.read().decode(&#34;utf-8&#34;)) 2.2 request模块入门 安装
+pip3 install requests pip3 install -i 第三方镜像地址 requests import requests url = &#34;https://fanyi.baidu.com/sug&#34; hehe = { &#34;kw&#34;：input(&#34;请输入一个单词&#34;) } resp = requests.post(url, data=hehe) print(resp. text)# 拿到的是文本字符串 print(resp.json()）#此时拿到的直接是json数据 hehe = {&#39;type&#39;=13, &#39;start&#39;=&#39;0&#39;} headers = {&#39;User-Agent&#39;: &#34;xxxx&#34;} resp = requests." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gopy.fun/posts/note/python-spider.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-22T10:56:43+08:00" />
+<meta property="article:modified_time" content="2022-10-22T10:56:43+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python爬虫笔记"/>
+<meta name="twitter:description" content="一、爬虫概述 什么是爬虫？ 不知道各位是否遇到过这样的需求.就是我们总是希望能够保存互联网上的一些重要的数据信息为己所用。比如，
+在浏览到一些优秀的让人血脉喷张的图片时．总想保存起来留为日后做桌面上的壁纸 在浏览到一些重要的数据时(各行各业)，希望保留下来日后为自己进行各种销售行为增光添彩 在浏览到一些奇奇怪怪的劲爆视频时，希望保存在硬盘里供日后慢慢品鉴 在浏览到一些十分优秀的歌声曲目时，希望保存下来供我们在烦闷的生活中增添一份精彩 那么恭喜你.本课程将十分的适合于你．因为爬虫就是通过编写程序来爬取互联网上的优秀资源(图片，音频，视频，数据）
+爬虫和Python 爬虫一定要用Python么？非也～用Java也行，C也可以.请各位记住，编程语言只是工具.抓到数据是你的目的.用什么工具去达到你的目的都是可以的。和吃饭一样，可以用叉子也可以用筷子，最终的结果都是你能吃到饭.那为什么大多数人喜欢用Python呢？答案：因为Python写爬虫简单．不理解？问：为什么吃米饭不用刀叉？用筷子？因为简单！好用！
+而Python是众多编程语言中，小白上手最快，语法最简单．更重要的是，这货有非常多的关于爬虫能用到的第三方支持库.说直白点儿.就是你用筷子吃饭，我还附送你一个佣人．帮你吃！这样吃的是不是更爽了．更容易了~
+爬虫合法么？ 首先，爬虫在法律上是不被禁止的．也就是说法律是允许爬虫存在的.但是，爬虫也具有违法风险的.就像菜刀一样，法律是允许菜刀的存在的.但是你要是用来砍人，那对不起.没人惯着你.就像王欣说过的，技术是无罪的.主要看你用它来干嘛.比方说有些人就利用爬虫&#43;一些黑客技术每秒钟对着bilibill撸上十万八千次.那这个肯定是不被允许的.
+爬虫分为善意的爬虫和恶意的爬虫
+善意的爬虫，不破坏被爬取的网站的资源（正常访问，一般频率不高，不窃取用户隐私） 恶意的爬虫，影响网站的正常运营(抢票，秒杀，疯狂solo网站资源造成网站宕机） 综上，为了避免进， 我们还是要安分守己.时常优化自己的爬虫程序避免干扰到网站的正常运行.并且在使用爬取到的数据时,发现涉及到用户隐私和商业机密等敏感内容时，一定要及时终止爬取和传播
+爬虫的矛与盾 反爬机制 门户网站，可以通过制定相应的策略或者技术手段，防止爬虫程序进行网站数据的爬取。
+反反爬策略 爬虫程序可以通过制定相关的策略或者技术手段，破解门户网站中具备的反爬机制，从而可以获取门户网站中相关的数据。
+robots.txt协议： 君子协议。规定了网站中哪些数据可以被爬虫爬取哪些数据不可以被爬取。
+二、爬虫入门 2.1 第一个爬虫 from urllib.request import urlopen url = &#39;http://www.baidu.com&#39; resp = urlopen(url) print(resp.read().decode(&#34;utf-8&#34;)) 2.2 request模块入门 安装
+pip3 install requests pip3 install -i 第三方镜像地址 requests import requests url = &#34;https://fanyi.baidu.com/sug&#34; hehe = { &#34;kw&#34;：input(&#34;请输入一个单词&#34;) } resp = requests.post(url, data=hehe) print(resp. text)# 拿到的是文本字符串 print(resp.json()）#此时拿到的直接是json数据 hehe = {&#39;type&#39;=13, &#39;start&#39;=&#39;0&#39;} headers = {&#39;User-Agent&#39;: &#34;xxxx&#34;} resp = requests."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Python爬虫笔记",
+      "item": "https://gopy.fun/posts/note/python-spider.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python爬虫笔记",
+  "name": "Python爬虫笔记",
+  "description": "一、爬虫概述 什么是爬虫？ 不知道各位是否遇到过这样的需求.就是我们总是希望能够保存互联网上的一些重要的数据信息为己所用。比如，\n在浏览到一些优秀的让人血脉喷张的图片时．总想保存起来留为日后做桌面上的壁纸 在浏览到一些重要的数据时(各行各业)，希望保留下来日后为自己进行各种销售行为增光添彩 在浏览到一些奇奇怪怪的劲爆视频时，希望保存在硬盘里供日后慢慢品鉴 在浏览到一些十分优秀的歌声曲目时，希望保存下来供我们在烦闷的生活中增添一份精彩 那么恭喜你.本课程将十分的适合于你．因为爬虫就是通过编写程序来爬取互联网上的优秀资源(图片，音频，视频，数据）\n爬虫和Python 爬虫一定要用Python么？非也～用Java也行，C也可以.请各位记住，编程语言只是工具.抓到数据是你的目的.用什么工具去达到你的目的都是可以的。和吃饭一样，可以用叉子也可以用筷子，最终的结果都是你能吃到饭.那为什么大多数人喜欢用Python呢？答案：因为Python写爬虫简单．不理解？问：为什么吃米饭不用刀叉？用筷子？因为简单！好用！\n而Python是众多编程语言中，小白上手最快，语法最简单．更重要的是，这货有非常多的关于爬虫能用到的第三方支持库.说直白点儿.就是你用筷子吃饭，我还附送你一个佣人．帮你吃！这样吃的是不是更爽了．更容易了~\n爬虫合法么？ 首先，爬虫在法律上是不被禁止的．也就是说法律是允许爬虫存在的.但是，爬虫也具有违法风险的.就像菜刀一样，法律是允许菜刀的存在的.但是你要是用来砍人，那对不起.没人惯着你.就像王欣说过的，技术是无罪的.主要看你用它来干嘛.比方说有些人就利用爬虫+一些黑客技术每秒钟对着bilibill撸上十万八千次.那这个肯定是不被允许的.\n爬虫分为善意的爬虫和恶意的爬虫\n善意的爬虫，不破坏被爬取的网站的资源（正常访问，一般频率不高，不窃取用户隐私） 恶意的爬虫，影响网站的正常运营(抢票，秒杀，疯狂solo网站资源造成网站宕机） 综上，为了避免进， 我们还是要安分守己.时常优化自己的爬虫程序避免干扰到网站的正常运行.并且在使用爬取到的数据时,发现涉及到用户隐私和商业机密等敏感内容时，一定要及时终止爬取和传播\n爬虫的矛与盾 反爬机制 门户网站，可以通过制定相应的策略或者技术手段，防止爬虫程序进行网站数据的爬取。\n反反爬策略 爬虫程序可以通过制定相关的策略或者技术手段，破解门户网站中具备的反爬机制，从而可以获取门户网站中相关的数据。\nrobots.txt协议： 君子协议。规定了网站中哪些数据可以被爬虫爬取哪些数据不可以被爬取。\n二、爬虫入门 2.1 第一个爬虫 from urllib.request import urlopen url = \u0026#39;http://www.baidu.com\u0026#39; resp = urlopen(url) print(resp.read().decode(\u0026#34;utf-8\u0026#34;)) 2.2 request模块入门 安装\npip3 install requests pip3 install -i 第三方镜像地址 requests import requests url = \u0026#34;https://fanyi.baidu.com/sug\u0026#34; hehe = { \u0026#34;kw\u0026#34;：input(\u0026#34;请输入一个单词\u0026#34;) } resp = requests.post(url, data=hehe) print(resp. text)# 拿到的是文本字符串 print(resp.json()）#此时拿到的直接是json数据 hehe = {\u0026#39;type\u0026#39;=13, \u0026#39;start\u0026#39;=\u0026#39;0\u0026#39;} headers = {\u0026#39;User-Agent\u0026#39;: \u0026#34;xxxx\u0026#34;} resp = requests.",
+  "keywords": [
+    
+  ],
+  "articleBody": "一、爬虫概述 什么是爬虫？ 不知道各位是否遇到过这样的需求.就是我们总是希望能够保存互联网上的一些重要的数据信息为己所用。比如，\n在浏览到一些优秀的让人血脉喷张的图片时．总想保存起来留为日后做桌面上的壁纸 在浏览到一些重要的数据时(各行各业)，希望保留下来日后为自己进行各种销售行为增光添彩 在浏览到一些奇奇怪怪的劲爆视频时，希望保存在硬盘里供日后慢慢品鉴 在浏览到一些十分优秀的歌声曲目时，希望保存下来供我们在烦闷的生活中增添一份精彩 那么恭喜你.本课程将十分的适合于你．因为爬虫就是通过编写程序来爬取互联网上的优秀资源(图片，音频，视频，数据）\n爬虫和Python 爬虫一定要用Python么？非也～用Java也行，C也可以.请各位记住，编程语言只是工具.抓到数据是你的目的.用什么工具去达到你的目的都是可以的。和吃饭一样，可以用叉子也可以用筷子，最终的结果都是你能吃到饭.那为什么大多数人喜欢用Python呢？答案：因为Python写爬虫简单．不理解？问：为什么吃米饭不用刀叉？用筷子？因为简单！好用！\n而Python是众多编程语言中，小白上手最快，语法最简单．更重要的是，这货有非常多的关于爬虫能用到的第三方支持库.说直白点儿.就是你用筷子吃饭，我还附送你一个佣人．帮你吃！这样吃的是不是更爽了．更容易了~\n爬虫合法么？ 首先，爬虫在法律上是不被禁止的．也就是说法律是允许爬虫存在的.但是，爬虫也具有违法风险的.就像菜刀一样，法律是允许菜刀的存在的.但是你要是用来砍人，那对不起.没人惯着你.就像王欣说过的，技术是无罪的.主要看你用它来干嘛.比方说有些人就利用爬虫+一些黑客技术每秒钟对着bilibill撸上十万八千次.那这个肯定是不被允许的.\n爬虫分为善意的爬虫和恶意的爬虫\n善意的爬虫，不破坏被爬取的网站的资源（正常访问，一般频率不高，不窃取用户隐私） 恶意的爬虫，影响网站的正常运营(抢票，秒杀，疯狂solo网站资源造成网站宕机） 综上，为了避免进， 我们还是要安分守己.时常优化自己的爬虫程序避免干扰到网站的正常运行.并且在使用爬取到的数据时,发现涉及到用户隐私和商业机密等敏感内容时，一定要及时终止爬取和传播\n爬虫的矛与盾 反爬机制 门户网站，可以通过制定相应的策略或者技术手段，防止爬虫程序进行网站数据的爬取。\n反反爬策略 爬虫程序可以通过制定相关的策略或者技术手段，破解门户网站中具备的反爬机制，从而可以获取门户网站中相关的数据。\nrobots.txt协议： 君子协议。规定了网站中哪些数据可以被爬虫爬取哪些数据不可以被爬取。\n二、爬虫入门 2.1 第一个爬虫 from urllib.request import urlopen url = 'http://www.baidu.com' resp = urlopen(url) print(resp.read().decode(\"utf-8\")) 2.2 request模块入门 安装\npip3 install requests pip3 install -i 第三方镜像地址 requests import requests url = \"https://fanyi.baidu.com/sug\" hehe = { \"kw\"：input(\"请输入一个单词\") } resp = requests.post(url, data=hehe) print(resp. text)# 拿到的是文本字符串 print(resp.json()）#此时拿到的直接是json数据 hehe = {'type'=13, 'start'='0'} headers = {'User-Agent': \"xxxx\"} resp = requests.get(url, param=hehe, headers=headers) 三、数据解析 数据解析概述\n在上一章中，我们基本上掌握了抓取整个网页的基本技能.但是呢，大多数情况下，我们并不需要整个网页的内容，只是需要那么一小部分．怎么办呢？这就涉及到了数据提取的问题.\n本课程中，提供四种解析方式：\nre解析 bs4解析 xpath解析 pyquery解析 这四种方式可以混合进行使用，完全以结果做导向，只要能拿到你想要的数据．用什么方案并不重要.当你掌握了这些之后.再考虑性能的问题.\n3.1 正则表达式 略\n3.2 re模块 import re r = re.findall(\"a\", \"我是abccddd\") print(r) r = re.findall(r\"\\d+\", \"我是abccdd000123d\") print(r) r = re.finditer(r\"\\d+\", \"我是ab18ccdd000123d\") # 返回迭代器 for item in r: # 从迭代器中拿到内容 print(item.group()) # 从匹配结果中拿到数据 # search只会匹配到第一次匹配的内容 r = re.search(r\"\\d+\", \"我是ab18ccdd000123d\") # match, 在匹配的时候，是从字符串的开头进行匹配的，类似在正则前面加上了^ r = re.match(r\"\\d+\", \"我是ab18ccdd000123d\") # 预加载, 提取吧正则对象加载完毕 obj = re.compile(r\"\\d+\") r = obj.findall(\"我是ab18ccdd000123d\") ## # 想要提取数据必须用小括号括起来，可以单独起名字 #（?P\u003c名字\u003e正则） # 提取数据的时候，需要group（\"名字\"） s = ''' 中国联通 ",
+  "wordCount" : "688",
+  "inLanguage": "zh-cn",
+  "datePublished": "2022-10-22T10:56:43+08:00",
+  "dateModified": "2022-10-22T10:56:43+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gopy.fun/posts/note/python-spider.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoPY Fun",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gopy.fun/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://gopy.fun/" accesskey="h" title="GoPY Fun (Alt + H)">GoPY Fun</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Python爬虫笔记<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-10-22 10:56:43 +0800 CST'>October 22, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="一爬虫概述">一、爬虫概述<a hidden class="anchor" aria-hidden="true" href="#一爬虫概述">#</a></h2>
+<h3 id="什么是爬虫">什么是爬虫？<a hidden class="anchor" aria-hidden="true" href="#什么是爬虫">#</a></h3>
+<p>不知道各位是否遇到过这样的需求.就是我们总是希望能够保存互联网上的一些重要的数据信息为己所用。比如，</p>
+<ul>
+<li>在浏览到一些优秀的让人血脉喷张的图片时．总想保存起来留为日后做桌面上的壁纸</li>
+<li>在浏览到一些重要的数据时(各行各业)，希望保留下来日后为自己进行各种销售行为增光添彩</li>
+<li>在浏览到一些奇奇怪怪的劲爆视频时，希望保存在硬盘里供日后慢慢品鉴</li>
+<li>在浏览到一些十分优秀的歌声曲目时，希望保存下来供我们在烦闷的生活中增添一份精彩</li>
+</ul>
+<p>那么恭喜你.本课程将十分的适合于你．因为爬虫就是通过编写程序来爬取互联网上的优秀资源(图片，音频，视频，数据）</p>
+<h3 id="爬虫和python">爬虫和Python<a hidden class="anchor" aria-hidden="true" href="#爬虫和python">#</a></h3>
+<p>爬虫一定要用Python么？非也～用Java也行，C也可以.请各位记住，编程语言只是工具.抓到数据是你的目的.用什么工具去达到你的目的都是可以的。和吃饭一样，可以用叉子也可以用筷子，最终的结果都是你能吃到饭.那为什么大多数人喜欢用Python呢？答案：因为Python写爬虫简单．不理解？问：为什么吃米饭不用刀叉？用筷子？因为简单！好用！</p>
+<p>而Python是众多编程语言中，小白上手最快，语法最简单．更重要的是，这货有非常多的关于爬虫能用到的第三方支持库.说直白点儿.就是你用筷子吃饭，我还附送你一个佣人．帮你吃！这样吃的是不是更爽了．更容易了~</p>
+<h3 id="爬虫合法么">爬虫合法么？<a hidden class="anchor" aria-hidden="true" href="#爬虫合法么">#</a></h3>
+<p>首先，爬虫在法律上是不被禁止的．也就是说法律是允许爬虫存在的.但是，爬虫也具有违法风险的.就像菜刀一样，法律是允许菜刀的存在的.但是你要是用来砍人，那对不起.没人惯着你.就像王欣说过的，技术是无罪的.主要看你用它来干嘛.比方说有些人就利用爬虫+一些黑客技术每秒钟对着bilibill撸上十万八千次.那这个肯定是不被允许的.</p>
+<p>爬虫分为善意的爬虫和恶意的爬虫</p>
+<ul>
+<li>善意的爬虫，不破坏被爬取的网站的资源（正常访问，一般频率不高，不窃取用户隐私）</li>
+<li>恶意的爬虫，影响网站的正常运营(抢票，秒杀，疯狂solo网站资源造成网站宕机）</li>
+</ul>
+<p>综上，为了避免进， 我们还是要安分守己.时常优化自己的爬虫程序避免干扰到网站的正常运行.并且在使用爬取到的数据时,发现涉及到用户隐私和商业机密等敏感内容时，一定要及时终止爬取和传播</p>
+<h3 id="爬虫的矛与盾">爬虫的矛与盾<a hidden class="anchor" aria-hidden="true" href="#爬虫的矛与盾">#</a></h3>
+<p>反爬机制
+门户网站，可以通过制定相应的策略或者技术手段，防止爬虫程序进行网站数据的爬取。</p>
+<p>反反爬策略
+爬虫程序可以通过制定相关的策略或者技术手段，破解门户网站中具备的反爬机制，从而可以获取门户网站中相关的数据。</p>
+<p>robots.txt协议：
+君子协议。规定了网站中哪些数据可以被爬虫爬取哪些数据不可以被爬取。</p>
+<h2 id="二爬虫入门">二、爬虫入门<a hidden class="anchor" aria-hidden="true" href="#二爬虫入门">#</a></h2>
+<h3 id="21-第一个爬虫">2.1 第一个爬虫<a hidden class="anchor" aria-hidden="true" href="#21-第一个爬虫">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> urllib.request <span style="color:#f92672">import</span> urlopen
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://www.baidu.com&#39;</span>
+</span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> urlopen(url)
+</span></span><span style="display:flex;"><span>print(resp<span style="color:#f92672">.</span>read()<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+</span></span></code></pre></div><h3 id="22-request模块入门">2.2 request模块入门<a hidden class="anchor" aria-hidden="true" href="#22-request模块入门">#</a></h3>
+<p>安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install requests
+</span></span><span style="display:flex;"><span>pip3 install -i 第三方镜像地址 requests
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://fanyi.baidu.com/sug&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hehe <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;kw&#34;</span><span style="color:#960050;background-color:#1e0010">：</span>input(<span style="color:#e6db74">&#34;请输入一个单词&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>post(url, data<span style="color:#f92672">=</span>hehe)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(resp<span style="color:#f92672">.</span> text)<span style="color:#75715e"># 拿到的是文本字符串</span>
+</span></span><span style="display:flex;"><span>print(resp<span style="color:#f92672">.</span>json()<span style="color:#960050;background-color:#1e0010">）</span><span style="color:#75715e">#此时拿到的直接是json数据</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hehe <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>, <span style="color:#e6db74">&#39;start&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span>}
+</span></span><span style="display:flex;"><span>headers <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;User-Agent&#39;</span>: <span style="color:#e6db74">&#34;xxxx&#34;</span>}
+</span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url, param<span style="color:#f92672">=</span>hehe, headers<span style="color:#f92672">=</span>headers)
+</span></span></code></pre></div><h2 id="三数据解析">三、数据解析<a hidden class="anchor" aria-hidden="true" href="#三数据解析">#</a></h2>
+<p>数据解析概述</p>
+<p>在上一章中，我们基本上掌握了抓取整个网页的基本技能.但是呢，大多数情况下，我们并不需要整个网页的内容，只是需要那么一小部分．怎么办呢？这就涉及到了数据提取的问题.</p>
+<p>本课程中，提供四种解析方式：</p>
+<ol>
+<li>re解析</li>
+<li>bs4解析</li>
+<li>xpath解析</li>
+<li>pyquery解析</li>
+</ol>
+<p>这四种方式可以混合进行使用，完全以结果做导向，只要能拿到你想要的数据．用什么方案并不重要.当你掌握了这些之后.再考虑性能的问题.</p>
+<h3 id="31-正则表达式">3.1 正则表达式<a hidden class="anchor" aria-hidden="true" href="#31-正则表达式">#</a></h3>
+<p>略</p>
+<h3 id="32-re模块">3.2 re模块<a hidden class="anchor" aria-hidden="true" href="#32-re模块">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;我是abccddd&#34;</span>)
+</span></span><span style="display:flex;"><span>print(r)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;\d+&#34;</span>, <span style="color:#e6db74">&#34;我是abccdd000123d&#34;</span>)
+</span></span><span style="display:flex;"><span>print(r)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>finditer(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;\d+&#34;</span>, <span style="color:#e6db74">&#34;我是ab18ccdd000123d&#34;</span>) <span style="color:#75715e"># 返回迭代器</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> r: <span style="color:#75715e"># 从迭代器中拿到内容</span>
+</span></span><span style="display:flex;"><span>    print(item<span style="color:#f92672">.</span>group()) <span style="color:#75715e"># 从匹配结果中拿到数据</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># search只会匹配到第一次匹配的内容 </span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;\d+&#34;</span>, <span style="color:#e6db74">&#34;我是ab18ccdd000123d&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># match, 在匹配的时候，是从字符串的开头进行匹配的，类似在正则前面加上了^</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;\d+&#34;</span>, <span style="color:#e6db74">&#34;我是ab18ccdd000123d&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 预加载, 提取吧正则对象加载完毕</span>
+</span></span><span style="display:flex;"><span>obj <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;\d+&#34;</span>)
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> obj<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">&#34;我是ab18ccdd000123d&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## # 想要提取数据必须用小括号括起来，可以单独起名字</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#（?P&lt;名字&gt;正则）</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 提取数据的时候，需要group（&#34;名字&#34;）</span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;div class=&#34;西游记&#39;&gt;&lt;span id=&#39;10010&#34;&gt;中国联通&lt;/span&gt;&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;div cLass=&#39;西游记&#34;&gt;&lt;span id=&#39;10086&#34;&gt;中国移动&lt;/span&gt;&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>obj <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span> compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;&lt;span id=&#34;</span>(<span style="color:#960050;background-color:#1e0010">?</span>P<span style="color:#f92672">&lt;</span>id<span style="color:#f92672">&gt;</span>\d<span style="color:#f92672">+</span>)<span style="color:#e6db74">&#34;&gt;(?P&lt;name&gt;.*？)&lt;/span&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> obj<span style="color:#f92672">.</span>finditer(s)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> result:
+</span></span><span style="display:flex;"><span>    id <span style="color:#f92672">=</span> item<span style="color:#f92672">.</span>group(<span style="color:#e6db74">&#34;id&#34;</span>)
+</span></span><span style="display:flex;"><span>    print (id)
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> item<span style="color:#f92672">.</span>group (<span style="color:#e6db74">&#34;name&#34;</span>)
+</span></span><span style="display:flex;"><span>    print (name)
+</span></span></code></pre></div><h4 id="实战-获取豆瓣top250-电影">实战： 获取豆瓣top250 电影<a hidden class="anchor" aria-hidden="true" href="#实战-获取豆瓣top250-电影">#</a></h4>
+<h4 id="实战-获取电影天堂信息">实战： 获取电影天堂信息<a hidden class="anchor" aria-hidden="true" href="#实战-获取电影天堂信息">#</a></h4>
+<h3 id="33-bs4使用">3.3 bs4使用<a hidden class="anchor" aria-hidden="true" href="#33-bs4使用">#</a></h3>
+<p>安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install bs4
+</span></span></code></pre></div><p>使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> bs4 <span style="color:#f92672">import</span> BeautifulSoup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>html <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;xx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>page <span style="color:#f92672">=</span> BeautifulSoup(html, <span style="color:#e6db74">&#34;html.parser&#34;</span>)
+</span></span><span style="display:flex;"><span>page<span style="color:#f92672">.</span>find() <span style="color:#75715e"># 查找某个元素，只找第一个结果</span>
+</span></span><span style="display:flex;"><span>page<span style="color:#f92672">.</span>find_all() <span style="color:#75715e"># 找一堆结果</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>li <span style="color:#f92672">=</span> page<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#39;li&#39;</span>, attrs<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;abc&#34;</span>})
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> li<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;a&#34;</span>)
+</span></span><span style="display:flex;"><span>print(a<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>print(a<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;href&#34;</span>))
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div><h4 id="bs实战">bs实战<a hidden class="anchor" aria-hidden="true" href="#bs实战">#</a></h4>
+<h3 id="34-xpath实战">3.4 xpath实战<a hidden class="anchor" aria-hidden="true" href="#34-xpath实战">#</a></h3>
+<p>xpath解析</p>
+<p>XPath是一门在XML文档中查找信息的语言．XPath可用来在 XML 文档中对元素和属性进行遍历.而我们熟知的HTML恰巧属于XML的一个子集.所以完全可以用xpath去查找html/中的内容.</p>
+<p>首先，先了解几个概念.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">book</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">id</span>&gt;1&lt;/<span style="color:#f92672">id</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">name</span>&gt;野花遍地香&lt;/<span style="color:#f92672">name</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">price</span>&gt;1.23&lt;/<span style="color:#f92672">price</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">author</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">nick</span>&gt;周大强&lt;/<span style="color:#f92672">nick</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">nick</span>&gt;周芷若&lt;/<span style="color:#f92672">nick</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">author</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">book</span>&gt;
+</span></span></code></pre></div><p>在上述html中， html</p>
+<ol>
+<li>book, id, name, price&hellip;都被称为节点.</li>
+<li>ld, name. price, author被称为book的子节点</li>
+<li>book被称为id, name, price, author的父节点</li>
+<li>id, name, price,author被称为同胞节点</li>
+</ol>
+<p>有了这些基础知识后，我们就可以开始了解xpath的基本语法了
+在python中</p>
+<p>安装：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install lxml
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> lxml <span style="color:#f92672">import</span> etree
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># from lxml import html</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># etree.HTML()</span>
+</span></span><span style="display:flex;"><span>et <span style="color:#f92672">=</span> etree<span style="color:#f92672">.</span>XML(xml)
+</span></span><span style="display:flex;"><span>et<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;/book&#34;</span>) <span style="color:#75715e"># / 表示根节点</span>
+</span></span><span style="display:flex;"><span>et<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;/book/name/text()&#34;</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#75715e"># text() ： 拿文本</span>
+</span></span><span style="display:flex;"><span>et<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;/book/*/text()&#34;</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#75715e"># * 通配符，谁都行</span>
+</span></span><span style="display:flex;"><span>et<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;/book/author/nick[@class=&#39;jay&#39;]/text()&#34;</span>) <span style="color:#75715e"># [] 表述属性筛选，@属性名=值</span>
+</span></span><span style="display:flex;"><span>et<span style="color:#f92672">.</span>xpath(<span style="color:#e6db74">&#34;/book/partner/nick/@id&#34;</span>) <span style="color:#75715e"># 表示 nick里面id属性的内容</span>
+</span></span><span style="display:flex;"><span>print(result)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> 
+</span></span></code></pre></div><h4 id="xpath实战案例-猪八戒">xpath实战案例： 猪八戒<a hidden class="anchor" aria-hidden="true" href="#xpath实战案例-猪八戒">#</a></h4>
+<h3 id="35">3.5<a hidden class="anchor" aria-hidden="true" href="#35">#</a></h3>
+<p>安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install pyquery
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> pyquery <span style="color:#f92672">import</span> PyQuery
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>html <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;li&gt;&lt;a href=&#34;http://www.baidu.com&#34;&gt;百度&lt;/a&gt;&lt;/li&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> PyQuery(html)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print(p)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print(type(p))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 链式操作</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> p(<span style="color:#e6db74">&#34;a&#34;</span>) 
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> p(<span style="color:#e6db74">&#34;li&#34;</span>)(<span style="color:#e6db74">&#34;a&#34;</span>) 
+</span></span><span style="display:flex;"><span>text <span style="color:#f92672">=</span> p(<span style="color:#e6db74">&#34;#qq a&#34;</span>)<span style="color:#f92672">.</span>html() <span style="color:#75715e"># 带html里面的内容 </span>
+</span></span><span style="display:flex;"><span>text <span style="color:#f92672">=</span> p(<span style="color:#e6db74">&#34;#qq a&#34;</span>)<span style="color:#f92672">.</span>text() <span style="color:#75715e"># 拿文本</span>
+</span></span><span style="display:flex;"><span>link <span style="color:#f92672">=</span> p(<span style="color:#e6db74">&#34;li&#34;</span>)(<span style="color:#e6db74">&#34;a&#34;</span>)<span style="color:#f92672">.</span>attr(<span style="color:#e6db74">&#34;href&#34;</span>) <span style="color:#75715e"># 拿属性</span>
+</span></span><span style="display:flex;"><span>print(a)
+</span></span></code></pre></div><ul>
+<li>.after(&ldquo;txt&rdquo;) : 在xx标签后面添加新标签</li>
+<li>.append(&ldquo;txt&rdquo;) :</li>
+<li>.remove_attr(&ldquo;name&rdquo;): 删除属性</li>
+<li>.remove():  删除标签</li>
+</ul>
+<h4 id="pyquery-实战-汽车之家">pyquery 实战： 汽车之家<a hidden class="anchor" aria-hidden="true" href="#pyquery-实战-汽车之家">#</a></h4>
+<h2 id="四request进阶-初识反爬">四、request进阶 初识反爬<a hidden class="anchor" aria-hidden="true" href="#四request进阶-初识反爬">#</a></h2>
+<p>requests进阶概述</p>
+<p>我们在之前的爬虫中其实已经使用过headers了.header为HTTP协议中的请求头．一般存放一些和请求内容无关的数据.有时也会存放一些安全验证信息.比如常见的User-Agent, token, cookie等.</p>
+<p>通过requests发送的请求，我们可以把请求头信息放在headers中.也可以单独进行存放，最终由requests自动帮我们拼接成完整的http请求头.</p>
+<p>本章内容：</p>
+<ol>
+<li>模拟浏览器登录-&gt;处理cookie</li>
+<li>防盗链处理-＞抓取梨视频数据</li>
+<li>代理-＞防止被封IP</li>
+<li>接入第三方代理</li>
+</ol>
+<h3 id="41-处理cookie">4.1 处理cookie<a hidden class="anchor" aria-hidden="true" href="#41-处理cookie">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 必须得把上面的两个操作连起来</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 我们可以使用session进行请求 session你可以认为是一连串的请求，在这个过程中的cookie不会丢失</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 会话</span>
+</span></span><span style="display:flex;"><span>session <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>session()
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;loginName&#34;</span>: <span style="color:#e6db74">&#34;18614075987&#34;</span><span style="color:#960050;background-color:#1e0010">，</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#e6db74">&#34;q6035945&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1. 登录</span>
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://passport.17k.com/ck/user/login&#34;</span>
+</span></span><span style="display:flex;"><span>session<span style="color:#f92672">.</span>post(url, date<span style="color:#f92672">=</span>data)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print (resp. text)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print(resp. cookies） # 看cookie</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2，拿书架上的数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 刚才的那个session中是有cookie的</span>
+</span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;https://user.17k.com/ck/author/shelf?page=1&amp;appKey=2222222&#34;</span>)
+</span></span><span style="display:flex;"><span>print(resp<span style="color:#f92672">.</span>json())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;https://user.17k.com/ck/author/shelf?page=1&amp;appKey=2222222&#34;</span>, headers<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Cookie&#39;</span>: <span style="color:#e6db74">&#34;xxx&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Referer&#34;</span>: <span style="color:#e6db74">&#34;link&#34;</span>,
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>text)
+</span></span></code></pre></div><h4 id="实战2抓取梨视频">实战2：抓取梨视频<a hidden class="anchor" aria-hidden="true" href="#实战2抓取梨视频">#</a></h4>
+<h4 id="代理">代理<a hidden class="anchor" aria-hidden="true" href="#代理">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>proxy <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url<span style="color:#f92672">.</span> proxies<span style="color:#f92672">=</span>proxy)
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;utf-8&#34;</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>text)
+</span></span></code></pre></div><p>第三方代理接入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><h3 id="42">4.2<a hidden class="anchor" aria-hidden="true" href="#42">#</a></h3>
+<h2 id="五异步爬虫">五、异步爬虫<a hidden class="anchor" aria-hidden="true" href="#五异步爬虫">#</a></h2>
+<h3 id="51-多线程与多进程">5.1 多线程与多进程<a hidden class="anchor" aria-hidden="true" href="#51-多线程与多进程">#</a></h3>
+<p>多线程</p>
+<p>多进程</p>
+<p>何时用多进程和多线程</p>
+<ol>
+<li>多线程： 任务相对统一，互相特别相似</li>
+<li>多进程： 多个任务相互独立，很少有交集
+比如 免费ip代理： 1</li>
+</ol>
+<h3 id="52-多线程">5.2 多线程<a hidden class="anchor" aria-hidden="true" href="#52-多线程">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(name):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>        print(name, i)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    func(<span style="color:#e6db74">&#39;aaa&#39;</span>)
+</span></span><span style="display:flex;"><span>    func(<span style="color:#e6db74">&#39;bbb&#39;</span>)
+</span></span><span style="display:flex;"><span>    func(<span style="color:#e6db74">&#39;ccc&#39;</span>)
+</span></span><span style="display:flex;"><span>    func(<span style="color:#e6db74">&#39;ddd&#39;</span>)
+</span></span></code></pre></div><p>上面代码多线程改写:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> threading <span style="color:#f92672">import</span> Thread
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(name):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>        print(name, i)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 创建线程</span>
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#f92672">=</span> Tread(target <span style="color:#f92672">=</span> func, args<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#39;aaa&#39;</span>))
+</span></span><span style="display:flex;"><span>    t2 <span style="color:#f92672">=</span> Tread(target <span style="color:#f92672">=</span> func, args<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#39;bbb&#39;</span>))
+</span></span><span style="display:flex;"><span>    t3 <span style="color:#f92672">=</span> Tread(target <span style="color:#f92672">=</span> func, args<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#39;ccc&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t1<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>    t2<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>    t3<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;我是主线程&#34;</span>)
+</span></span></code></pre></div><p>第二套多线程写法：面向对象</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> threading <span style="color:#f92672">import</span> Thread
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyThread</span>(Thread):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name):
+</span></span><span style="display:flex;"><span>        super(MyThread, self)<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span>  name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>):
+</span></span><span style="display:flex;"><span>            print(self<span style="color:#f92672">.</span>name, i)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    t1 <span style="color:#f92672">=</span> MyThread(<span style="color:#e6db74">&#34;aaa&#34;</span>)
+</span></span><span style="display:flex;"><span>    t2 <span style="color:#f92672">=</span> MyThread(<span style="color:#e6db74">&#34;bbb&#34;</span>)
+</span></span><span style="display:flex;"><span>    t3 <span style="color:#f92672">=</span> MyThread(<span style="color:#e6db74">&#34;ccc&#34;</span>)
+</span></span><span style="display:flex;"><span>    t1<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>    t2<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>    t3<span style="color:#f92672">.</span>start()
+</span></span></code></pre></div><h3 id="53-线程池">5.3 线程池<a hidden class="anchor" aria-hidden="true" href="#53-线程池">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> concurrent.futures <span style="color:#f92672">import</span> ThreadPoolExecutor
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(name):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>        print(name, i)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> ThreadPoolExecutor <span style="color:#66d9ef">as</span> t:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>):
+</span></span><span style="display:flex;"><span>            t<span style="color:#f92672">.</span>submit(func, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;周杰伦</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> concurrent.futures <span style="color:#f92672">import</span> ThreadPoolExecutor
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(name<span style="color:#960050;background-color:#1e0010">，</span>t):
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(t)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;我是&#34;</span>, name)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> ThreadPoolExecutor(<span style="color:#ae81ff">3</span>) <span style="color:#66d9ef">as</span> t:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># t.submit().add_done_callback() 返回执行 callback函数</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 返回callback执行的顺序是不确定的</span>
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">.</span>submit(func, <span style="color:#e6db74">&#34;周杰伦&#34;</span>, <span style="color:#ae81ff">2</span>)<span style="color:#f92672">.</span>add_done_callback(fn)
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">.</span>submit(func, <span style="color:#e6db74">&#34;王力宏&#34;</span>, <span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>add_done_callback(fn)
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">.</span>submit(func, <span style="color:#e6db74">&#34;ccc&#34;</span>, <span style="color:#ae81ff">3</span>)<span style="color:#f92672">.</span>add_done_callback(fn)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># map返回值是生成器，返回的内容和任务分发的顺序是一致的</span>
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span>map(func, [<span style="color:#e6db74">&#34;aaa&#34;</span>,<span style="color:#e6db74">&#39;bbb&#39;</span>,<span style="color:#e6db74">&#39;ccc&#39;</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>])
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> res:
+</span></span><span style="display:flex;"><span>            print(r)
+</span></span></code></pre></div><p>线程池案例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><h3 id="54-多进程">5.4 多进程<a hidden class="anchor" aria-hidden="true" href="#54-多进程">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> multiprocessing <span style="color:#f92672">import</span> Process
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(name):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>):
+</span></span><span style="display:flex;"><span>        print(mame, i)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    p1 <span style="color:#f92672">=</span> Process(target<span style="color:#f92672">=</span>func, args<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;aaa&#34;</span>,))       
+</span></span><span style="display:flex;"><span>    p2 <span style="color:#f92672">=</span> Process(target<span style="color:#f92672">=</span>func, args<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;bbb&#34;</span>,))       
+</span></span><span style="display:flex;"><span>    p1<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>    p2<span style="color:#f92672">.</span>start()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> multiprocessing <span style="color:#f92672">import</span> Process
+</span></span></code></pre></div><h3 id="55-多线程多进程组合案例">5.5 多线程多进程组合案例<a hidden class="anchor" aria-hidden="true" href="#55-多线程多进程组合案例">#</a></h3>
+<h3 id="56-多线程">5.6 多线程<a hidden class="anchor" aria-hidden="true" href="#56-多线程">#</a></h3>
+<h3 id="57-实操一">5.7 实操一：<a hidden class="anchor" aria-hidden="true" href="#57-实操一">#</a></h3>
+<h3 id="58-实操二">5.8 实操二：<a hidden class="anchor" aria-hidden="true" href="#58-实操二">#</a></h3>
+<h3 id="59-实操三">5.9 实操三：<a hidden class="anchor" aria-hidden="true" href="#59-实操三">#</a></h3>
+<h3 id="510-mysql数据库讲解">5.10 mysql数据库讲解<a hidden class="anchor" aria-hidden="true" href="#510-mysql数据库讲解">#</a></h3>
+<h3 id="511-mongodb讲解">5.11 MongoDB讲解<a hidden class="anchor" aria-hidden="true" href="#511-mongodb讲解">#</a></h3>
+<h3 id="56-多线程-1">5.6 多线程<a hidden class="anchor" aria-hidden="true" href="#56-多线程-1">#</a></h3>
+<h3 id="56-多线程-2">5.6 多线程<a hidden class="anchor" aria-hidden="true" href="#56-多线程-2">#</a></h3>
+<h2 id="六">六、<a hidden class="anchor" aria-hidden="true" href="#六">#</a></h2>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://gopy.fun/">GoPY Fun</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

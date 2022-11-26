@@ -1,12 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on GoPY Fun</title>
     <link>https://gopy.fun/posts.html</link>
     <description>Recent content in Posts on GoPY Fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 May 2022 22:56:43 +0800</lastBuildDate><atom:link href="https://gopy.fun/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Oct 2022 10:56:43 +0800</lastBuildDate><atom:link href="https://gopy.fun/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python爬虫笔记</title>
+      <link>https://gopy.fun/posts/note/python-spider.html</link>
+      <pubDate>Sat, 22 Oct 2022 10:56:43 +0800</pubDate>
+      
+      <guid>https://gopy.fun/posts/note/python-spider.html</guid>
+      <description>一、爬虫概述 什么是爬虫？ 不知道各位是否遇到过这样的需求.就是我们总是希望能够保存互联网上的一些重要的数据信息为己所用。比如，
+在浏览到一些优秀的让人血脉喷张的图片时．总想保存起来留为日后做桌面上的壁纸 在浏览到一些重要的数据时(各行各业)，希望保留下来日后为自己进行各种销售行为增光添彩 在浏览到一些奇奇怪怪的劲爆视频时，希望保存在硬盘里供日后慢慢品鉴 在浏览到一些十分优秀的歌声曲目时，希望保存下来供我们在烦闷的生活中增添一份精彩 那么恭喜你.本课程将十分的适合于你．因为爬虫就是通过编写程序来爬取互联网上的优秀资源(图片，音频，视频，数据）
+爬虫和Python 爬虫一定要用Python么？非也～用Java也行，C也可以.请各位记住，编程语言只是工具.抓到数据是你的目的.用什么工具去达到你的目的都是可以的。和吃饭一样，可以用叉子也可以用筷子，最终的结果都是你能吃到饭.那为什么大多数人喜欢用Python呢？答案：因为Python写爬虫简单．不理解？问：为什么吃米饭不用刀叉？用筷子？因为简单！好用！
+而Python是众多编程语言中，小白上手最快，语法最简单．更重要的是，这货有非常多的关于爬虫能用到的第三方支持库.说直白点儿.就是你用筷子吃饭，我还附送你一个佣人．帮你吃！这样吃的是不是更爽了．更容易了~
+爬虫合法么？ 首先，爬虫在法律上是不被禁止的．也就是说法律是允许爬虫存在的.但是，爬虫也具有违法风险的.就像菜刀一样，法律是允许菜刀的存在的.但是你要是用来砍人，那对不起.没人惯着你.就像王欣说过的，技术是无罪的.主要看你用它来干嘛.比方说有些人就利用爬虫+一些黑客技术每秒钟对着bilibill撸上十万八千次.那这个肯定是不被允许的.
+爬虫分为善意的爬虫和恶意的爬虫
+善意的爬虫，不破坏被爬取的网站的资源（正常访问，一般频率不高，不窃取用户隐私） 恶意的爬虫，影响网站的正常运营(抢票，秒杀，疯狂solo网站资源造成网站宕机） 综上，为了避免进， 我们还是要安分守己.时常优化自己的爬虫程序避免干扰到网站的正常运行.并且在使用爬取到的数据时,发现涉及到用户隐私和商业机密等敏感内容时，一定要及时终止爬取和传播
+爬虫的矛与盾 反爬机制 门户网站，可以通过制定相应的策略或者技术手段，防止爬虫程序进行网站数据的爬取。
+反反爬策略 爬虫程序可以通过制定相关的策略或者技术手段，破解门户网站中具备的反爬机制，从而可以获取门户网站中相关的数据。
+robots.txt协议： 君子协议。规定了网站中哪些数据可以被爬虫爬取哪些数据不可以被爬取。
+二、爬虫入门 2.1 第一个爬虫 from urllib.request import urlopen url = &amp;#39;http://www.baidu.com&amp;#39; resp = urlopen(url) print(resp.read().decode(&amp;#34;utf-8&amp;#34;)) 2.2 request模块入门 安装
+pip3 install requests pip3 install -i 第三方镜像地址 requests import requests url = &amp;#34;https://fanyi.baidu.com/sug&amp;#34; hehe = { &amp;#34;kw&amp;#34;：input(&amp;#34;请输入一个单词&amp;#34;) } resp = requests.post(url, data=hehe) print(resp. text)# 拿到的是文本字符串 print(resp.json()）#此时拿到的直接是json数据 hehe = {&amp;#39;type&amp;#39;=13, &amp;#39;start&amp;#39;=&amp;#39;0&amp;#39;} headers = {&amp;#39;User-Agent&amp;#39;: &amp;#34;xxxx&amp;#34;} resp = requests.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript笔记（二）: ES6入门</title>
+      <link>https://gopy.fun/posts/note/js-note-2-es6.html</link>
+      <pubDate>Sun, 11 Sep 2022 17:00:43 +0800</pubDate>
+      
+      <guid>https://gopy.fun/posts/note/js-note-2-es6.html</guid>
+      <description>二、 ES6 2.1 let, var, const定义变量 var： 定义变量如果是在函数内部的是局部，外面就是全局的 let： 定义的变量是局部使用的，无法替换跨域 const： 常量定义，无法被改变，但可以单独改变内部变量，比如字符串修改 s[2] = &amp;lsquo;a&amp;rsquo;; const 声明并不会真的保护数据不被改变。 为了确保数据不被改变，JavaScript 提供了一个函数 Object.freeze(变量)。 2.2 匿名函数 我们通常会使用以下语法：
+const myFunc = function() { const myVar = &amp;#34;value&amp;#34;; return myVar; } ES6 提供了其他写匿名函数的方式的语法糖。 你可以使用箭头函数：
+const myFunc = () =&amp;gt; { const myVar = &amp;#34;value&amp;#34;; return myVar; } 当不需要函数体，只返回一个值的时候，箭头函数允许你省略 return 关键字和外面的大括号。 这样就可以将一个简单的函数简化成一个单行语句。
+const myFunc = () =&amp;gt; &amp;#34;value&amp;#34;; 这段代码默认会返回字符串 value。
+同时可以通过括号里面的变量进行传参：
+const mul = (a, b=2) =&amp;gt; a*b; console.</description>
+    </item>
+    
     <item>
       <title>MongoDB Note</title>
       <link>https://gopy.fun/posts/note/mongodb-note.html</link>
@@ -14,7 +48,7 @@
       
       <guid>https://gopy.fun/posts/note/mongodb-note.html</guid>
       <description>install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:
-cat &amp;gt;&amp;gt; /usr/local/etc/mongod.conf &amp;lt;&amp;lt;&amp;#34;EOF&amp;#34; #配置文件开启强制验证 security:  authorization: &amp;#34;enabled&amp;#34; EOF  mongo &amp;gt; show dbs &amp;gt; use admin &amp;gt; db.createUser({  user: &amp;#39;admin&amp;#39;, // 用户名  pwd: &amp;#39;123456&amp;#39;, // 密码  roles:[{  role: &amp;#39;root&amp;#39;, // 角色  db: &amp;#39;admin&amp;#39; // 数据库  }] }) &amp;gt; exit  brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 </description>
+cat &amp;gt;&amp;gt; /usr/local/etc/mongod.conf &amp;lt;&amp;lt;&amp;#34;EOF&amp;#34; #配置文件开启强制验证 security: authorization: &amp;#34;enabled&amp;#34; EOF mongo &amp;gt; show dbs &amp;gt; use admin &amp;gt; db.createUser({ user: &amp;#39;admin&amp;#39;, // 用户名 pwd: &amp;#39;123456&amp;#39;, // 密码 roles:[{ role: &amp;#39;root&amp;#39;, // 角色 db: &amp;#39;admin&amp;#39; // 数据库 }] }) &amp;gt; exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 </description>
     </item>
     
     <item>
@@ -24,8 +58,8 @@ cat &amp;gt;&amp;gt; /usr/local/etc/mongod.conf &amp;lt;&amp;lt;&amp;#34;EOF&amp
       
       <guid>https://gopy.fun/posts/note/python-flask-note.html</guid>
       <description>一、flask基础教程 jinja2 模板 数据处理
- {% if %}标签   {% if age &amp;lt; 18 %}  &amp;lt;p&amp;gt;还未成年,不能进网吧上网&amp;lt;/p&amp;gt; {% elif age == 18 %}  &amp;lt;p&amp;gt;刚刚成年，先去庆祝一下吧，再去上网&amp;lt;/p&amp;gt; {% else %}  &amp;lt;p&amp;gt;已经成年了，可以去网吧上网了&amp;lt;/p&amp;gt; {% endif %} {% for %}标签
-&amp;lt;ul&amp;gt;  {% for user in users %}  &amp;lt;li&amp;gt;{{ user }}&amp;lt;/li&amp;gt; &amp;lt;!-- 如果没有值，空的列表之类的，就会执行else语句 --&amp;gt;  {% else %}  &amp;lt;li&amp;gt;没有任何值&amp;lt;/li&amp;gt;  {% endfor %} &amp;lt;/ul&amp;gt;   &amp;lt;!-- 遍历字典: ---&amp;gt;  {% for key,value in person.</description>
+{% if %}标签 {% if age &amp;lt; 18 %} &amp;lt;p&amp;gt;还未成年,不能进网吧上网&amp;lt;/p&amp;gt; {% elif age == 18 %} &amp;lt;p&amp;gt;刚刚成年，先去庆祝一下吧，再去上网&amp;lt;/p&amp;gt; {% else %} &amp;lt;p&amp;gt;已经成年了，可以去网吧上网了&amp;lt;/p&amp;gt; {% endif %} {% for %}标签
+&amp;lt;ul&amp;gt; {% for user in users %} &amp;lt;li&amp;gt;{{ user }}&amp;lt;/li&amp;gt; &amp;lt;!-- 如果没有值，空的列表之类的，就会执行else语句 --&amp;gt; {% else %} &amp;lt;li&amp;gt;没有任何值&amp;lt;/li&amp;gt; {% endfor %} &amp;lt;/ul&amp;gt; &amp;lt;!-- 遍历字典: ---&amp;gt; {% for key,value in person.items() %} &amp;lt;!--{% for key in person.keys() %} 遍历字典的key --&amp;gt; &amp;lt;!--{% for value in person.</description>
     </item>
     
     <item>
@@ -34,19 +68,23 @@ cat &amp;gt;&amp;gt; /usr/local/etc/mongod.conf &amp;lt;&amp;lt;&amp;#34;EOF&amp
       <pubDate>Tue, 24 May 2022 17:56:43 +0800</pubDate>
       
       <guid>https://gopy.fun/posts/note/python-note.html</guid>
-      <description>内容 基本部分笔记记录在这里其他内容参考：
- Python Flask Note  python基础 虚拟环境  python3 -m venv venv source ./venv/bin/activate  deactivate </description>
+      <description>Index. 内容 基本部分笔记记录在这里其他内容参考：
+Python Flask Note 开始、python开发环境配置以及IDE配置 在开始写python项目钱，我们必须先安装python的环境、虚拟环境以及IDE。IDE的配置后面有专门的笔记记录下，这部分内容也可以单独开设一个专题。
+python的安装 python的IDE配置 python的环境变量配置 虚拟环境 python3 -m venv venv source ./venv/bin/activate deactivate pip 安装和 源设置 一、基础部分 学习世界： 2022-10-21 1.1 变量 Python变量的命名规范：
+必须是数字或字母或下换线组成. 不能是数字开头，更不能是纯数字 不能用python的关键字 不要用中文 不要太长 1.2 常量 变量的形式：
+print(123) 字母大写的变量 可以 认为是常量。 python里没有绝对意义的常量，都可以被覆盖 1.3 数据类型 数字 文字 布尔： True 、 False 1.4 控制语句 判断语句 语句结构：
+if 1: pass elif 2: pass else: pass 循环语句 语句结构：
+while True: pass i = 1 while i &amp;lt;= 100: print(1) i = i + 1 break:让当前这个循环立即停止，用在while语句中 Q: for 循环中可以用吗？</description>
     </item>
     
     <item>
-      <title>JS note</title>
-      <link>https://gopy.fun/posts/note/js-note.html</link>
+      <title>JavaScript笔记（一）: 基础js知识</title>
+      <link>https://gopy.fun/posts/note/js-note-1-basic.html</link>
       <pubDate>Fri, 20 May 2022 00:56:43 +0800</pubDate>
       
-      <guid>https://gopy.fun/posts/note/js-note.html</guid>
-      <description>一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是：
- undefined（未定义）、 null（空） boolean（布尔型） string（字符串） symbol number（数字） bigint（可以表示任意大的整数） object（对象）  js中的变量名称推荐使用驼峰命名法（camelCase）。 定义变量
-var myName; var myName;  //var声明的变量，可以被覆盖变量声明 var camper = &amp;#34;James&amp;#34;; var camper = &amp;#34;David&amp;#34;; console.log(camper); // 使用 let 时，同名的变量只能声明一次 (ES6特性) let camper2 = &amp;#34;James&amp;#34;; let camper2 = &amp;#34;David&amp;#34;; console.log(camper2); // const定义只读变量， 只读变量建议大写 const FAV_PET = &amp;#34;Cats&amp;#34;; 1.2 运算 var sum = 2+2; var add = 1+4; var diff = 2-1; var pus = 2*6; const quotient = 66 / 33;  // 数字递增 i++ i=i+1  i--  // remainder 求余运算符 % 返回两个数相除得到的余数 5 % 2 = 1  // 复合赋值 myVar += 5;  //   // 1.</description>
+      <guid>https://gopy.fun/posts/note/js-note-1-basic.html</guid>
+      <description>前言 常用技术栈
+标准：ES5、 ES6、 H5、 CSS3 编译工具：Gulp、 Grunt、 Webpack 基础库 ： jQuery 。。。 模块化：Common JS、 CMD、 AMD、 UMD、 ES6 Module 框架 ： Vue、 React、 Angular UI框架：Bootstrap、 ElementUl、 Vux、 AntDesign (mobile) 、ionic WebSocket：SockJS 数据可视化 Echarts、 Bmap 动画 - Animate. css 流程控制 - Redux (thunk、 saga、observab le)、 Vuex 函数式编程 - underscore、 lodash、 immutable、rxjs CSS预处理器 sass、 less 移动开发 一react native、 ionic、 Weex 中间语言 typescr ipt 服务端开发 Nodejs、 Express、 KOA、 SockJS 一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是：</description>
     </item>
     
     <item>
@@ -55,12 +93,15 @@ var myName; var myName;  //var声明的变量，可以被覆盖变量声明 var 
       <pubDate>Tue, 17 May 2022 14:56:43 +0800</pubDate>
       
       <guid>https://gopy.fun/posts/note/html5-note.html</guid>
-      <description>HTML标签  HTML声明类型  &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt;  &amp;lt;/html&amp;gt;  行内标签  &amp;lt;a&amp;gt;&amp;lt;/a&amp;gt;: a (Anchor)  href属性: 指向跳转的目的地 target属性：_blank 表示在新窗口打开     段落标签   &amp;lt;ul&amp;gt;&amp;lt;/ul&amp;gt;:
-  &amp;lt;ol&amp;gt;&amp;lt;/ol&amp;gt;:
-  input : &amp;lt;input type=&amp;quot;text&amp;quot;&amp;gt;
-     css基础 HTML 元素都是以矩形为基础, 每个 HTML 元素所占有的矩形空间由这三个重要的属性来控制： - 内边距 padding、 - 外边距 margin 、 - 边框 border。
+      <description>HTML标签 HTML声明类型 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;/html&amp;gt; 行内标签 &amp;lt;a&amp;gt;&amp;lt;/a&amp;gt;: a (Anchor) href属性: 指向跳转的目的地 target属性：_blank 表示在新窗口打开 段落标签 &amp;lt;ul&amp;gt;&amp;lt;/ul&amp;gt;:
+&amp;lt;ol&amp;gt;&amp;lt;/ol&amp;gt;:
+input : &amp;lt;input type=&amp;quot;text&amp;quot;&amp;gt;
+css基础 HTML 元素都是以矩形为基础, 每个 HTML 元素所占有的矩形空间由这三个重要的属性来控制： - 内边距 padding、 - 外边距 margin 、 - 边框 border。
 css中的绝对单位与相对单位 像素是一个长度单位，它告诉浏览器应该如何调整元素的大小和位置。 其实除了 px，CSS 也有其他单位供我们使用。
-单位长度的类型可以分成 2 种：相对和绝对。 绝对单位与长度的物理单位相关。 例如，in 和 mm 分别代表着英寸和毫米。 绝对长度单位会接近屏幕上的实际测量值，不过不同屏幕的分辨率会存在差异，这就可能会造成误差。</description>
+单位长度的类型可以分成 2 种：相对和绝对。 绝对单位与长度的物理单位相关。 例如，in 和 mm 分别代表着英寸和毫米。 绝对长度单位会接近屏幕上的实际测量值，不过不同屏幕的分辨率会存在差异，这就可能会造成误差。
+相对单位长度，比如 em 和 rem，它们的实际值会依赖其他长度的值而决定。 比如 em 的大小基于元素字体的字体大小。 如果使用它来设置 font-size 值，它的值会跟随父元素的 font-size 值来改变。
+Note: 有些单位长度选项是相对视窗大小来改变值的， 这种设定符合响应式网页设计的原则。
+css优先等级 内联样式 &amp;gt; id &amp;gt; class</description>
     </item>
     
     <item>
@@ -70,9 +111,9 @@ css中的绝对单位与相对单位 像素是一个长度单位，它告诉浏�
       
       <guid>https://gopy.fun/posts/soft/adobe.html</guid>
       <description>Adobe软件下载备份
-软件下载   vposy破解（mac一般安装2021 sp版），默认解压密码 @vposy,
- 说明：  大师版：全家桶安装包，压缩包里含有所有Adobe软件，需要全部下载后方可解压安装； SP版：单个软件安装包，按需下载，无需下载所有软件。   vposy破解Adobe全系更新（密码：3jek） 网友备份1（密码：7wx1）    PR2022破解版本下载
- PR2022 v22 didixk破解（密码：oj96）     </description>
+软件下载 vposy破解（mac一般安装2021 sp版），默认解压密码 @vposy,
+说明： 大师版：全家桶安装包，压缩包里含有所有Adobe软件，需要全部下载后方可解压安装； SP版：单个软件安装包，按需下载，无需下载所有软件。 vposy破解Adobe全系更新（密码：3jek） 网友备份1（密码：7wx1） PR2022破解版本下载
+PR2022 v22 didixk破解（密码：oj96） </description>
     </item>
     
     <item>
@@ -82,9 +123,9 @@ css中的绝对单位与相对单位 像素是一个长度单位，它告诉浏�
       
       <guid>https://gopy.fun/posts/mac/mac-dev-env.html</guid>
       <description>mac开发环境说明 这个是我个人喜欢部署的mac软件的环境，记录备用
-一、基础环境 1.1 Homebrew安装 /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34;  # 如果安装失败或请求失败，需要绕过ssl验证 /bin/bash -c &amp;#34;$(curl -fsSL --insecure https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34;  # 以上方法还无法下载，就先把install.sh 这个文件直接下载到本地，然后执行安装 bash install.sh  # 使用国内源(不建议) /bin/zsh -c &amp;#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&amp;#34; homebrew安装后，可以使用以下命令进行管理
-brew version  brew install {name} brew install --cask {name}   brew list brew search brew 1.2 zsh安装配置 二、系统核心命令操作 2.1 开启允许所有软件安装 OSX移除下载镜像的quarantine属性 苹果系统有一个GateKeeper保护机制（自 OSX 10.5 加入）。从互联网上下载来的文件，会被自动打上com.apple.quarantine标志，翻译过来就是免疫隔离，系统根据这个附加属性对这个文件作出限制。 在安装软件的时候需要移除quarantine属性，步骤如下：
-# 开启任何来源代码 sudo spctl --master-disable # 移除quarantine属性代码 sudo xattr -r -d com.</description>
+一、基础环境 1.1 Homebrew安装 /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; # 如果安装失败或请求失败，需要绕过ssl验证 /bin/bash -c &amp;#34;$(curl -fsSL --insecure https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; # 以上方法还无法下载，就先把install.sh 这个文件直接下载到本地，然后执行安装 bash install.sh # 使用国内源(不建议) /bin/zsh -c &amp;#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&amp;#34; homebrew安装后，可以使用以下命令进行管理
+brew version brew install {name} brew install --cask {name} brew list brew search brew 1.2 zsh安装配置 二、系统核心命令操作 2.1 开启允许所有软件安装 OSX移除下载镜像的quarantine属性 苹果系统有一个GateKeeper保护机制（自 OSX 10.5 加入）。从互联网上下载来的文件，会被自动打上com.apple.quarantine标志，翻译过来就是免疫隔离，系统根据这个附加属性对这个文件作出限制。 在安装软件的时候需要移除quarantine属性，步骤如下：
+# 开启任何来源代码 sudo spctl --master-disable # 移除quarantine属性代码 sudo xattr -r -d com.apple.quarantine xxx.dmg # 安装Command Line Tools 工具 xcode-select --install # 对应用签名 sudo codesign --force --deep --sign - {应用路径} 如遇如下错误：</description>
     </item>
     
     <item>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>JavaScript笔记（一）: 基础js知识 | GoPY Fun</title>
+<meta name="keywords" content="">
+<meta name="description" content="前言 常用技术栈
+标准：ES5、 ES6、 H5、 CSS3 编译工具：Gulp、 Grunt、 Webpack 基础库 ： jQuery 。。。 模块化：Common JS、 CMD、 AMD、 UMD、 ES6 Module 框架 ： Vue、 React、 Angular UI框架：Bootstrap、 ElementUl、 Vux、 AntDesign (mobile) 、ionic WebSocket：SockJS 数据可视化 Echarts、 Bmap 动画 - Animate. css 流程控制 - Redux (thunk、 saga、observab le)、 Vuex 函数式编程 - underscore、 lodash、 immutable、rxjs CSS预处理器 sass、 less 移动开发 一react native、 ionic、 Weex 中间语言 typescr ipt 服务端开发 Nodejs、 Express、 KOA、 SockJS 一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是：">
+<meta name="author" content="">
+<link rel="canonical" href="https://gopy.fun/posts/note/js-note-1-basic.html">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://gopy.fun/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://gopy.fun/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://gopy.fun/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://gopy.fun/apple-touch-icon.png">
+<link rel="mask-icon" href="https://gopy.fun/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-24073861-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="JavaScript笔记（一）: 基础js知识" />
+<meta property="og:description" content="前言 常用技术栈
+标准：ES5、 ES6、 H5、 CSS3 编译工具：Gulp、 Grunt、 Webpack 基础库 ： jQuery 。。。 模块化：Common JS、 CMD、 AMD、 UMD、 ES6 Module 框架 ： Vue、 React、 Angular UI框架：Bootstrap、 ElementUl、 Vux、 AntDesign (mobile) 、ionic WebSocket：SockJS 数据可视化 Echarts、 Bmap 动画 - Animate. css 流程控制 - Redux (thunk、 saga、observab le)、 Vuex 函数式编程 - underscore、 lodash、 immutable、rxjs CSS预处理器 sass、 less 移动开发 一react native、 ionic、 Weex 中间语言 typescr ipt 服务端开发 Nodejs、 Express、 KOA、 SockJS 一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gopy.fun/posts/note/js-note-1-basic.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-20T00:56:43+08:00" />
+<meta property="article:modified_time" content="2022-05-20T00:56:43+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript笔记（一）: 基础js知识"/>
+<meta name="twitter:description" content="前言 常用技术栈
+标准：ES5、 ES6、 H5、 CSS3 编译工具：Gulp、 Grunt、 Webpack 基础库 ： jQuery 。。。 模块化：Common JS、 CMD、 AMD、 UMD、 ES6 Module 框架 ： Vue、 React、 Angular UI框架：Bootstrap、 ElementUl、 Vux、 AntDesign (mobile) 、ionic WebSocket：SockJS 数据可视化 Echarts、 Bmap 动画 - Animate. css 流程控制 - Redux (thunk、 saga、observab le)、 Vuex 函数式编程 - underscore、 lodash、 immutable、rxjs CSS预处理器 sass、 less 移动开发 一react native、 ionic、 Weex 中间语言 typescr ipt 服务端开发 Nodejs、 Express、 KOA、 SockJS 一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是："/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "JavaScript笔记（一）: 基础js知识",
+      "item": "https://gopy.fun/posts/note/js-note-1-basic.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JavaScript笔记（一）: 基础js知识",
+  "name": "JavaScript笔记（一）: 基础js知识",
+  "description": "前言 常用技术栈\n标准：ES5、 ES6、 H5、 CSS3 编译工具：Gulp、 Grunt、 Webpack 基础库 ： jQuery 。。。 模块化：Common JS、 CMD、 AMD、 UMD、 ES6 Module 框架 ： Vue、 React、 Angular UI框架：Bootstrap、 ElementUl、 Vux、 AntDesign (mobile) 、ionic WebSocket：SockJS 数据可视化 Echarts、 Bmap 动画 - Animate. css 流程控制 - Redux (thunk、 saga、observab le)、 Vuex 函数式编程 - underscore、 lodash、 immutable、rxjs CSS预处理器 sass、 less 移动开发 一react native、 ionic、 Weex 中间语言 typescr ipt 服务端开发 Nodejs、 Express、 KOA、 SockJS 一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是：",
+  "keywords": [
+    
+  ],
+  "articleBody": "前言 常用技术栈\n标准：ES5、 ES6、 H5、 CSS3 编译工具：Gulp、 Grunt、 Webpack 基础库 ： jQuery 。。。 模块化：Common JS、 CMD、 AMD、 UMD、 ES6 Module 框架 ： Vue、 React、 Angular UI框架：Bootstrap、 ElementUl、 Vux、 AntDesign (mobile) 、ionic WebSocket：SockJS 数据可视化 Echarts、 Bmap 动画 - Animate. css 流程控制 - Redux (thunk、 saga、observab le)、 Vuex 函数式编程 - underscore、 lodash、 immutable、rxjs CSS预处理器 sass、 less 移动开发 一react native、 ionic、 Weex 中间语言 typescr ipt 服务端开发 Nodejs、 Express、 KOA、 SockJS 一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是：\nundefined（未定义）、 null（空） boolean（布尔型） string（字符串） symbol number（数字） bigint（可以表示任意大的整数） object（对象） js中的变量名称推荐使用驼峰命名法（camelCase）。 定义变量\nvar myName; var myName; //var声明的变量，可以被覆盖变量声明 var camper = \"James\"; var camper = \"David\"; console.log(camper); // 使用 let 时，同名的变量只能声明一次 (ES6特性) let camper2 = \"James\"; let camper2 = \"David\"; console.log(camper2); // const定义只读变量， 只读变量建议大写 const FAV_PET = \"Cats\"; 1.2 运算 var sum = 2+2; var add = 1+4; var diff = 2-1; var pus = 2*6; const quotient = 66 / 33; // 数字递增 i++ i=i+1 i-- // remainder 求余运算符 % 返回两个数相除得到的余数 5 % 2 = 1 // 复合赋值 myVar += 5; // // 1.3 字符串 js中的字符串不能被更改，只能重新赋值 比如 str的第一个字母 str[0] 不能赋值，如果要改，整个str要修改\n字符串切片：\n默认从零开始： str[2] 后面倒数第几个字符串： str[str.length - 2 ] 1.4 数组 array 比如： const arr = [ ‘aaa’, ‘bbb’, ‘ccc’];\n通过索引访问数组中的数据: arr[0] 数组的条目是 可变的 并且可以自由更改，即使数组是用 const 声明的： const ourArray = [50, 40, 30]; ourArray[0] = 15; 数组的函数 .push(): 将数据添加到数组末尾 .pop() : 弹出一个数组末尾的值, 返回值是弹出的值 .shift() : 移除第一个元素， 返回值是移除的值 .unshift(): 移入一个元素到数组的头部 1.5 函数 functions function testFun(param1, param2) { console.log(param1, param2); } 全局作用域和函数 任何在fun外面定义的变量都是global全局变量； 在fun中赋值变量不加let或者const声明，变量会自动变成全局变量； 在一个函数内声明的变量，以及该函数的参数都具有局部（local）作用域 一个程序中有可能具有相同名称的局部变量 和全局变量。 在这种情况下，局部变量将会优先于全局变量 队列 1.6 控制语句 if\n等号判断\n等号 ： 12 == 12 ，12 == “12” ： true 严格相等： 12 === 12： true； 12 === “12”：false； typeof\nswitch：\nswitch(lowercaseLetter) { case \"a\": console.log(\"A\"); break; case \"b\": console.log(\"B\"); break; } switch 添加默认选项：\nswitch (num) { case value1: statement1; break; case value2: statement2; break; ... default: defaultStatement; break; } 注意 ：如果你忘了给 switch 的每一条 case 添加 break，那么后续的 case 会一直执行，直到遇见 break 为止。\nwhile 循环\nconst ourArray = []; let i = 0; while (i \u003c 5) { ourArray.push(i); i++; } for循环\nconst ourArray = []; for (let i = 0; i \u003c 5; i++) { ourArray.push(i); } // ourArray 现在的值为 [0, 1, 2, 3, 4] do…while循环 ： 不论什么情况，它都会首先 do（运行）循环里的第一部分代码，然后 while（当）规定的条件被评估为 true（真）的时候，它会继续运行循环\nconst ourArray = []; let i = 0; do { ourArray.push(i); i++; } while (i \u003c 5); const ourArray = []; let i = 5; do { ourArray.push(i); i++; } while (i \u003c 5); 1.7 js 函数 js中的运算可以直接发挥true或false： function isEqual(a,b){ return a===b } 1.8 javascript对象（Object） 对象和 arrays 类似，区别在于数组使用索引来访问和修改数据，而对象中的数据是通过 properties 访问的。 对象非常适合用来存储结构化数据，可以表示真实世界中的物体，比如一只猫。\n这里是一个猫对象的样本：\nconst cat = { \"name\": \"Whiskers\", \"legs\": 4, \"tails\": 1, \"enemies\": [\"Water\", \"Dogs\"] }; obj中的值可以这样访问: cat.name 和 cat[\"name\"] 是相等的, 区别是，cat[xxx]形式可以用变量替换xxx ,或者写入数字或者有空格的属性。\n对象定义后，属性可以修改、新增和删除 删除对象： delete obj.attr 测试对象 .hasOwnProperty(propname) 方法来检查对象是否有指定的属性 操作复杂对象 1.9 其他方法 生成随机数\nMath.random() 可以放回0-1之间的随机小数 // 0.24118408085602505 Math.floor() : 取整数，删除小数点 返回最小值 min 和一个最大值 max直接的值： Math.floor(Math.random() * (max - min + 1)) + min parseInt() : 转换为整数\n转换二进制 parseInt(string, radix);： parseInt(“01100”, 2) 三元运算符： a ? b : c , 多个三元运算： (a) ? b:(c)?d:e;\n三、正则表达式 .test(): .test() 方法会把编写的正则表达式和字符串（即括号内的内容）匹配，如果成功匹配到字符，则返回 true，反之，返回 false let testStr = \"freeCodeCamp\"; let testRegex = /Code/; // 可以搜索多个条件 ： /yes|no/ testRegex.test(testStr); - 正则标识使用： - `/str1|str2/` : 多个或条件匹配 - `/str1/i`: i标志（flag）忽略大小写 - `/regx/g`: 多次搜寻或提取模式匹配 - `/regx./g`: 通配符 . 将匹配任何一个字符。 通配符也叫 dot 或 period。 可以像使用正则表达式中任何其他字符一样使用通配符 - `/regx[abc]/g`: `[]` 单元匹配 [abc] 匹配中间有a|b|c的内容， 区间这样写: [a-b] - `/[^aeiou]/gi `: 匹配所有非元音字符, `[^]`中前面^ 用于表示排除 - `*?`: 贪婪模式， `/t[a-z]*?i/ ` 贪婪（greedy）匹配会匹配到符合正则表达式匹配模式的字符串的最长可能部分，并将其作为匹配项返回。 另一种方案称为懒惰（lazy）匹配，它会匹配到满足正则表达式的字符串的最小可能部分。 - `\\w`: 这个缩写等同于`[A-Za-z0-9_]` - `\\W`: 搜寻和 \\w 相反的匹配模式, 此缩写与 [^A-Za-z0-9_] 是一样的 - \\d - \\D .match() 方法来提取找到的实际匹配项,如果匹配则返回数组结果 \"Hello, World!\".match(/Hello/); let ourStr = \"Regular expressions\"; let ourRegex = /expressions/; ourStr.match(ourRegex); 四、debug 五、基础数据结构 六、基础算法 七、OOP 八、函数式编程 九、中级算法 十、总结 ",
+  "wordCount" : "571",
+  "inLanguage": "zh-cn",
+  "datePublished": "2022-05-20T00:56:43+08:00",
+  "dateModified": "2022-05-20T00:56:43+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gopy.fun/posts/note/js-note-1-basic.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoPY Fun",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gopy.fun/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://gopy.fun/" accesskey="h" title="GoPY Fun (Alt + H)">GoPY Fun</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      JavaScript笔记（一）: 基础js知识<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-05-20 00:56:43 +0800 CST'>May 20, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h2>
+<p>常用技术栈</p>
+<ul>
+<li>标准：ES5、 ES6、 H5、 CSS3</li>
+<li>编译工具：Gulp、 Grunt、 Webpack</li>
+<li>基础库 ： jQuery 。。。</li>
+<li>模块化：Common JS、 CMD、 AMD、 UMD、 ES6 Module</li>
+<li>框架 ： Vue、 React、 Angular</li>
+<li>UI框架：Bootstrap、 ElementUl、 Vux、 AntDesign (mobile) 、ionic</li>
+<li>WebSocket：SockJS</li>
+<li>数据可视化 Echarts、 Bmap</li>
+<li>动画 - Animate. css</li>
+<li>流程控制 - Redux (thunk、 saga、observab le)、 Vuex</li>
+<li>函数式编程 - underscore、 lodash、 immutable、rxjs</li>
+<li>CSS预处理器 sass、 less</li>
+<li>移动开发 一react native、 ionic、 Weex</li>
+<li>中间语言 typescr ipt</li>
+<li>服务端开发 Nodejs、 Express、 KOA、 SockJS</li>
+</ul>
+<h2 id="一js-基础">一、JS 基础<a hidden class="anchor" aria-hidden="true" href="#一js-基础">#</a></h2>
+<h3 id="11-变量">1.1 变量<a hidden class="anchor" aria-hidden="true" href="#11-变量">#</a></h3>
+<p>JavaScript 提供八种不同的数据类型，它们是：</p>
+<ul>
+<li>undefined（未定义）、</li>
+<li>null（空）</li>
+<li>boolean（布尔型）</li>
+<li>string（字符串）</li>
+<li>symbol</li>
+<li>number（数字）</li>
+<li>bigint（可以表示任意大的整数）</li>
+<li>object（对象）</li>
+</ul>
+<p>js中的变量名称推荐使用驼峰命名法（camelCase）。
+定义变量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//var声明的变量，可以被覆盖变量声明
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">camper</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;James&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">camper</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;David&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">camper</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用 let 时，同名的变量只能声明一次 (ES6特性)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">camper2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;James&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">camper2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;David&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">camper2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// const定义只读变量， 只读变量建议大写
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">FAV_PET</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cats&#34;</span>;
+</span></span></code></pre></div><h3 id="12-运算">1.2 运算<a hidden class="anchor" aria-hidden="true" href="#12-运算">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">add</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pus</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">quotient</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">66</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">33</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 数字递增
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// remainder 求余运算符 % 返回两个数相除得到的余数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#ae81ff">5</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 复合赋值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">myVar</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 
+</span></span></span></code></pre></div><h3 id="13-字符串">1.3 字符串<a hidden class="anchor" aria-hidden="true" href="#13-字符串">#</a></h3>
+<p>js中的字符串不能被更改，只能重新赋值 比如 str的第一个字母 str[0] 不能赋值，如果要改，整个str要修改</p>
+<p>字符串切片：</p>
+<ul>
+<li>默认从零开始： str[2]</li>
+<li>后面倒数第几个字符串： str[str.length - 2 ]</li>
+</ul>
+<h3 id="14-数组-array">1.4 数组 array<a hidden class="anchor" aria-hidden="true" href="#14-数组-array">#</a></h3>
+<p>比如：
+const arr = [ &lsquo;aaa&rsquo;, &lsquo;bbb&rsquo;, &lsquo;ccc&rsquo;];</p>
+<ul>
+<li>通过索引访问数组中的数据: arr[0]</li>
+<li>数组的条目是 可变的 并且可以自由更改，即使数组是用 const 声明的：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ourArray</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">30</span>];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ourArray</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>;
+</span></span></code></pre></div></li>
+<li>数组的函数
+<ul>
+<li>.push(): 将数据添加到数组末尾</li>
+<li>.pop() : 弹出一个数组末尾的值, 返回值是弹出的值</li>
+<li>.shift() : 移除第一个元素， 返回值是移除的值</li>
+<li>.unshift(): 移入一个元素到数组的头部</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-函数-functions">1.5 函数 functions<a hidden class="anchor" aria-hidden="true" href="#15-函数-functions">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">testFun</span>(<span style="color:#a6e22e">param1</span>, <span style="color:#a6e22e">param2</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">param1</span>, <span style="color:#a6e22e">param2</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>全局作用域和函数
+<ul>
+<li>任何在fun外面定义的变量都是global全局变量；</li>
+<li>在fun中赋值变量不加let或者const声明，变量会自动变成全局变量；</li>
+<li>在一个函数内声明的变量，以及该函数的参数都具有局部（local）作用域</li>
+<li>一个程序中有可能具有相同名称的局部变量 和全局变量。 在这种情况下，局部变量将会优先于全局变量</li>
+</ul>
+</li>
+<li>队列</li>
+</ul>
+<h3 id="16-控制语句">1.6 控制语句<a hidden class="anchor" aria-hidden="true" href="#16-控制语句">#</a></h3>
+<ul>
+<li>
+<p>if</p>
+</li>
+<li>
+<p>等号判断</p>
+<ul>
+<li>等号 ： 12 == 12 ，12 == “12”  ：  true</li>
+<li>严格相等： 12 === 12： true； 12 === “12”：false；</li>
+</ul>
+</li>
+<li>
+<p>typeof</p>
+</li>
+<li>
+<p>switch：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">lowercaseLetter</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;A&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;B&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>switch 添加默认选项：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">value1</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">statement1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">value2</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">statement2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">defaultStatement</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><em>注意</em> ：如果你忘了给 switch 的每一条 case 添加 break，那么后续的 case 会一直执行，直到遇见 break 为止。</p>
+</li>
+<li>
+<p>while 循环</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ourArray</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ourArray</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>for循环</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ourArray</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ourArray</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ourArray 现在的值为 [0, 1, 2, 3, 4]
+</span></span></span></code></pre></div></li>
+<li>
+<p>do&hellip;while循环 ： 不论什么情况，它都会首先 do（运行）循环里的第一部分代码，然后 while（当）规定的条件被评估为 true（真）的时候，它会继续运行循环</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ourArray</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ourArray</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ourArray</span> <span style="color:#f92672">=</span> []; 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ourArray</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>);
+</span></span></code></pre></div></li>
+<li></li>
+</ul>
+<h3 id="17-js-函数">1.7 js 函数<a hidden class="anchor" aria-hidden="true" href="#17-js-函数">#</a></h3>
+<ul>
+<li>js中的运算可以直接发挥true或false：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isEqual</span>(<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">===</span><span style="color:#a6e22e">b</span> }
+</span></span></code></pre></div></li>
+<li></li>
+<li></li>
+</ul>
+<h3 id="18-javascript对象object">1.8 javascript对象（Object）<a hidden class="anchor" aria-hidden="true" href="#18-javascript对象object">#</a></h3>
+<p>对象和 arrays 类似，区别在于数组使用索引来访问和修改数据，而对象中的数据是通过 properties 访问的。
+对象非常适合用来存储结构化数据，可以表示真实世界中的物体，比如一只猫。</p>
+<ul>
+<li>
+<p>这里是一个猫对象的样本：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cat</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Whiskers&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;legs&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;tails&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;enemies&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;Water&#34;</span>, <span style="color:#e6db74">&#34;Dogs&#34;</span>]
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></li>
+</ul>
+<p>obj中的值可以这样访问: <code>cat.name</code>  和 <code>cat[&quot;name&quot;]</code> 是相等的, 区别是，<code>cat[xxx]</code>形式可以用变量替换xxx ,或者写入数字或者有空格的属性。</p>
+<ul>
+<li>对象定义后，属性可以修改、新增和删除</li>
+<li>删除对象： <code>delete obj.attr</code></li>
+<li>测试对象
+<ul>
+<li><code>.hasOwnProperty(propname)</code> 方法来检查对象是否有指定的属性</li>
+</ul>
+</li>
+<li>操作复杂对象</li>
+</ul>
+<h3 id="19-其他方法">1.9 其他方法<a hidden class="anchor" aria-hidden="true" href="#19-其他方法">#</a></h3>
+<ul>
+<li>
+<p>生成随机数</p>
+<ul>
+<li>Math.random() 可以放回0-1之间的随机小数 // 0.24118408085602505</li>
+<li>Math.floor() : 取整数，删除小数点
+<ul>
+<li>返回最小值 min 和一个最大值 max直接的值： <code>Math.floor(Math.random() * (max - min + 1)) + min</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>parseInt() :  转换为整数</p>
+<ul>
+<li>转换二进制 <code>parseInt(string, radix);</code>： <code>parseInt(“01100”, 2)</code></li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>三元运算符： <code>a ? b : c</code> , 多个三元运算： (a) ? b:(c)?d:e;</p>
+</li>
+<li></li>
+</ul>
+<h2 id="三正则表达式">三、正则表达式<a hidden class="anchor" aria-hidden="true" href="#三正则表达式">#</a></h2>
+<ul>
+<li><code>.test()</code>: <code>.test()</code> 方法会把编写的正则表达式和字符串（即括号内的内容）匹配，如果成功匹配到字符，则返回 <code>true</code>，反之，返回 <code>false</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">testStr</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;freeCodeCamp&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">testRegex</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/Code/</span>;  <span style="color:#75715e">// 可以搜索多个条件 ： /yes|no/
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">testRegex</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">testStr</span>);
+</span></span></code></pre></div><pre><code>- 正则标识使用：
+    - `/str1|str2/` : 多个或条件匹配
+    - `/str1/i`: i标志（flag）忽略大小写
+    - `/regx/g`: 多次搜寻或提取模式匹配
+    - `/regx./g`: 通配符 . 将匹配任何一个字符。 通配符也叫 dot 或 period。 可以像使用正则表达式中任何其他字符一样使用通配符
+    - `/regx[abc]/g`: `[]` 单元匹配 [abc] 匹配中间有a|b|c的内容， 区间这样写: [a-b]
+    - `/[^aeiou]/gi `: 匹配所有非元音字符, `[^]`中前面^ 用于表示排除
+    - `*?`: 贪婪模式， `/t[a-z]*?i/ ` 贪婪（greedy）匹配会匹配到符合正则表达式匹配模式的字符串的最长可能部分，并将其作为匹配项返回。 另一种方案称为懒惰（lazy）匹配，它会匹配到满足正则表达式的字符串的最小可能部分。
+    - `\w`: 这个缩写等同于`[A-Za-z0-9_]`
+    -  `\W`:  搜寻和 \w 相反的匹配模式, 此缩写与 [^A-Za-z0-9_] 是一样的
+    - \d
+    - \D
+</code></pre>
+<ul>
+<li>
+<h2 id="match-方法来提取找到的实际匹配项如果匹配则返回数组结果"><code>.match()</code> 方法来提取找到的实际匹配项,如果匹配则返回数组结果<a hidden class="anchor" aria-hidden="true" href="#match-方法来提取找到的实际匹配项如果匹配则返回数组结果">#</a></h2>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e6db74">&#34;Hello, World!&#34;</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/Hello/</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ourStr</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Regular expressions&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ourRegex</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/expressions/</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ourStr</span>.<span style="color:#a6e22e">match</span>(<span style="color:#a6e22e">ourRegex</span>);
+</span></span></code></pre></div><ul>
+<li></li>
+</ul>
+<h2 id="四debug">四、debug<a hidden class="anchor" aria-hidden="true" href="#四debug">#</a></h2>
+<h2 id="五基础数据结构">五、基础数据结构<a hidden class="anchor" aria-hidden="true" href="#五基础数据结构">#</a></h2>
+<h2 id="六基础算法">六、基础算法<a hidden class="anchor" aria-hidden="true" href="#六基础算法">#</a></h2>
+<h2 id="七oop">七、OOP<a hidden class="anchor" aria-hidden="true" href="#七oop">#</a></h2>
+<h2 id="八函数式编程">八、函数式编程<a hidden class="anchor" aria-hidden="true" href="#八函数式编程">#</a></h2>
+<h2 id="九中级算法">九、中级算法<a hidden class="anchor" aria-hidden="true" href="#九中级算法">#</a></h2>
+<h2 id="十总结">十、总结<a hidden class="anchor" aria-hidden="true" href="#十总结">#</a></h2>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://gopy.fun/">GoPY Fun</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

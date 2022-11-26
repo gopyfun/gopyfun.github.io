@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>JavaScript笔记（二）: ES6入门 | GoPY Fun</title>
+<meta name="keywords" content="">
+<meta name="description" content="二、 ES6 2.1 let, var, const定义变量 var： 定义变量如果是在函数内部的是局部，外面就是全局的 let： 定义的变量是局部使用的，无法替换跨域 const： 常量定义，无法被改变，但可以单独改变内部变量，比如字符串修改 s[2] = &lsquo;a&rsquo;; const 声明并不会真的保护数据不被改变。 为了确保数据不被改变，JavaScript 提供了一个函数 Object.freeze(变量)。 2.2 匿名函数 我们通常会使用以下语法：
+const myFunc = function() { const myVar = &#34;value&#34;; return myVar; } ES6 提供了其他写匿名函数的方式的语法糖。 你可以使用箭头函数：
+const myFunc = () =&gt; { const myVar = &#34;value&#34;; return myVar; } 当不需要函数体，只返回一个值的时候，箭头函数允许你省略 return 关键字和外面的大括号。 这样就可以将一个简单的函数简化成一个单行语句。
+const myFunc = () =&gt; &#34;value&#34;; 这段代码默认会返回字符串 value。
+同时可以通过括号里面的变量进行传参：
+const mul = (a, b=2) =&gt; a*b; console.">
+<meta name="author" content="">
+<link rel="canonical" href="https://gopy.fun/posts/note/js-note-2-es6.html">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://gopy.fun/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://gopy.fun/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://gopy.fun/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://gopy.fun/apple-touch-icon.png">
+<link rel="mask-icon" href="https://gopy.fun/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-24073861-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="JavaScript笔记（二）: ES6入门" />
+<meta property="og:description" content="二、 ES6 2.1 let, var, const定义变量 var： 定义变量如果是在函数内部的是局部，外面就是全局的 let： 定义的变量是局部使用的，无法替换跨域 const： 常量定义，无法被改变，但可以单独改变内部变量，比如字符串修改 s[2] = &lsquo;a&rsquo;; const 声明并不会真的保护数据不被改变。 为了确保数据不被改变，JavaScript 提供了一个函数 Object.freeze(变量)。 2.2 匿名函数 我们通常会使用以下语法：
+const myFunc = function() { const myVar = &#34;value&#34;; return myVar; } ES6 提供了其他写匿名函数的方式的语法糖。 你可以使用箭头函数：
+const myFunc = () =&gt; { const myVar = &#34;value&#34;; return myVar; } 当不需要函数体，只返回一个值的时候，箭头函数允许你省略 return 关键字和外面的大括号。 这样就可以将一个简单的函数简化成一个单行语句。
+const myFunc = () =&gt; &#34;value&#34;; 这段代码默认会返回字符串 value。
+同时可以通过括号里面的变量进行传参：
+const mul = (a, b=2) =&gt; a*b; console." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gopy.fun/posts/note/js-note-2-es6.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-11T17:00:43+08:00" />
+<meta property="article:modified_time" content="2022-09-11T17:00:43+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript笔记（二）: ES6入门"/>
+<meta name="twitter:description" content="二、 ES6 2.1 let, var, const定义变量 var： 定义变量如果是在函数内部的是局部，外面就是全局的 let： 定义的变量是局部使用的，无法替换跨域 const： 常量定义，无法被改变，但可以单独改变内部变量，比如字符串修改 s[2] = &lsquo;a&rsquo;; const 声明并不会真的保护数据不被改变。 为了确保数据不被改变，JavaScript 提供了一个函数 Object.freeze(变量)。 2.2 匿名函数 我们通常会使用以下语法：
+const myFunc = function() { const myVar = &#34;value&#34;; return myVar; } ES6 提供了其他写匿名函数的方式的语法糖。 你可以使用箭头函数：
+const myFunc = () =&gt; { const myVar = &#34;value&#34;; return myVar; } 当不需要函数体，只返回一个值的时候，箭头函数允许你省略 return 关键字和外面的大括号。 这样就可以将一个简单的函数简化成一个单行语句。
+const myFunc = () =&gt; &#34;value&#34;; 这段代码默认会返回字符串 value。
+同时可以通过括号里面的变量进行传参：
+const mul = (a, b=2) =&gt; a*b; console."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "JavaScript笔记（二）: ES6入门",
+      "item": "https://gopy.fun/posts/note/js-note-2-es6.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JavaScript笔记（二）: ES6入门",
+  "name": "JavaScript笔记（二）: ES6入门",
+  "description": "二、 ES6 2.1 let, var, const定义变量 var： 定义变量如果是在函数内部的是局部，外面就是全局的 let： 定义的变量是局部使用的，无法替换跨域 const： 常量定义，无法被改变，但可以单独改变内部变量，比如字符串修改 s[2] = \u0026lsquo;a\u0026rsquo;; const 声明并不会真的保护数据不被改变。 为了确保数据不被改变，JavaScript 提供了一个函数 Object.freeze(变量)。 2.2 匿名函数 我们通常会使用以下语法：\nconst myFunc = function() { const myVar = \u0026#34;value\u0026#34;; return myVar; } ES6 提供了其他写匿名函数的方式的语法糖。 你可以使用箭头函数：\nconst myFunc = () =\u0026gt; { const myVar = \u0026#34;value\u0026#34;; return myVar; } 当不需要函数体，只返回一个值的时候，箭头函数允许你省略 return 关键字和外面的大括号。 这样就可以将一个简单的函数简化成一个单行语句。\nconst myFunc = () =\u0026gt; \u0026#34;value\u0026#34;; 这段代码默认会返回字符串 value。\n同时可以通过括号里面的变量进行传参：\nconst mul = (a, b=2) =\u0026gt; a*b; console.",
+  "keywords": [
+    
+  ],
+  "articleBody": "二、 ES6 2.1 let, var, const定义变量 var： 定义变量如果是在函数内部的是局部，外面就是全局的 let： 定义的变量是局部使用的，无法替换跨域 const： 常量定义，无法被改变，但可以单独改变内部变量，比如字符串修改 s[2] = ‘a’; const 声明并不会真的保护数据不被改变。 为了确保数据不被改变，JavaScript 提供了一个函数 Object.freeze(变量)。 2.2 匿名函数 我们通常会使用以下语法：\nconst myFunc = function() { const myVar = \"value\"; return myVar; } ES6 提供了其他写匿名函数的方式的语法糖。 你可以使用箭头函数：\nconst myFunc = () =\u003e { const myVar = \"value\"; return myVar; } 当不需要函数体，只返回一个值的时候，箭头函数允许你省略 return 关键字和外面的大括号。 这样就可以将一个简单的函数简化成一个单行语句。\nconst myFunc = () =\u003e \"value\"; 这段代码默认会返回字符串 value。\n同时可以通过括号里面的变量进行传参：\nconst mul = (a, b=2) =\u003e a*b; console.log(mul(5)); const product = (n1, n2, n3) =\u003e { const args = [n1, n2, n3]; return args.reduce((a, b) =\u003e a * b, 1); } console.log(product(2, 4, 6)); //48 // 简化： const product = (...n) =\u003e { return n.reduce((a, b) =\u003e a * b, 1); } console.log(product(2, 4, 6)); //48 展开函数 变量前用 三个点:\nconst arr1 = [1,2,3,4]; const arr2 = [...arr1]; 使用 解构赋值 来获取对象的值:\nconst user = { username: 'John Doe', age: 34 }; const name = user.username; const age = user.age; // 简化 const { username:name, age } = user; // 也可以嵌套 // 使用解构赋值从数组中分配变量 let a = 8, b = 6; // 只修改这一行下面的代码 [a, b] = [b,a]; // 交换a，b的值 // const [a, b, ...arr] = [1, 2, 3, 4, 5, 7]; // arr = [3, 4, 5, 7] 2.3 使用 class 语法定义构造函数 ES6 提供了一个新的创建对象的语法，使用关键字 class。 值得注意的是，class 只是一个语法糖，它并不像 Java、Python 或者 Ruby 这一类的语言一样，严格履行了面向对象的开发规范。 在 ES5 里面，我们通常会定义一个构造函数 constructor，然后使用 new 关键字来实例化一个对象：\nvar SpaceShuttle = function(targetPlanet){ this.targetPlanet = targetPlanet; } var zeus = new SpaceShuttle('Jupiter'); // class 语法只是简单地替换了构造函数 constructor 的写法： class SpaceShuttle { constructor(targetPlanet) { this.targetPlanet = targetPlanet; } } const zeus = new SpaceShuttle('Jupiter'); 应该注意 class 关键字声明了一个新的函数，里面添加了一个构造函数。 当用 new 创建一个新的对象时，构造函数会被调用。\n2.4 用 export 来重用代码块 如果要引用外部模块可以通过调用script完成：\n\u003cscript type=\"module\" src=\"index.js\"\u003e\u003c/script\u003e 假设有一个文件 math_functions.js，该文件包含了数学运算相关的一些函数。 其中一个存储在变量 add 里，该函数接受两个数字作为参数返回它们的和。 你想在几个不同的 JavaScript 文件中使用这个函数。 要实现这个目的，就需要 export 它。\nexport const add = (x, y) =\u003e { return x + y; } 上面是导出单个函数常用方法，还可以这样导出：\nconst add = (x, y) =\u003e { return x + y; }\nexport { add }; 导出变量和函数后，就可以在其它文件里导入使用从而避免了代码冗余。 重复第一个例子的代码可以导出多个对象或函数，在第二个例子里面的导出语句中添加更多值也可以导出多项，例子如下：\nexport { add, subtract };\n如果是在js文件中引用其他外部文件的方法，可以适用import的方式\nimport 可以导入文件或模块的一部分。 在之前的课程里，例子从 math_functions.js 文件里导出了 add。 下面看一下如何在其它文件导入它：\nimport { add } from ‘./math_functions.js’; 在这里，import 会在 math_functions.js 里找到 add，只导入这个函数，忽略剩余的部分。 ./ 告诉程序在当前文件的相同目录寻找 math_functions.js 文件。 用这种方式导入时，相对路径（./）和文件扩展名（.js）都是必需的。\n通过在 import 语句里添加项目，可以从文件里导入多个项目，如下：\nimport { add, subtract } from './math_functions.js'; // 用 * 从文件中导入所有内容 import * as myMathModule from \"./math_functions.js\"; 用 export default 创建一个默认导出(在文件中只有一个值需要导出的时候，通常会使用这种语法。 它也常常用于给文件或者模块创建返回值):\n// 命名函数 export default function add(x, y) { return x + y; } //匿名函数。 export default function(x, y) { return x + y; } 导入一个默认的导出: import add from “./math_functions.js”;\n2.5 JavaScript Promise Promise 是异步编程的一种解决方案 - 它在未来的某时会生成一个值。 任务完成，分执行成功和执行失败两种情况。 Promise 是构造器函数，需要通过 new 关键字来创建。 构造器参数是一个函数，该函数有两个参数 - resolve 和 reject。 通过它们来判断 promise 的执行结果。 用法如下：\nconst myPromise = new Promise((resolve, reject) =\u003e {\n});\nPromise 有三个状态：pending、fulfilled 和 rejected。 上一个挑战里创建的 promise 一直阻塞在 pending 状态里，因为没有调用 promise 的完成方法。 Promise 提供的 resolve 和 reject 参数就是用来结束 promise 的。 Promise 成功时调用 resolve，promise 执行失败时调用 reject， 如下文所述，这些方法需要有一个参数。\nconst myPromise = new Promise((resolve, reject) =\u003e { if(condition here) { resolve(“Promise was fulfilled”); } else { reject(“Promise was rejected”); } }); 上面的示例使用字符串作为这些函数的参数，但参数实际上可以是任何格式。 通常，它可能是一个包含数据的对象，你可以将它放在网站或其他地方。\n当程序需要花费未知的时间才能完成时（比如一些异步操作），一般是服务器请求，promise 很有用。 服务器请求会花费一些时间，当结束时，需要根据服务器的响应执行一些操作。 这可以用 then 方法来实现， 当 promise 完成 resolve 时会触发 then 方法。 例子如下：\nmyPromise.then(result =\u003e {\n}); result 即传入 resolve 方法的参数。下面例子 给 promise 添加 then 方法。 用 result 做为回调函数的参数并将 result 打印在控制台。\nconst makeServerRequest = new Promise((resolve, reject) =\u003e { // responseFromServer 设置为 true，表示从服务器获得有效响应 let responseFromServer = true; if(responseFromServer) { resolve(\"We got the data\"); } else { reject(\"Data not received\"); } }); makeServerRequest.then(result =\u003e { console.log(result); }); makeServerRequest.catch(error=\u003e{ console.log(error); }); 使用 catch 处理 Promise 失败的情况:\n当 promise 失败时会调用 catch 方法。 当 promise 的 reject 方法执行时会直接调用。 用法如下：\nmyPromise.catch(error =\u003e { }); error 是传入 reject 方法的参数。\n",
+  "wordCount" : "564",
+  "inLanguage": "zh-cn",
+  "datePublished": "2022-09-11T17:00:43+08:00",
+  "dateModified": "2022-09-11T17:00:43+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gopy.fun/posts/note/js-note-2-es6.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoPY Fun",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gopy.fun/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://gopy.fun/" accesskey="h" title="GoPY Fun (Alt + H)">GoPY Fun</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      JavaScript笔记（二）: ES6入门<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-09-11 17:00:43 +0800 CST'>September 11, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="二-es6">二、 ES6<a hidden class="anchor" aria-hidden="true" href="#二-es6">#</a></h2>
+<h3 id="21-let-var-const定义变量">2.1 let, var, const定义变量<a hidden class="anchor" aria-hidden="true" href="#21-let-var-const定义变量">#</a></h3>
+<ul>
+<li>var： 定义变量如果是在函数内部的是局部，外面就是全局的</li>
+<li>let： 定义的变量是局部使用的，无法替换跨域</li>
+<li>const： 常量定义，无法被改变，但可以单独改变内部变量，比如字符串修改  s[2] = &lsquo;a&rsquo;;
+<ul>
+<li>const 声明并不会真的保护数据不被改变。 为了确保数据不被改变，JavaScript 提供了一个函数 <code>Object.freeze(变量)</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-匿名函数">2.2 匿名函数<a hidden class="anchor" aria-hidden="true" href="#22-匿名函数">#</a></h3>
+<p>我们通常会使用以下语法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myFunc</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myVar</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;value&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">myVar</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>ES6 提供了其他写匿名函数的方式的语法糖。 你可以使用箭头函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myFunc</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myVar</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;value&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">myVar</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>当不需要函数体，只返回一个值的时候，箭头函数允许你省略 return 关键字和外面的大括号。 这样就可以将一个简单的函数简化成一个单行语句。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myFunc</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#e6db74">&#34;value&#34;</span>;
+</span></span></code></pre></div><p>这段代码默认会返回字符串 value。</p>
+<p>同时可以通过括号里面的变量进行传参：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mul</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) =&gt; <span style="color:#a6e22e">a</span><span style="color:#f92672">*</span><span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">mul</span>(<span style="color:#ae81ff">5</span>));
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">product</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n3</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n3</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">b</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">product</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>)); <span style="color:#75715e">//48
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 简化：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">product</span> <span style="color:#f92672">=</span> (...<span style="color:#a6e22e">n</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">b</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">product</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>)); <span style="color:#75715e">//48
+</span></span></span></code></pre></div><p>展开函数 变量前用 三个点:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr1</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr2</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">arr1</span>];
+</span></span></code></pre></div><p>使用 解构赋值 来获取对象的值:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">username</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;John Doe&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">34</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">username</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">age</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 简化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">username</span><span style="color:#f92672">:</span><span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 也可以嵌套
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用解构赋值从数组中分配变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 只修改这一行下面的代码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>[<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>] <span style="color:#f92672">=</span> [<span style="color:#a6e22e">b</span>,<span style="color:#a6e22e">a</span>]; <span style="color:#75715e">// 交换a，b的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, ...<span style="color:#a6e22e">arr</span>] <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>]; <span style="color:#75715e">// arr = [3, 4, 5, 7]
+</span></span></span></code></pre></div><h3 id="23-使用-class-语法定义构造函数">2.3 使用 class 语法定义构造函数<a hidden class="anchor" aria-hidden="true" href="#23-使用-class-语法定义构造函数">#</a></h3>
+<p>ES6 提供了一个新的创建对象的语法，使用关键字 class。
+值得注意的是，class 只是一个语法糖，它并不像 Java、Python 或者 Ruby 这一类的语言一样，严格履行了面向对象的开发规范。
+在 ES5 里面，我们通常会定义一个构造函数 constructor，然后使用 new 关键字来实例化一个对象：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">SpaceShuttle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">targetPlanet</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">targetPlanet</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">targetPlanet</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">zeus</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SpaceShuttle</span>(<span style="color:#e6db74">&#39;Jupiter&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// class 语法只是简单地替换了构造函数 constructor 的写法：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpaceShuttle</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">targetPlanet</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">targetPlanet</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">targetPlanet</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">zeus</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SpaceShuttle</span>(<span style="color:#e6db74">&#39;Jupiter&#39;</span>);
+</span></span></code></pre></div><p>应该注意 class 关键字声明了一个新的函数，里面添加了一个构造函数。 当用 new 创建一个新的对象时，构造函数会被调用。</p>
+<h3 id="24-用-export-来重用代码块">2.4 用 export 来重用代码块<a hidden class="anchor" aria-hidden="true" href="#24-用-export-来重用代码块">#</a></h3>
+<p>如果要引用外部模块可以通过调用script完成：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;module&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;index.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>假设有一个文件 math_functions.js，该文件包含了数学运算相关的一些函数。 其中一个存储在变量 add 里，该函数接受两个数字作为参数返回它们的和。 你想在几个不同的 JavaScript 文件中使用这个函数。 要实现这个目的，就需要 export 它。</p>
+<p>export const add = (x, y) =&gt; {
+return x + y;
+}
+上面是导出单个函数常用方法，还可以这样导出：</p>
+<p>const add = (x, y) =&gt; {
+return x + y;
+}</p>
+<p>export { add };
+导出变量和函数后，就可以在其它文件里导入使用从而避免了代码冗余。 重复第一个例子的代码可以导出多个对象或函数，在第二个例子里面的导出语句中添加更多值也可以导出多项，例子如下：</p>
+<p>export { add, subtract };</p>
+<p>如果是在js文件中引用其他外部文件的方法，可以适用import的方式</p>
+<p>import 可以导入文件或模块的一部分。 在之前的课程里，例子从 math_functions.js 文件里导出了 add。 下面看一下如何在其它文件导入它：</p>
+<p>import { add } from &lsquo;./math_functions.js&rsquo;;
+在这里，import 会在 math_functions.js 里找到 add，只导入这个函数，忽略剩余的部分。 ./ 告诉程序在当前文件的相同目录寻找 math_functions.js 文件。 用这种方式导入时，相对路径（./）和文件扩展名（.js）都是必需的。</p>
+<p>通过在 import 语句里添加项目，可以从文件里导入多个项目，如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">add</span>, <span style="color:#a6e22e">subtract</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./math_functions.js&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 用 * 从文件中导入所有内容
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">myMathModule</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./math_functions.js&#34;</span>;
+</span></span></code></pre></div><p>用 export default 创建一个默认导出(在文件中只有一个值需要导出的时候，通常会使用这种语法。 它也常常用于给文件或者模块创建返回值):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// 命名函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//匿名函数。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>导入一个默认的导出:
+import add from &ldquo;./math_functions.js&rdquo;;</p>
+<h3 id="25-javascript-promise">2.5 JavaScript Promise<a hidden class="anchor" aria-hidden="true" href="#25-javascript-promise">#</a></h3>
+<p>Promise 是异步编程的一种解决方案 - 它在未来的某时会生成一个值。 任务完成，分执行成功和执行失败两种情况。 Promise 是构造器函数，需要通过 new 关键字来创建。 构造器参数是一个函数，该函数有两个参数 - resolve 和 reject。 通过它们来判断 promise 的执行结果。 用法如下：</p>
+<p>const myPromise = new Promise((resolve, reject) =&gt; {</p>
+<p>});</p>
+<p>Promise 有三个状态：pending、fulfilled 和 rejected。 上一个挑战里创建的 promise 一直阻塞在 pending 状态里，因为没有调用 promise 的完成方法。 Promise 提供的 resolve 和 reject 参数就是用来结束 promise 的。 Promise 成功时调用 resolve，promise 执行失败时调用 reject， 如下文所述，这些方法需要有一个参数。</p>
+<p>const myPromise = new Promise((resolve, reject) =&gt; {
+if(condition here) {
+resolve(&ldquo;Promise was fulfilled&rdquo;);
+} else {
+reject(&ldquo;Promise was rejected&rdquo;);
+}
+});
+上面的示例使用字符串作为这些函数的参数，但参数实际上可以是任何格式。 通常，它可能是一个包含数据的对象，你可以将它放在网站或其他地方。</p>
+<p>当程序需要花费未知的时间才能完成时（比如一些异步操作），一般是服务器请求，promise 很有用。 服务器请求会花费一些时间，当结束时，需要根据服务器的响应执行一些操作。 这可以用 then 方法来实现， 当 promise 完成 resolve 时会触发 then 方法。 例子如下：</p>
+<p>myPromise.then(result =&gt; {</p>
+<p>});
+result 即传入 resolve 方法的参数。下面例子 给 promise 添加 then 方法。 用 result 做为回调函数的参数并将 result 打印在控制台。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">makeServerRequest</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// responseFromServer 设置为 true，表示从服务器获得有效响应
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">responseFromServer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">responseFromServer</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;We got the data&#34;</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">reject</span>(<span style="color:#e6db74">&#34;Data not received&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">makeServerRequest</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">result</span> =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">makeServerRequest</span>.<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span>=&gt;{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>使用 catch 处理 Promise 失败的情况:</p>
+<p>当 promise 失败时会调用 catch 方法。 当 promise 的 reject 方法执行时会直接调用。 用法如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">myPromise</span>.<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>error 是传入 reject 方法的参数。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://gopy.fun/">GoPY Fun</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,258 +1,947 @@
-<!doctype html>
-<html lang="en-us">
-<head>
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Python note | GoPY Fun</title>
+<meta name="keywords" content="">
+<meta name="description" content="Index. 内容 基本部分笔记记录在这里其他内容参考：
+Python Flask Note 开始、python开发环境配置以及IDE配置 在开始写python项目钱，我们必须先安装python的环境、虚拟环境以及IDE。IDE的配置后面有专门的笔记记录下，这部分内容也可以单独开设一个专题。
+python的安装 python的IDE配置 python的环境变量配置 虚拟环境 python3 -m venv venv source ./venv/bin/activate deactivate pip 安装和 源设置 一、基础部分 学习世界： 2022-10-21 1.1 变量 Python变量的命名规范：
+必须是数字或字母或下换线组成. 不能是数字开头，更不能是纯数字 不能用python的关键字 不要用中文 不要太长 1.2 常量 变量的形式：
+print(123) 字母大写的变量 可以 认为是常量。 python里没有绝对意义的常量，都可以被覆盖 1.3 数据类型 数字 文字 布尔： True 、 False 1.4 控制语句 判断语句 语句结构：
+if 1: pass elif 2: pass else: pass 循环语句 语句结构：
+while True: pass i = 1 while i &lt;= 100: print(1) i = i &#43; 1 break:让当前这个循环立即停止，用在while语句中 Q: for 循环中可以用吗？">
+<meta name="author" content="">
+<link rel="canonical" href="https://gopy.fun/posts/note/python-note.html">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://gopy.fun/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://gopy.fun/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://gopy.fun/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://gopy.fun/apple-touch-icon.png">
+<link rel="mask-icon" href="https://gopy.fun/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    <title>Python note | GoPY Fun</title>
-    <meta property="og:title" content="Python note - GoPY Fun">
-    <meta property="og:type" content="article">
-        
-    <meta property="article:published_time" content='2022-05-24T17:56:43&#43;08:00'>
-        
-        
-    <meta property="article:modified_time" content='2022-05-24T17:56:43&#43;08:00'>
-        
-    <meta name="Keywords" content="">
-    <meta name="description" content="Python note">
-        
-    <meta name="author" content="">
-    <meta property="og:url" content="https://gopy.fun/posts/note/python-note.html">
-    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-24073861-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Python note" />
+<meta property="og:description" content="Index. 内容 基本部分笔记记录在这里其他内容参考：
+Python Flask Note 开始、python开发环境配置以及IDE配置 在开始写python项目钱，我们必须先安装python的环境、虚拟环境以及IDE。IDE的配置后面有专门的笔记记录下，这部分内容也可以单独开设一个专题。
+python的安装 python的IDE配置 python的环境变量配置 虚拟环境 python3 -m venv venv source ./venv/bin/activate deactivate pip 安装和 源设置 一、基础部分 学习世界： 2022-10-21 1.1 变量 Python变量的命名规范：
+必须是数字或字母或下换线组成. 不能是数字开头，更不能是纯数字 不能用python的关键字 不要用中文 不要太长 1.2 常量 变量的形式：
+print(123) 字母大写的变量 可以 认为是常量。 python里没有绝对意义的常量，都可以被覆盖 1.3 数据类型 数字 文字 布尔： True 、 False 1.4 控制语句 判断语句 语句结构：
+if 1: pass elif 2: pass else: pass 循环语句 语句结构：
+while True: pass i = 1 while i &lt;= 100: print(1) i = i &#43; 1 break:让当前这个循环立即停止，用在while语句中 Q: for 循环中可以用吗？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gopy.fun/posts/note/python-note.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-24T17:56:43+08:00" />
+<meta property="article:modified_time" content="2022-05-24T17:56:43+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python note"/>
+<meta name="twitter:description" content="Index. 内容 基本部分笔记记录在这里其他内容参考：
+Python Flask Note 开始、python开发环境配置以及IDE配置 在开始写python项目钱，我们必须先安装python的环境、虚拟环境以及IDE。IDE的配置后面有专门的笔记记录下，这部分内容也可以单独开设一个专题。
+python的安装 python的IDE配置 python的环境变量配置 虚拟环境 python3 -m venv venv source ./venv/bin/activate deactivate pip 安装和 源设置 一、基础部分 学习世界： 2022-10-21 1.1 变量 Python变量的命名规范：
+必须是数字或字母或下换线组成. 不能是数字开头，更不能是纯数字 不能用python的关键字 不要用中文 不要太长 1.2 常量 变量的形式：
+print(123) 字母大写的变量 可以 认为是常量。 python里没有绝对意义的常量，都可以被覆盖 1.3 数据类型 数字 文字 布尔： True 、 False 1.4 控制语句 判断语句 语句结构：
+if 1: pass elif 2: pass else: pass 循环语句 语句结构：
+while True: pass i = 1 while i &lt;= 100: print(1) i = i &#43; 1 break:让当前这个循环立即停止，用在while语句中 Q: for 循环中可以用吗？"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Python note",
+      "item": "https://gopy.fun/posts/note/python-note.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python note",
+  "name": "Python note",
+  "description": "Index. 内容 基本部分笔记记录在这里其他内容参考：\nPython Flask Note 开始、python开发环境配置以及IDE配置 在开始写python项目钱，我们必须先安装python的环境、虚拟环境以及IDE。IDE的配置后面有专门的笔记记录下，这部分内容也可以单独开设一个专题。\npython的安装 python的IDE配置 python的环境变量配置 虚拟环境 python3 -m venv venv source ./venv/bin/activate deactivate pip 安装和 源设置 一、基础部分 学习世界： 2022-10-21 1.1 变量 Python变量的命名规范：\n必须是数字或字母或下换线组成. 不能是数字开头，更不能是纯数字 不能用python的关键字 不要用中文 不要太长 1.2 常量 变量的形式：\nprint(123) 字母大写的变量 可以 认为是常量。 python里没有绝对意义的常量，都可以被覆盖 1.3 数据类型 数字 文字 布尔： True 、 False 1.4 控制语句 判断语句 语句结构：\nif 1: pass elif 2: pass else: pass 循环语句 语句结构：\nwhile True: pass i = 1 while i \u0026lt;= 100: print(1) i = i + 1 break:让当前这个循环立即停止，用在while语句中 Q: for 循环中可以用吗？",
+  "keywords": [
     
-    
-    
-    
-    
-    
+  ],
+  "articleBody": "Index. 内容 基本部分笔记记录在这里其他内容参考：\nPython Flask Note 开始、python开发环境配置以及IDE配置 在开始写python项目钱，我们必须先安装python的环境、虚拟环境以及IDE。IDE的配置后面有专门的笔记记录下，这部分内容也可以单独开设一个专题。\npython的安装 python的IDE配置 python的环境变量配置 虚拟环境 python3 -m venv venv source ./venv/bin/activate deactivate pip 安装和 源设置 一、基础部分 学习世界： 2022-10-21 1.1 变量 Python变量的命名规范：\n必须是数字或字母或下换线组成. 不能是数字开头，更不能是纯数字 不能用python的关键字 不要用中文 不要太长 1.2 常量 变量的形式：\nprint(123) 字母大写的变量 可以 认为是常量。 python里没有绝对意义的常量，都可以被覆盖 1.3 数据类型 数字 文字 布尔： True 、 False 1.4 控制语句 判断语句 语句结构：\nif 1: pass elif 2: pass else: pass 循环语句 语句结构：\nwhile True: pass i = 1 while i \u003c= 100: print(1) i = i + 1 break:让当前这个循环立即停止，用在while语句中 Q: for 循环中可以用吗？\ncontinue：停止当前本次循环，继续执行下一次循环 pass ： 代码占位，无作用 for循环 字符串可以迭代 s = 'hello' for c in s: print(c) for i in range(3,10): print(1) range (n): 从0数到n.不包含n range (m， n)：从m数到n，不包含n range(m, n，s)：从m数到n，不包含n, 每次的间隔是s 1.5 python的基础类型 ini， float， bool str list tuple set dist bytes 运算符 文件操作 1.5.1 数字 1.5.2 字符串 str %s 字符串占位 %d 整数占位 字符串格式化 s = \"我叫%S\" ％ name s0 = \"我叫%S，我住在%S，我今年%d岁，我喜欢%s\" ％ (name， address, age, hobby) s1 = \"我叫{}，我住在{}，我今年{}岁，我喜欢{}\".format (name, address, age, hobby) s2 = f\"我叫{name}，我叫{name}，今年{age}岁，我叫{name}，我叫{name}\" # f-string print (s1) 索引和切片 # 索引： s = \"我叫周杰伦\" print(s[0]) print(s[-1]) # slice： 从一个字符串中提取一部分内容 print(s[3:6]) # 从索引3的位置进行切片，切到6结束，但取不到索引6 print(s[-3:-1]) # 可以给切片添加步长拉及控制方向 print(s[::-1]) # 表示从右往左 字符串的常规操作 s.capitalize() : 字符串大小写转换 s.title() : 单词的首字母大写 s.lower() : 所有字母换小写 s.upper() : 所有字母换大写 字符串的切割和替换 s.strip(): 去掉字符串左右两端的空白符（空格、\\t 、 \\n） s.replace(old, new) # 替换 s.split(切割符号) # 按切割的字符串切割，会返回切割后的列表 字符串的查找和替换 s = \"你好，我叫周润发\" r = s.find(\"周润发\") # 返回结果-1是没有， 如果有则返回整数索引 r = r.index(\"zhou\") # 如果报错就没有 print(\"周\" in s) # print(\"周\" not in s) # s.startwith('涨') # 判断字符串是否以xxx开头 s.isdigit() # 判断字符串是否由整数组成 补充和总结 len(): length长度 “xx”.join(): 用xx拼接list为字符串 1.5.3 列表 a = [‘aaa’,‘bbb’,‘ccc’] 列表特征：\n也像字符串一样也有索引和切片 索引如果超过范围会报错 可以用for循环进行遍历 用len可以拿到列表的长度 l = [] l.append(111) # 追加 l.insert(222) # 插入 l.extend(['aaa','bbb']) # 合并2个列表 l.pop(3) # 弹出指定索引的元素 l.remove('aaa') # 删除某个元素 l[4] = 'oo' # 直接用索引修改元素 print(l[4]) # 查询某个元素 # 列表的排序 l = [1,2,3,'aa','bb'] l.sort() # 对列表进行升序排序 l.sort(reverse = True) # reverse: 翻转 for i in l: # 遍历列表 pass 1.5.4 元组 tuple元组： 固定了某些数据，不允许外界修改，内存地址不能变\nt = ('aaa','bbb', [1,2,3]) t[0] = 'ooo' # 报错，不可被重新赋值 t[2].append(4) # 坑： 元组里面元素的内容如果是列表的话可以变 1.5.5 set集合 set集合是无序的 没有重复的数据出现，重要的作用是去重复数据 s = {1,2, 'aaa',3} # 打印后位置会变 s = {1,2, 'aaa',3, []} # 报错，有不可哈希的元素 不可哈希：python中的set集合进行数据存储的时候，需要对数据进行哈希计算，根据计算出来的哈希值进行存储数据 set集合要求存储的数据必须是可以进行哈希计算的． 可变的数据类型，list, dict, set 可哈希：不可变的数据类型，int,str, tuple, bool. s = set() # 创建空集合 s.add('ccc') s.add('ddd') s.pop() # 由于集合无序，测试的时候无法验证是最后一个 s.remove('ccc') #先要修改，先删除再新增 交集、并集、差集\ns1= {'aaa',\"皮长山\"} s2 = {\"刘科长\"，\"冯乡长\"，\"皮长山\"} print (s1 \u0026 s2) #交集 print(s1. intersection(s2)) print (s1 | s2) #并集 print(s1.union(s2)) print (s1 - s2) #差集 print (s1.difference(s2)) 1.5.6 字典 字典是以键值对的形式进行存储数据的 表示方式： {key: value, key2: value2} key必须是可哈希的数据类型， value可以放任何数据类型 dic = {'jay': \"周杰伦\" , } print(dic['jay']) # 字典的增删改查 dic = dict() dic['jay'] = \"周杰伦\" dic[1] = 123 dic['jay'] = \"kkk\" # 修改操作 dic.setdefault('tom', 'aaa') # 设置默认值，如果以前已经有了tom，setdefault就不起作用了 dic.setdefault('tom', 'bbb') # 设置默认值，如果以前已经有了tom，setdefault就不起作用了 dic.pop('jay') # 根据key删除指定值 print(dic['xx']) # 如果key不存在，程序会报错 print(dic.get('xx')) # 如果key不存在，程序返回None # None 空类型 n = None print(type(n)) if d.get('aaa') == None: print('不存在这个人') # 循环 for k, v in dic.items(): print(item) print(k, v) # 嵌套 # 关于字典的循环删除, 不能修改原来的，可以用新字典接 temp=[] for key in dic: if key.startswich('大'); # dic.pop(key) # 报错，不能修改循环中的字典 temp.append(key) 1.5.7 bytes 字符和编码\n二进制： 0 1 \u003c==\u003e 10101010 =》 二进制转换成十进制 《==》 ascii =》 编排了128个文字符号，只需要7位二进制 0111111 =》 1 byte =》 8bit ANSI =》 一套标准，每个字符16bit，2byte Unicode： 万国码， 32bit、4byte （没法用，是一种标准） utf： 是可变长度的unicode，可以进行数据的传输和存储 utf-8：最短的字节长度8 英文 8bit 1， 欧洲文字 16bit 2byte， 中文：24bit，3byte utf-16：最短的字节长度16 gbk和utf-8 不能直接进行转化。 bytes\nstr.encode(“编码”）: 进行编码\nbytes.decode(“编码”）: 进行解码\ns = \"周杰伦\" bs1 = s.encode(\"gbk\") # b'xxxx\" bytes类型 bs2 = s.encode(\"utf-8\") print(bs1) # 怎么把一个gbk的字节转化成utf-8的字节 bs = b'\\xd6\\xdc\\xbd\\xdc\\xc2\\xd7\" # 先变成文字符号（字符串） s= bs.decode (\"gbk\") #解码 bs2 三 s.encode (\"utf-8\") # 重新编码 print (bs2) 1.5.8 运算符 算数运算 : +-*/%\n比较运算 : \u003e \u003c \u003e= \u003c= == !=\n赋值运算: = += -= *= a += b 等同于 a = a + b\n逻辑运算： and or not 运算的时候 最好加上括号 以免歧义 优先级: 先算括号内的 \u003e not \u003e and \u003e or\nprint(True and False or True or not False) 成员运算: in、 not in 1.5.9 文件操作 mode 模式：\nr： 读取模式 w： 写入模式 a: 追加模式 b： 读写非文本文件 -》 bytes with： 上下文， 不需要手动去关闭一个文件\n修改文件：\n从源文件中读取内容. 在內存中进行调整（修改） 把修改后的内容写入新文件中 删除源文件．将新文件重命名成源文件 f = open(“文件路径\"， mode=“模式\"， encoding=“编码格式\") line = f.readline() # 读一行往下走一行 line = f.readline().strip() # 去掉两边空白和换行符 content = f.readlines() print(content) for line in f: print(line.strip()) # 写入文件 f = open('test.txt', mode='w', encoding='utf-8') f.write('aaa') f.close() # 准备一个列表.要求把列表中的每一项内容，写入到文件中 lst =【\"张无忌\"，\"汪峰\"，\"章子怡\"，\"赵敏\"] f = open(\"打架.txt\", mode=\"w\", encoding=\"utf-8\") for item in lst: f.write(item) f.write(\"\\n\") f.close() with open(\"国产自拍.txt\", mode=\"w\", encoding=\"utf-8\"): for line in f: print(line.strip()) f.read() # 报错，with完成后会自动关闭文件 # 读取非文本文件时候要加上b with open(\"美女.jpeg\", mode=\"rb\"): for line in f: print(line) # 文件复制 with open(\"美女.jpeg\", mode=\"rb\") as f1, \\ open(\"美女2.jpeg\", mode=\"wb\") as f2: for line in f1: f2.write(line) 1.6 函数编程 函数的概念 函数的参数 函数的返回值 python內置函数\n1.6.1 函数的定义 函数：对某一个特定的功能或者代码块进行封装．在需要使用该功能的时候直接调用即可\n定义： def 函数的名字(）： 被封装的功能或者代码块-\u003e函数体\n调用： 函数的名字（）\n好处：证程序更加简洁．代码更加合理\n参数：可以在函数调用的时候．给函数传递一些信息 分类： 1. 形参，在函数定义的时候．需要准备一些变量来接收信息 1. 位置参数，按照位置一个一个的去声明变量 2. 默认值参数，在函数声明的时候给变量一个默认值，如果实参不传递信息，此时默认值生效，否则就不生效 3. 动态传参。 1. *args, 表示接收所有的位置参数的动态传参 2. **kwargs，表示接收所有的关键字的动态传参 顺序：位置\u003e *args 》 默认值 ＞ **kwargs 上述参数可以随意搭配使用\n2．实参，实际在调用的时候传递的信息 1. 位置参数．按照位置进行传递参数 2. 关键字参数．按照参数的名字进行传递参数 3. 混合参数. 顺序：位置参数放前面，关键字参数放后面 -》 否则报错！官方不让这么干 实参在执行的时候，必须要保障形参有数据 返回值：函数执行之后．会给调用方一个结果．这个结果就是返回值\n关于return: 函数只要执行到了 return．函数就会立即停止并返回内容．函数内的return的后续的代码不会执行 1. 如果函数内没有 return，此时外界收到的是None 2.如果写了 return 1.只写了return，后面不跟数据，此时接收到的依然是None -》相当于break 2. return 值，此时表示函数有一个返回值，外界能够收到一个数据 -\u003e 用的最多 3. return 值1，值2，值3... 此时函数有多个返回值，外界收到的是元组，并且，该元组内存放所有的返回值， def fun_name(para=True): pass fun_name(False) def chi(*food): # * 表示位置参数的动态传参, *接受到的值会统一放在一个元组里面 print(food) def func(a, b, c=\"哈哈\"，*ags，**kwargs)： print(a, b, args, kwargs) func(1,2,3,4,5,6,7,8,9, helLo=456, hahalou =654) # \u003e 1 2 3 （4， 5,6,7，8, 9) {'hello'：456,'hahalou':654} lst = [1,2,3,4] def func(*args): print(args) func(*lst) # *在实参位置，是把列表打散称位置仓数进行传递 1.6.2 内置函数 内置函数： 直接能拿来用的函数\nint bool float complex 复数： 实部 + 虚部\nsum\nmin\nmax\npow\nslice()\n1.6.3 函数的嵌套 函数的嵌套 变量的作用域 闭包 装饰器 迭代器 生成器 推导式 匿名函数 python內置函数_下\n1.6.4 作用域 作用域： 变量的访问权限\nglobal: 在局部，引入全局 nonlocal： 在局部，引入外层的局部变量\na = 10 def func(): # print (a) # 此时我就想在函数内部修改全局的变量a global a # 把外面的全局变量引入到局部 a = 20 # 创建一个局部变量，并没有去改变全局变量中的a 1.6.5 闭包 闭包：本质，内层函数对外层函数的局部变量的使用，此时内层函数被称为闭包函数 1. 可以让一个变量常驻与内存 2. 可以避免全局变量被修改\ndef func()： a = 10 def inner(): nonlocal a # 向外找一层．看看有没有该变量，如果有就引入，如果没有，继续向外一层，直到全局（不包括） a += 1 return a return inner ret = func() # inner =\u003e ret =\u003e 什么时候执行 ret() 1.6.6 函数装饰器 内容回顾：\n函数可以做为参数进行传递 函数可以作为返回值进行返回 函数名称可以当成变量一样进行赋值操作 装饰器： -》 要求记住最后的结论 装饰器本质上是一个闭包 作用： 在不改变原有函数调用的情况下，给函数增加新的功能 直白： 可以在函数前后添加新功能，但是不改原来的代码 在用户登录的地方，日志， 通用装饰器的写法： def wrapper(fn): wrapper: 装饰器， fn：目标函数 def inner(*args, **kwargs): # 在目标函数执行之前 ret = fn(*args, **kwargs) # 在目标函数执行之后 return ret return inner @wrapper1 @wrapper2 def targe（）: pass target() # =\u003e inner()\ndef func1(): print(\"我是函数1\"） def func2(): print(“我是函数2\"） func1 = func2 func1() # 输出 ““我是函数2\" ### 装饰器原理 def guanjia(game)： def inner()： print（\"打开外挂\"） game () 玩起来了 print（'关闭外挂\"） return inner def play_dnf(): print（\"你好啊，我叫赛利亚，今天又是美好的一天！） def play_lol(): print（\"德玛西亚！！！！！！\"） play_dnf = guanjia(play_dnf) # 让管家把游戏重新封装一遍，我这边把原来的游戏替换了 play_dnf() # d此时运行的是guanjia给的内层函数inner ### 装饰器优化 @guanjua # 相当于 play_dnf = guanjia(play_dnf) def play_dnf(): print（\"你好啊，我叫赛利亚，今天又是美好的一天！） 装饰器实战\n1.6.7 迭代器 iterable： 可迭代的东西， python中可以迭代的数据类型有： str，list、tuple、dict、set、open()\n可迭代的数据类型都会提供一个叫迭代器的东西，这个迭代器可以帮我们把数据类型中的所有数据逐一的拿到\n获取迭代器的两种方案： 1. iter(）内置函数可以直接拿到迭代器 2. __iter__\n从迭代器中拿到数据： 1. next() 内置函数 ，迭代超过后，如果还执行next镜像迭代就报：StopIteration 2. __next__() 特殊方法\nfor里面一定是要拿迭代器的，所以所有不可迭代的东西不能用for循环 for循环里面一定有__next__出现\n迭代器本身的特性：\n只能向前不能反复 特别节省内存 惰性机制 1.6.8 生成器 生成器（generator）： 生成器的本质就是迭代器\n创建生成器的两种方案： 1. 生成器函数 2．生成器表达式 生成器函数 生成器函数中有一个关键字yield 生成器函数执行的时候，并不会执行函数，得到的是生成器. 〉 yield：只要函数中出现了yield.它就是一个生成器函数 作用： 1. 可以返回数据 2． 可以分段的执行函数中的内容，通过`__next__()`可以执行到下一个yield位置 优势： 用好了，特别的节省内存 推导式 推导式： 简化代码， 语法： 列表推导式：[数据 for循环 if判断] 集合推导式： {数据 for循环 if判断} 字典推导式： {k:v for循环 if判断}\n# 3，将如下列表中所有的英文字母修改成大写 lst1 = [\"allen\"，\"tony\"，\"kevin\", \"sylar\"] lst2 = [item.upper() for item in lst1] print(lst2) 生成器表达式 生成器表达式: 语法：（数据 for循环 if）\ngen = （i**2 for i in range(10)) print(gen.__next__()) print(gen.__next__)) print(gen.__next__()） print(gen.__next__()) # 元组转列表 lst = list（gen） print（lst） 1.6.9 匿名函数 匿名函数： lambda表达式 语法： 变量 = lambda para1，para2，para3, … : 返回值\ndef func(a, b) return a + b ret = func(13, 12) print(ret) fn = lambda a, b: a+b print(fn） # 打印函数： ",
+  "wordCount" : "1253",
+  "inLanguage": "zh-cn",
+  "datePublished": "2022-05-24T17:56:43+08:00",
+  "dateModified": "2022-05-24T17:56:43+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gopy.fun/posts/note/python-note.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoPY Fun",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gopy.fun/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
-<body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
-                
-                    <a id="logo" href="https://gopy.fun/">
-                        GoPY Fun
-                    </a>
-                
-                
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://gopy.fun/">首页</a>
-                    
-                </nav>
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://gopy.fun/" accesskey="h" title="GoPY Fun (Alt + H)">GoPY Fun</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
         </div>
-    </div>
+        <ul id="menu">
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
-
-                <div class="col-8" id="main">
-                    
-<div class="res-cons">
+<article class="post-single">
+  <header class="post-header">
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">Python note</h1>
-        </header>
-        <date class="post-meta meta-date">
-            2022年5月24日
-        </date>
-        
-        
-        
-        <div class="post-content">
-            <h2 id="内容">内容</h2>
+    <h1 class="post-title">
+      Python note<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-05-24 17:56:43 +0800 CST'>May 24, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="index-内容">Index. 内容<a hidden class="anchor" aria-hidden="true" href="#index-内容">#</a></h2>
 <p>基本部分笔记记录在这里其他内容参考：</p>
 <ul>
 <li><a href="/posts/note/python-flash-note/">Python Flask Note</a></li>
 </ul>
-<h2 id="python基础">python基础</h2>
-<h3 id="虚拟环境">虚拟环境</h3>
+<h2 id="开始python开发环境配置以及ide配置">开始、python开发环境配置以及IDE配置<a hidden class="anchor" aria-hidden="true" href="#开始python开发环境配置以及ide配置">#</a></h2>
+<p>在开始写python项目钱，我们必须先安装python的环境、虚拟环境以及IDE。IDE的配置后面有专门的笔记记录下，这部分内容也可以单独开设一个专题。</p>
+<h3 id="python的安装">python的安装<a hidden class="anchor" aria-hidden="true" href="#python的安装">#</a></h3>
+<h3 id="python的ide配置">python的IDE配置<a hidden class="anchor" aria-hidden="true" href="#python的ide配置">#</a></h3>
+<h3 id="python的环境变量配置">python的环境变量配置<a hidden class="anchor" aria-hidden="true" href="#python的环境变量配置">#</a></h3>
+<h3 id="虚拟环境">虚拟环境<a hidden class="anchor" aria-hidden="true" href="#虚拟环境">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>python3 <span style="color:#f92672">-</span>m venv venv
 </span></span><span style="display:flex;"><span>source <span style="color:#f92672">./</span>venv<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>activate
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>deactivate
-</span></span></code></pre></div>
-        </div>
+</span></span></code></pre></div><h3 id="pip-安装和-源设置">pip 安装和 源设置<a hidden class="anchor" aria-hidden="true" href="#pip-安装和-源设置">#</a></h3>
+<h2 id="一基础部分">一、基础部分<a hidden class="anchor" aria-hidden="true" href="#一基础部分">#</a></h2>
+<ul>
+<li>学习世界： 2022-10-21</li>
+</ul>
+<h3 id="11-变量">1.1 变量<a hidden class="anchor" aria-hidden="true" href="#11-变量">#</a></h3>
+<p>Python变量的命名规范：</p>
+<ol>
+<li>必须是数字或字母或下换线组成.</li>
+<li>不能是数字开头，更不能是纯数字</li>
+<li>不能用python的关键字</li>
+<li>不要用中文</li>
+<li>不要太长</li>
+</ol>
+<h3 id="12-常量">1.2 常量<a hidden class="anchor" aria-hidden="true" href="#12-常量">#</a></h3>
+<p>变量的形式：</p>
+<ol>
+<li>print(123)</li>
+<li>字母大写的变量 可以 认为是常量。</li>
+<li>python里没有绝对意义的常量，都可以被覆盖</li>
+</ol>
+<h3 id="13-数据类型">1.3 数据类型<a hidden class="anchor" aria-hidden="true" href="#13-数据类型">#</a></h3>
+<ul>
+<li>数字</li>
+<li>文字</li>
+<li>布尔： True 、 False</li>
+</ul>
+<h3 id="14-控制语句">1.4 控制语句<a hidden class="anchor" aria-hidden="true" href="#14-控制语句">#</a></h3>
+<h4 id="判断语句">判断语句<a hidden class="anchor" aria-hidden="true" href="#判断语句">#</a></h4>
+<p>语句结构：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><h4 id="循环语句">循环语句<a hidden class="anchor" aria-hidden="true" href="#循环语句">#</a></h4>
+<p>语句结构：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><ul>
+<li>break:让当前这个循环立即停止，用在while语句中</li>
+</ul>
+<blockquote>
+<p>Q:  for 循环中可以用吗？</p>
+</blockquote>
+<ul>
+<li>continue：停止当前本次循环，继续执行下一次循环</li>
+<li>pass ： 代码占位，无作用</li>
+</ul>
+<h4 id="for循环">for循环<a hidden class="anchor" aria-hidden="true" href="#for循环">#</a></h4>
+<ul>
+<li>字符串可以迭代</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> s:
+</span></span><span style="display:flex;"><span>    print(c)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><ul>
+<li><code>range (n)</code>: 从0数到n.不包含n</li>
+<li><code>range (m， n)</code>：从m数到n，不包含n</li>
+<li><code>range(m, n，s)</code>：从m数到n，不包含n, 每次的间隔是s</li>
+</ul>
+<h3 id="15-python的基础类型">1.5 python的基础类型<a hidden class="anchor" aria-hidden="true" href="#15-python的基础类型">#</a></h3>
+<ul>
+<li>ini， float， bool</li>
+<li>str</li>
+<li>list</li>
+<li>tuple</li>
+<li>set</li>
+<li>dist</li>
+<li>bytes</li>
+<li>运算符</li>
+<li>文件操作</li>
+</ul>
+<h4 id="151-数字">1.5.1 数字<a hidden class="anchor" aria-hidden="true" href="#151-数字">#</a></h4>
+<h4 id="152-字符串-str">1.5.2 字符串 str<a hidden class="anchor" aria-hidden="true" href="#152-字符串-str">#</a></h4>
+<ul>
+<li>%s 字符串占位</li>
+<li>%d 整数占位</li>
+</ul>
+<h5 id="字符串格式化">字符串格式化<a hidden class="anchor" aria-hidden="true" href="#字符串格式化">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;我叫%S&#34;</span> <span style="color:#960050;background-color:#1e0010">％</span> name
+</span></span><span style="display:flex;"><span>s0 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;我叫%S，我住在%S，我今年</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">岁，我喜欢</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#960050;background-color:#1e0010">％</span> (name<span style="color:#960050;background-color:#1e0010">，</span> address, age, hobby)
+</span></span><span style="display:flex;"><span>s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;我叫</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">，我住在</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">，我今年</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">岁，我喜欢</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format (name, address, age, hobby)
+</span></span><span style="display:flex;"><span>s2 <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;我叫</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">，我叫</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">，今年</span><span style="color:#e6db74">{</span>age<span style="color:#e6db74">}</span><span style="color:#e6db74">岁，我叫</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">，我叫</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#75715e"># f-string</span>
+</span></span><span style="display:flex;"><span>print (s1)
+</span></span></code></pre></div><h5 id="索引和切片">索引和切片<a hidden class="anchor" aria-hidden="true" href="#索引和切片">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 索引： </span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;我叫周杰伦&#34;</span>
+</span></span><span style="display:flex;"><span>print(s[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>print(s[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># slice： 从一个字符串中提取一部分内容</span>
+</span></span><span style="display:flex;"><span>print(s[<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">6</span>]) <span style="color:#75715e"># 从索引3的位置进行切片，切到6结束，但取不到索引6</span>
+</span></span><span style="display:flex;"><span>print(s[<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 可以给切片添加步长拉及控制方向</span>
+</span></span><span style="display:flex;"><span>print(s[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#75715e"># 表示从右往左</span>
+</span></span></code></pre></div><h5 id="字符串的常规操作">字符串的常规操作<a hidden class="anchor" aria-hidden="true" href="#字符串的常规操作">#</a></h5>
+<ul>
+<li>s.capitalize() : 字符串大小写转换</li>
+<li>s.title() : 单词的首字母大写</li>
+<li>s.lower() : 所有字母换小写</li>
+<li>s.upper() : 所有字母换大写</li>
+</ul>
+<h5 id="字符串的切割和替换">字符串的切割和替换<a hidden class="anchor" aria-hidden="true" href="#字符串的切割和替换">#</a></h5>
+<ul>
+<li>s.strip(): 去掉字符串左右两端的空白符（空格、\t 、 \n）</li>
+<li>s.replace(old, new) # 替换</li>
+<li>s.split(切割符号) # 按切割的字符串切割，会返回切割后的列表</li>
+</ul>
+<h5 id="字符串的查找和替换">字符串的查找和替换<a hidden class="anchor" aria-hidden="true" href="#字符串的查找和替换">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;你好，我叫周润发&#34;</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;周润发&#34;</span>) <span style="color:#75715e"># 返回结果-1是没有， 如果有则返回整数索引</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>index(<span style="color:#e6db74">&#34;zhou&#34;</span>) <span style="color:#75715e"># 如果报错就没有</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;周&#34;</span> <span style="color:#f92672">in</span>  s) <span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;周&#34;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span>  s) <span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>startwith(<span style="color:#e6db74">&#39;涨&#39;</span>) <span style="color:#75715e"># 判断字符串是否以xxx开头</span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>isdigit() <span style="color:#75715e"># 判断字符串是否由整数组成</span>
+</span></span></code></pre></div><h5 id="补充和总结">补充和总结<a hidden class="anchor" aria-hidden="true" href="#补充和总结">#</a></h5>
+<ul>
+<li>len(): length长度</li>
+<li>&ldquo;xx&rdquo;.join():  用xx拼接list为字符串</li>
+</ul>
+<h4 id="153-列表">1.5.3 列表<a hidden class="anchor" aria-hidden="true" href="#153-列表">#</a></h4>
+<blockquote>
+<p>a = [&lsquo;aaa&rsquo;,&lsquo;bbb&rsquo;,&lsquo;ccc&rsquo;]
+列表特征：</p>
+</blockquote>
+<ol>
+<li>也像字符串一样也有索引和切片</li>
+<li>索引如果超过范围会报错</li>
+<li>可以用for循环进行遍历</li>
+<li>用len可以拿到列表的长度</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>l <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>l<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">111</span>) <span style="color:#75715e"># 追加</span>
+</span></span><span style="display:flex;"><span>l<span style="color:#f92672">.</span>insert(<span style="color:#ae81ff">222</span>) <span style="color:#75715e"># 插入</span>
+</span></span><span style="display:flex;"><span>l<span style="color:#f92672">.</span>extend([<span style="color:#e6db74">&#39;aaa&#39;</span>,<span style="color:#e6db74">&#39;bbb&#39;</span>]) <span style="color:#75715e"># 合并2个列表</span>
+</span></span><span style="display:flex;"><span>l<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">3</span>) <span style="color:#75715e"># 弹出指定索引的元素</span>
+</span></span><span style="display:flex;"><span>l<span style="color:#f92672">.</span>remove(<span style="color:#e6db74">&#39;aaa&#39;</span>) <span style="color:#75715e"># 删除某个元素</span>
+</span></span><span style="display:flex;"><span>l[<span style="color:#ae81ff">4</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;oo&#39;</span> <span style="color:#75715e"># 直接用索引修改元素</span>
+</span></span><span style="display:flex;"><span>print(l[<span style="color:#ae81ff">4</span>]) <span style="color:#75715e"># 查询某个元素</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 列表的排序</span>
+</span></span><span style="display:flex;"><span>l <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">&#39;aa&#39;</span>,<span style="color:#e6db74">&#39;bb&#39;</span>] 
+</span></span><span style="display:flex;"><span>l<span style="color:#f92672">.</span>sort() <span style="color:#75715e"># 对列表进行升序排序</span>
+</span></span><span style="display:flex;"><span>l<span style="color:#f92672">.</span>sort(reverse <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>) <span style="color:#75715e"># reverse: 翻转</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> l: <span style="color:#75715e"># 遍历列表</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><h4 id="154-元组">1.5.4 元组<a hidden class="anchor" aria-hidden="true" href="#154-元组">#</a></h4>
+<p>tuple元组： 固定了某些数据，不允许外界修改，内存地址不能变</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>t <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;aaa&#39;</span>,<span style="color:#e6db74">&#39;bbb&#39;</span>, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>])
+</span></span><span style="display:flex;"><span>t[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ooo&#39;</span> <span style="color:#75715e"># 报错，不可被重新赋值</span>
+</span></span><span style="display:flex;"><span>t[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">4</span>) <span style="color:#75715e"># 坑： 元组里面元素的内容如果是列表的话可以变</span>
+</span></span></code></pre></div><h4 id="155-set集合">1.5.5 set集合<a hidden class="anchor" aria-hidden="true" href="#155-set集合">#</a></h4>
+<ul>
+<li>set集合是无序的</li>
+<li>没有重复的数据出现，重要的作用是去重复数据</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;aaa&#39;</span>,<span style="color:#ae81ff">3</span>} <span style="color:#75715e"># 打印后位置会变</span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;aaa&#39;</span>,<span style="color:#ae81ff">3</span>, []} <span style="color:#75715e"># 报错，有不可哈希的元素</span>
+</span></span></code></pre></div><ul>
+<li>不可哈希：python中的set集合进行数据存储的时候，需要对数据进行哈希计算，根据计算出来的哈希值进行存储数据
+set集合要求存储的数据必须是可以进行哈希计算的．
+可变的数据类型，list, dict, set</li>
+<li>可哈希：不可变的数据类型，int,str, tuple, bool.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> set() <span style="color:#75715e"># 创建空集合</span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>add(<span style="color:#e6db74">&#39;ccc&#39;</span>)
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>add(<span style="color:#e6db74">&#39;ddd&#39;</span>)
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>pop() <span style="color:#75715e"># 由于集合无序，测试的时候无法验证是最后一个</span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>remove(<span style="color:#e6db74">&#39;ccc&#39;</span>) <span style="color:#75715e">#先要修改，先删除再新增</span>
+</span></span></code></pre></div><p>交集、并集、差集</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s1<span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;aaa&#39;</span>,<span style="color:#e6db74">&#34;皮长山&#34;</span>}
+</span></span><span style="display:flex;"><span>s2 <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;刘科长&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;冯乡长&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;皮长山&#34;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print (s1 <span style="color:#f92672">&amp;</span> s2) <span style="color:#75715e">#交集</span>
+</span></span><span style="display:flex;"><span>print(s1<span style="color:#f92672">.</span> intersection(s2))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print (s1 <span style="color:#f92672">|</span> s2) <span style="color:#75715e">#并集</span>
+</span></span><span style="display:flex;"><span>print(s1<span style="color:#f92672">.</span>union(s2))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print (s1 <span style="color:#f92672">-</span> s2) <span style="color:#75715e">#差集</span>
+</span></span><span style="display:flex;"><span>print (s1<span style="color:#f92672">.</span>difference(s2))
+</span></span></code></pre></div><h4 id="156-字典">1.5.6 字典<a hidden class="anchor" aria-hidden="true" href="#156-字典">#</a></h4>
+<ul>
+<li>字典是以键值对的形式进行存储数据的</li>
+<li>表示方式： {key: value, key2: value2}</li>
+<li>key必须是可哈希的数据类型， value可以放任何数据类型</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dic <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;jay&#39;</span>: <span style="color:#e6db74">&#34;周杰伦&#34;</span> , }
+</span></span><span style="display:flex;"><span>print(dic[<span style="color:#e6db74">&#39;jay&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 字典的增删改查</span>
+</span></span><span style="display:flex;"><span>dic <span style="color:#f92672">=</span> dict()
+</span></span><span style="display:flex;"><span>dic[<span style="color:#e6db74">&#39;jay&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;周杰伦&#34;</span>
+</span></span><span style="display:flex;"><span>dic[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>
+</span></span><span style="display:flex;"><span>dic[<span style="color:#e6db74">&#39;jay&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;kkk&#34;</span> <span style="color:#75715e"># 修改操作</span>
+</span></span><span style="display:flex;"><span>dic<span style="color:#f92672">.</span>setdefault(<span style="color:#e6db74">&#39;tom&#39;</span>, <span style="color:#e6db74">&#39;aaa&#39;</span>) <span style="color:#75715e"># 设置默认值，如果以前已经有了tom，setdefault就不起作用了</span>
+</span></span><span style="display:flex;"><span>dic<span style="color:#f92672">.</span>setdefault(<span style="color:#e6db74">&#39;tom&#39;</span>, <span style="color:#e6db74">&#39;bbb&#39;</span>) <span style="color:#75715e"># 设置默认值，如果以前已经有了tom，setdefault就不起作用了</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dic<span style="color:#f92672">.</span>pop(<span style="color:#e6db74">&#39;jay&#39;</span>) <span style="color:#75715e"># 根据key删除指定值</span>
+</span></span><span style="display:flex;"><span>print(dic[<span style="color:#e6db74">&#39;xx&#39;</span>]) <span style="color:#75715e"># 如果key不存在，程序会报错</span>
+</span></span><span style="display:flex;"><span>print(dic<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;xx&#39;</span>)) <span style="color:#75715e"># 如果key不存在，程序返回None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># None 空类型</span>
+</span></span><span style="display:flex;"><span>n <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>print(type(n))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> d<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;aaa&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span>: print(<span style="color:#e6db74">&#39;不存在这个人&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 循环</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> k, v <span style="color:#f92672">in</span> dic<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>    print(item) 
+</span></span><span style="display:flex;"><span>    print(k, v)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 嵌套</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 关于字典的循环删除, 不能修改原来的，可以用新字典接</span>
+</span></span><span style="display:flex;"><span>temp<span style="color:#f92672">=</span>[]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> dic:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> key<span style="color:#f92672">.</span>startswich(<span style="color:#e6db74">&#39;大&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># dic.pop(key) # 报错，不能修改循环中的字典</span>
+</span></span><span style="display:flex;"><span>        temp<span style="color:#f92672">.</span>append(key) 
+</span></span></code></pre></div><h4 id="157-bytes">1.5.7 bytes<a hidden class="anchor" aria-hidden="true" href="#157-bytes">#</a></h4>
+<ol>
+<li>
+<p>字符和编码</p>
+<ul>
+<li>二进制： 0 1 &lt;==&gt; 10101010 =》 二进制转换成十进制 《==》</li>
+<li>ascii =》 编排了128个文字符号，只需要7位二进制  0111111 =》 1 byte =》 8bit</li>
+<li>ANSI =》 一套标准，每个字符16bit，2byte</li>
+<li>Unicode： 万国码， 32bit、4byte （没法用，是一种标准）</li>
+<li>utf： 是可变长度的unicode，可以进行数据的传输和存储
+utf-8：最短的字节长度8
+英文 8bit 1， 欧洲文字 16bit 2byte， 中文：24bit，3byte
+utf-16：最短的字节长度16</li>
+<li>gbk和utf-8 不能直接进行转化。</li>
+</ul>
+</li>
+<li>
+<p>bytes</p>
+</li>
+<li>
+<p>str.encode(&ldquo;编码&rdquo;）: 进行编码</p>
+</li>
+<li>
+<p>bytes.decode(&ldquo;编码&rdquo;）: 进行解码</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;周杰伦&#34;</span>
+</span></span><span style="display:flex;"><span>bs1 <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;gbk&#34;</span>) <span style="color:#75715e"># b&#39;xxxx&#34; bytes类型</span>
+</span></span><span style="display:flex;"><span>bs2 <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
+</span></span><span style="display:flex;"><span>print(bs1)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 怎么把一个gbk的字节转化成utf-8的字节</span>
+</span></span><span style="display:flex;"><span>bs <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\xd6\xdc\xbd\xdc\xc2\xd7</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 先变成文字符号（字符串）</span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">=</span> bs<span style="color:#f92672">.</span>decode (<span style="color:#e6db74">&#34;gbk&#34;</span>) <span style="color:#75715e">#解码</span>
+</span></span><span style="display:flex;"><span>bs2 三 s<span style="color:#f92672">.</span>encode (<span style="color:#e6db74">&#34;utf-8&#34;</span>) <span style="color:#75715e"># 重新编码</span>
+</span></span><span style="display:flex;"><span>print (bs2)
+</span></span></code></pre></div><h4 id="158-运算符">1.5.8 运算符<a hidden class="anchor" aria-hidden="true" href="#158-运算符">#</a></h4>
+<ol>
+<li>
+<p>算数运算 : +-*/%</p>
+</li>
+<li>
+<p>比较运算 : &gt; &lt; &gt;= &lt;= == !=</p>
+</li>
+<li>
+<p>赋值运算: = += -= *=
+a += b  等同于 a = a + b</p>
+</li>
+<li>
+<p>逻辑运算： and or not
+运算的时候 最好加上括号 以免歧义
+优先级: 先算括号内的 &gt; not &gt; and &gt; or</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#66d9ef">True</span> <span style="color:#f92672">and</span> <span style="color:#66d9ef">False</span> <span style="color:#f92672">or</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><ol start="5">
+<li>成员运算: in、 not in</li>
+</ol>
+<h4 id="159-文件操作">1.5.9 文件操作<a hidden class="anchor" aria-hidden="true" href="#159-文件操作">#</a></h4>
+<p>mode 模式：</p>
+<ul>
+<li>r： 读取模式</li>
+<li>w： 写入模式</li>
+<li>a: 追加模式</li>
+<li>b： 读写非文本文件 -》 bytes</li>
+<li></li>
+</ul>
+<p>with： 上下文， 不需要手动去关闭一个文件</p>
+<p>修改文件：</p>
+<ol>
+<li>从源文件中读取内容.</li>
+<li>在內存中进行调整（修改）</li>
+<li>把修改后的内容写入新文件中</li>
+<li>删除源文件．将新文件重命名成源文件</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>f <span style="color:#f92672">=</span> open(<span style="color:#960050;background-color:#1e0010">“</span>文件路径<span style="color:#e6db74">&#34;， mode=“模式&#34;</span><span style="color:#960050;background-color:#1e0010">，</span> encoding<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">“</span>编码格式<span style="color:#e6db74">&#34;)</span>
+</span></span><span style="display:flex;"><span>line <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>readline() <span style="color:#75715e"># 读一行往下走一行</span>
+</span></span><span style="display:flex;"><span>line <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>readline()<span style="color:#f92672">.</span>strip() <span style="color:#75715e"># 去掉两边空白和换行符</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>content <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>readlines() 
+</span></span><span style="display:flex;"><span>print(content)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> f:
+</span></span><span style="display:flex;"><span>    print(line<span style="color:#f92672">.</span>strip())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 写入文件</span>
+</span></span><span style="display:flex;"><span>f <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;test.txt&#39;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</span></span><span style="display:flex;"><span>f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39;aaa&#39;</span>)
+</span></span><span style="display:flex;"><span>f<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 准备一个列表.要求把列表中的每一项内容，写入到文件中</span>
+</span></span><span style="display:flex;"><span>lst <span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">【</span><span style="color:#e6db74">&#34;张无忌&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;汪峰&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;章子怡&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;赵敏&#34;</span>]
+</span></span><span style="display:flex;"><span>f <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;打架.txt&#34;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> lst:
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(item)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>f<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;国产自拍.txt&#34;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> f:
+</span></span><span style="display:flex;"><span>        print(line<span style="color:#f92672">.</span>strip())
+</span></span><span style="display:flex;"><span>f<span style="color:#f92672">.</span>read() <span style="color:#75715e"># 报错，with完成后会自动关闭文件</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 读取非文本文件时候要加上b</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;美女.jpeg&#34;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rb&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> f:
+</span></span><span style="display:flex;"><span>        print(line)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 文件复制</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;美女.jpeg&#34;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rb&#34;</span>) <span style="color:#66d9ef">as</span> f1, \
+</span></span><span style="display:flex;"><span>     open(<span style="color:#e6db74">&#34;美女2.jpeg&#34;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> f2:
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> f1:
+</span></span><span style="display:flex;"><span>        f2<span style="color:#f92672">.</span>write(line)
+</span></span></code></pre></div><h3 id="16-函数编程">1.6 函数编程<a hidden class="anchor" aria-hidden="true" href="#16-函数编程">#</a></h3>
+<p>函数的概念
+函数的参数
+函数的返回值
+python內置函数</p>
+<h4 id="161-函数的定义">1.6.1 函数的定义<a hidden class="anchor" aria-hidden="true" href="#161-函数的定义">#</a></h4>
+<p>函数：对某一个特定的功能或者代码块进行封装．在需要使用该功能的时候直接调用即可</p>
+<p>定义：
+def 函数的名字(）：
+被封装的功能或者代码块-&gt;函数体</p>
+<p>调用：
+函数的名字（）</p>
+<p>好处：证程序更加简洁．代码更加合理</p>
+<p>参数：可以在函数调用的时候．给函数传递一些信息
+分类：
+1. 形参，在函数定义的时候．需要准备一些变量来接收信息
+1. 位置参数，按照位置一个一个的去声明变量
+2. 默认值参数，在函数声明的时候给变量一个默认值，如果实参不传递信息，此时默认值生效，否则就不生效
+3. 动态传参。
+1. *args, 表示接收所有的位置参数的动态传参
+2. **kwargs，表示接收所有的关键字的动态传参
+顺序：位置&gt; *args 》 默认值 ＞ **kwargs
+上述参数可以随意搭配使用</p>
+<pre><code>2．实参，实际在调用的时候传递的信息
+    1. 位置参数．按照位置进行传递参数
+    2. 关键字参数．按照参数的名字进行传递参数
+    3. 混合参数.
+        顺序：位置参数放前面，关键字参数放后面 -》 否则报错！官方不让这么干
+    实参在执行的时候，必须要保障形参有数据
+</code></pre>
+<p>返回值：函数执行之后．会给调用方一个结果．这个结果就是返回值</p>
+<pre><code>关于return:
+    函数只要执行到了 return．函数就会立即停止并返回内容．函数内的return的后续的代码不会执行
+    1. 如果函数内没有 return，此时外界收到的是None
+    2.如果写了 return
+        1.只写了return，后面不跟数据，此时接收到的依然是None -》相当于break
+        2. return 值，此时表示函数有一个返回值，外界能够收到一个数据 -&gt; 用的最多
+        3. return 值1，值2，值3... 此时函数有多个返回值，外界收到的是元组，并且，该元组内存放所有的返回值，
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fun_name</span>(para<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fun_name(<span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chi</span>(<span style="color:#f92672">*</span>food): <span style="color:#75715e"># * 表示位置参数的动态传参, *接受到的值会统一放在一个元组里面</span>
+</span></span><span style="display:flex;"><span>    print(food)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(a, b, c<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;哈哈&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#f92672">*</span>ags<span style="color:#960050;background-color:#1e0010">，</span><span style="color:#f92672">**</span>kwargs)<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>    print(a, b, args, kwargs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>, helLo<span style="color:#f92672">=</span><span style="color:#ae81ff">456</span>, hahalou <span style="color:#f92672">=</span><span style="color:#ae81ff">654</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &gt; 1 2 3 （4， 5,6,7，8, 9) {&#39;hello&#39;：456,&#39;hahalou&#39;:654}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lst <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(<span style="color:#f92672">*</span>args):
+</span></span><span style="display:flex;"><span>    print(args)
+</span></span><span style="display:flex;"><span>func(<span style="color:#f92672">*</span>lst) <span style="color:#75715e"># *在实参位置，是把列表打散称位置仓数进行传递</span>
+</span></span></code></pre></div><h4 id="162-内置函数">1.6.2 内置函数<a hidden class="anchor" aria-hidden="true" href="#162-内置函数">#</a></h4>
+<p>内置函数： 直接能拿来用的函数</p>
+<p>int bool float
+complex 复数： 实部 + 虚部</p>
+<ul>
+<li>
+<p>sum</p>
+</li>
+<li>
+<p>min</p>
+</li>
+<li>
+<p>max</p>
+</li>
+<li>
+<p>pow</p>
+</li>
+<li>
+<p>slice()</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><h4 id="163-函数的嵌套">1.6.3 函数的嵌套<a hidden class="anchor" aria-hidden="true" href="#163-函数的嵌套">#</a></h4>
+<p>函数的嵌套
+变量的作用域
+闭包
+装饰器
+迭代器
+生成器
+推导式
+匿名函数
+python內置函数_下</p>
+<h4 id="164-作用域">1.6.4 作用域<a hidden class="anchor" aria-hidden="true" href="#164-作用域">#</a></h4>
+<p>作用域： 变量的访问权限</p>
+<p>global: 在局部，引入全局
+nonlocal： 在局部，引入外层的局部变量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># print (a)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 此时我就想在函数内部修改全局的变量a</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> a <span style="color:#75715e"># 把外面的全局变量引入到局部</span>
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>   <span style="color:#75715e"># 创建一个局部变量，并没有去改变全局变量中的a</span>
+</span></span></code></pre></div><h4 id="165-闭包">1.6.5 闭包<a hidden class="anchor" aria-hidden="true" href="#165-闭包">#</a></h4>
+<p>闭包：本质，内层函数对外层函数的局部变量的使用，此时内层函数被称为闭包函数
+1. 可以让一个变量常驻与内存
+2. 可以避免全局变量被修改</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>()<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inner</span>():
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">nonlocal</span> a <span style="color:#75715e"># 向外找一层．看看有没有该变量，如果有就引入，如果没有，继续向外一层，直到全局（不包括）</span>
+</span></span><span style="display:flex;"><span>        a <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> inner
+</span></span><span style="display:flex;"><span>ret <span style="color:#f92672">=</span> func()
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># inner =&gt; ret =&gt; 什么时候执行</span>
+</span></span><span style="display:flex;"><span>ret()
+</span></span></code></pre></div><h4 id="166-函数装饰器">1.6.6 函数装饰器<a hidden class="anchor" aria-hidden="true" href="#166-函数装饰器">#</a></h4>
+<p>内容回顾：</p>
+<ol>
+<li>函数可以做为参数进行传递</li>
+<li>函数可以作为返回值进行返回</li>
+<li>函数名称可以当成变量一样进行赋值操作</li>
+</ol>
+<p>装饰器： -》 要求记住最后的结论
+装饰器本质上是一个闭包
+作用：
+在不改变原有函数调用的情况下，给函数增加新的功能
+直白： 可以在函数前后添加新功能，但是不改原来的代码
+在用户登录的地方，日志，
+通用装饰器的写法：
+def wrapper(fn): wrapper: 装饰器， fn：目标函数
+def inner(*args, **kwargs):
+# 在目标函数执行之前
+ret = fn(*args, **kwargs)
+# 在目标函数执行之后
+return ret
+return inner
+@wrapper1
+@wrapper2
+def targe（）:
+pass
+target() # =&gt; inner()</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func1</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;我是函数1&#34;</span><span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func2</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#960050;background-color:#1e0010">“</span>我是函数2<span style="color:#e6db74">&#34;）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func1 <span style="color:#f92672">=</span> func2
+</span></span><span style="display:flex;"><span>func1() <span style="color:#75715e"># 输出  ““我是函数2&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### 装饰器原理</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">guanjia</span>(game)<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inner</span>()<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>        print<span style="color:#960050;background-color:#1e0010">（</span><span style="color:#e6db74">&#34;打开外挂&#34;</span><span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>        game () 玩起来了
+</span></span><span style="display:flex;"><span>        print<span style="color:#960050;background-color:#1e0010">（</span><span style="color:#e6db74">&#39;关闭外挂&#34;）</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> inner
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">play_dnf</span>():
+</span></span><span style="display:flex;"><span>    print<span style="color:#960050;background-color:#1e0010">（</span><span style="color:#e6db74">&#34;你好啊，我叫赛利亚，今天又是美好的一天！）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">play_lol</span>():
+</span></span><span style="display:flex;"><span>    print<span style="color:#960050;background-color:#1e0010">（</span><span style="color:#e6db74">&#34;德玛西亚！！！！！！&#34;</span><span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>play_dnf <span style="color:#f92672">=</span> guanjia(play_dnf) <span style="color:#75715e"># 让管家把游戏重新封装一遍，我这边把原来的游戏替换了</span>
+</span></span><span style="display:flex;"><span>play_dnf() <span style="color:#75715e"># d此时运行的是guanjia给的内层函数inner</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### 装饰器优化</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@guanjua</span> <span style="color:#75715e"># 相当于 play_dnf = guanjia(play_dnf) </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">play_dnf</span>():
+</span></span><span style="display:flex;"><span>    print<span style="color:#960050;background-color:#1e0010">（</span><span style="color:#e6db74">&#34;你好啊，我叫赛利亚，今天又是美好的一天！）</span>
+</span></span></code></pre></div><p>装饰器实战</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><h4 id="167-迭代器">1.6.7 迭代器<a hidden class="anchor" aria-hidden="true" href="#167-迭代器">#</a></h4>
+<p>iterable： 可迭代的东西， python中可以迭代的数据类型有： str，list、tuple、dict、set、open()</p>
+<p>可迭代的数据类型都会提供一个叫迭代器的东西，这个迭代器可以帮我们把数据类型中的所有数据逐一的拿到</p>
+<p>获取迭代器的两种方案：
+1. iter(）内置函数可以直接拿到迭代器
+2. <code>__iter__</code></p>
+<p>从迭代器中拿到数据：
+1. next() 内置函数 ，迭代超过后，如果还执行next镜像迭代就报：StopIteration
+2. <code>__next__()</code> 特殊方法</p>
+<p>for里面一定是要拿迭代器的，所以所有不可迭代的东西不能用for循环
+for循环里面一定有<code>__next__</code>出现</p>
+<p>迭代器本身的特性：</p>
+<ol>
+<li>只能向前不能反复</li>
+<li>特别节省内存</li>
+<li>惰性机制</li>
+</ol>
+<h4 id="168-生成器">1.6.8 生成器<a hidden class="anchor" aria-hidden="true" href="#168-生成器">#</a></h4>
+<p>生成器（generator）：
+生成器的本质就是迭代器</p>
+<pre><code>创建生成器的两种方案：
+    1. 生成器函数
+    2．生成器表达式
 
-        
+生成器函数
+    生成器函数中有一个关键字yield
+    生成器函数执行的时候，并不会执行函数，得到的是生成器. 〉
+
+    yield：只要函数中出现了yield.它就是一个生成器函数
+        作用：
+            1. 可以返回数据
+            2． 可以分段的执行函数中的内容，通过`__next__()`可以执行到下一个yield位置
+        优势：
+            用好了，特别的节省内存
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><h5 id="推导式">推导式<a hidden class="anchor" aria-hidden="true" href="#推导式">#</a></h5>
+<p>推导式：
+简化代码，
+语法：
+列表推导式：[数据 for循环 if判断]
+集合推导式： {数据 for循环 if判断}
+字典推导式： {k:v for循环 if判断}</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 3，将如下列表中所有的英文字母修改成大写</span>
+</span></span><span style="display:flex;"><span>lst1 <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;allen&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;tony&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;kevin&#34;</span>, <span style="color:#e6db74">&#34;sylar&#34;</span>]
+</span></span><span style="display:flex;"><span>lst2 <span style="color:#f92672">=</span> [item<span style="color:#f92672">.</span>upper() <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> lst1]
+</span></span><span style="display:flex;"><span>print(lst2)
+</span></span></code></pre></div><h5 id="生成器表达式">生成器表达式<a hidden class="anchor" aria-hidden="true" href="#生成器表达式">#</a></h5>
+<p>生成器表达式:
+语法：（数据 for循环 if）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>gen <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">（</span>i<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>print(gen<span style="color:#f92672">.</span>__next__())
+</span></span><span style="display:flex;"><span>print(gen<span style="color:#f92672">.</span>__next__))
+</span></span><span style="display:flex;"><span>print(gen<span style="color:#f92672">.</span>__next__()<span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>print(gen<span style="color:#f92672">.</span>__next__())
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 元组转列表</span>
+</span></span><span style="display:flex;"><span>lst <span style="color:#f92672">=</span> list<span style="color:#960050;background-color:#1e0010">（</span>gen<span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>print<span style="color:#960050;background-color:#1e0010">（</span>lst<span style="color:#960050;background-color:#1e0010">）</span>
+</span></span></code></pre></div><h4 id="169-匿名函数">1.6.9 匿名函数<a hidden class="anchor" aria-hidden="true" href="#169-匿名函数">#</a></h4>
+<p>匿名函数：
+lambda表达式
+语法：
+变量 = lambda para1，para2，para3, &hellip; : 返回值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(a, b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ret <span style="color:#f92672">=</span> func(<span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>print(ret)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fn <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> a, b: a<span style="color:#f92672">+</span>b
+</span></span><span style="display:flex;"><span>print(fn<span style="color:#960050;background-color:#1e0010">）</span> <span style="color:#75715e"># 打印函数： &lt;function &lt;lambda&gt; at 0x10452ab9o&gt;</span>
+</span></span><span style="display:flex;"><span>ret <span style="color:#f92672">=</span> fn(<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">13</span>)
+</span></span><span style="display:flex;"><span>print(ret)
+</span></span></code></pre></div><h4 id="1610-内置函数二">1.6.10 内置函数（二）<a hidden class="anchor" aria-hidden="true" href="#1610-内置函数二">#</a></h4>
+<ul>
+<li>
+<p>zip() ： 可以把多个可迭代的元素进行合并</p>
+</li>
+<li>
+<p>locals() : 当前作用域的内容</p>
+</li>
+<li>
+<p>globals() : 拿全局作用域中的内容</p>
+</li>
+<li>
+<p>sorted() : 排序   sorted(iterable, reverse=bool:是否倒序排， key=fn:排序函数)</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lst <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;秋&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;张二嘎&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;比克&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;卡卡罗特&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;超级宇宙无敌大帅B&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lef func(item)<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#75715e">#item对应的就是列表中的每一顶数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> len (item)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> sonted(lst, key<span style="color:#f92672">=</span>func)
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> sonted(lst, key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> x : len(x)) <span style="color:#75715e"># 相等上面</span>
+</span></span><span style="display:flex;"><span>print(s)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 排序列表字典内的某个内容</span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> sorted(lst, key<span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> d:d[<span style="color:#e6db74">&#39;age&#39;</span>])
+</span></span></code></pre></div><ul>
+<li>filter: 筛选, 语法： filter(fn, iterable)
+返回生成器对象，需要用list 返回列表</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lst <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;张无忌&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;张三丰&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;张翠山&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;灭绝小师太&#34;</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#e6db74">&#34;小狐仙&#34;</span>]
+</span></span><span style="display:flex;"><span>f <span style="color:#f92672">=</span> filter(<span style="color:#66d9ef">lambda</span> x: <span style="color:#f92672">not</span> x<span style="color:#f92672">.</span>startswith(<span style="color:#e6db74">&#34;张&#34;</span>)<span style="color:#960050;background-color:#1e0010">，</span>lst)
+</span></span><span style="display:flex;"><span>print(list(f)<span style="color:#960050;background-color:#1e0010">）</span>
+</span></span></code></pre></div><ul>
+<li>map： 映射</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lst <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> [item <span style="color:#f92672">*</span> item <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> lst]
+</span></span><span style="display:flex;"><span>print(result)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> map(<span style="color:#66d9ef">lambda</span> x : x<span style="color:#f92672">*</span>x, lst)
+</span></span><span style="display:flex;"><span>print(list(r))
+</span></span></code></pre></div><h4 id="1611-递归函数">1.6.11 递归函数<a hidden class="anchor" aria-hidden="true" href="#1611-递归函数">#</a></h4>
+<p>递归： 函数自己调用自己
+递归如果没有任何东西拦截的话，它默认就是一个死循环
+python默认是有递归深度的限制的．默认的最大递归深度是1000</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> xxx:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    func()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(sys<span style="color:#f92672">.</span>getrecursionlimit()) <span style="color:#75715e"># 打印最深递归，默认1000</span>
+</span></span></code></pre></div><p>执行递归死循环的话有最深的递归深度，报 递归深度错误</p>
+<h3 id="17">1.7<a hidden class="anchor" aria-hidden="true" href="#17">#</a></h3>
+<h4 id="171">1.7.1<a hidden class="anchor" aria-hidden="true" href="#171">#</a></h4>
+<h4 id="172">1.7.2<a hidden class="anchor" aria-hidden="true" href="#172">#</a></h4>
+<h4 id="173">1.7.3<a hidden class="anchor" aria-hidden="true" href="#173">#</a></h4>
+<h4 id="174">1.7.4<a hidden class="anchor" aria-hidden="true" href="#174">#</a></h4>
+<h4 id="175">1.7.5<a hidden class="anchor" aria-hidden="true" href="#175">#</a></h4>
 
 
-        
+  </div>
 
-
-        <div class="post-meta meta-tags">
-            
-            没有标签
-            
-        </div>
-    </article>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
     
-    
-
-    
-    
-    
-    
-
-</div>
-
-                    <footer id="footer">
-    <div>
-        &copy; 2022 <a href="https://gopy.fun/">GoPY Fun By </a>
-        
-    </div>
-    <br />
-    <div>
-        <div class="github-badge">
-            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
-        </div>
-    </div>
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://gopy.fun/">GoPY Fun</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-    
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-
-                </div>
-
-                <div id="secondary">
-    <section class="widget">
-        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://gopy.fun/">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-    
-    <section class="widget">
-        <h3 class="widget-title">最近文章</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="https://gopy.fun/posts/note/mongodb-note.html" title="MongoDB Note">MongoDB Note</a>
-    </li>
-    
-    <li>
-        <a href="https://gopy.fun/posts/note/python-flask-note.html" title="Python Flask Note">Python Flask Note</a>
-    </li>
-    
-    <li>
-        <a href="https://gopy.fun/posts/note/python-note.html" title="Python note">Python note</a>
-    </li>
-    
-    <li>
-        <a href="https://gopy.fun/posts/note/js-note.html" title="JS note">JS note</a>
-    </li>
-    
-    <li>
-        <a href="https://gopy.fun/posts/note/html5-note.html" title="HTML重学 &amp; HTML5笔记">HTML重学 &amp; HTML5笔记</a>
-    </li>
-    
-    <li>
-        <a href="https://gopy.fun/posts/soft/adobe.html" title="Adobe">Adobe</a>
-    </li>
-    
-    <li>
-        <a href="https://gopy.fun/posts/mac/mac-dev-env.html" title="苹果开发环境部署">苹果开发环境部署</a>
-    </li>
-    
-    <li>
-        <a href="https://gopy.fun/posts/hello.html" title="GopyFun创世文">GopyFun创世文</a>
-    </li>
-    
-</ul>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="https://gopy.fun/categories/mac.html">Mac (1)</a></li>
-    
-    <li><a href="https://gopy.fun/categories/resource.html">Resource (3)</a></li>
-    
-    <li><a href="https://gopy.fun/categories/%E8%BD%AF%E4%BB%B6.html">软件 (1)</a></li>
-    
-</ul>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
-<div class="tagcloud">
-    
-    <a href="https://gopy.fun/tags/adobe.html">adobe</a>
-    
-    <a href="https://gopy.fun/tags/cdn.html">CDN</a>
-    
-    <a href="https://gopy.fun/tags/%E6%95%99%E7%A8%8B.html">教程</a>
-    
-    <a href="https://gopy.fun/tags/%E6%A8%A1%E6%9D%BF.html">模板</a>
-    
-    <a href="https://gopy.fun/tags/%E8%8B%B9%E6%9E%9C.html">苹果</a>
-    
-    <a href="https://gopy.fun/tags/%E8%A7%84%E8%8C%83.html">规范</a>
-    
-    <a href="https://gopy.fun/tags/%E8%AE%BE%E8%AE%A1.html">设计</a>
-    
-    <a href="https://gopy.fun/tags/%E8%B5%84%E6%BA%90.html">资源</a>
-    
-    <a href="https://gopy.fun/tags/%E8%BD%AF%E4%BB%B6.html">软件</a>
-    
-</div>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title">其它</h3>
-        <ul class="widget-list">
-            <li><a href="https://gopy.fun/index.xml">文章 RSS</a></li>
-        </ul>
-    </section>
-</div>
-            </div>
-        </div>
-    </div>
+</script>
 </body>
 
 </html>

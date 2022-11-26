@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>资源 on GoPY Fun</title>
     <link>https://gopy.fun/tags/%E8%B5%84%E6%BA%90.html</link>
@@ -14,7 +14,7 @@
       
       <guid>https://gopy.fun/nav/code-style-guide.html</guid>
       <description>以下是收集代码风格指导
-版本管理  Git 风格指南 @ aseaday/git-style-guide: A Git Style Guide：  参考 </description>
+版本管理 Git 风格指南 @ aseaday/git-style-guide: A Git Style Guide： 参考 </description>
     </item>
     
     <item>
@@ -24,7 +24,7 @@
       
       <guid>https://gopy.fun/nav/page-html.html</guid>
       <description>以下是收集单页页面 以后备用
-个人博客页面  [Deprecated site]Tao Zhou - Newbie in HCI @Beijing,China  Portfolio Redesign|Gary&amp;rsquo;s Project      简历    项目页面  B3log开源： 前端写的时间线可以参考下  流云工作室 Solo - Java 博客系统，Java 开源博客系统      </description>
+个人博客页面 [Deprecated site]Tao Zhou - Newbie in HCI @Beijing,China Portfolio Redesign|Gary&amp;rsquo;s Project 简历 项目页面 B3log开源： 前端写的时间线可以参考下 流云工作室 Solo - Java 博客系统，Java 开源博客系统 </description>
     </item>
     
   </channel>

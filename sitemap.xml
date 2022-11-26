@@ -3,12 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://gopy.fun/</loc>
-    <lastmod>2022-05-24T22:56:43+08:00</lastmod>
-  </url><url>
-    <loc>https://gopy.fun/posts/note/mongodb-note.html</loc>
-    <lastmod>2022-05-24T22:56:43+08:00</lastmod>
+    <lastmod>2022-10-22T10:56:43+08:00</lastmod>
   </url><url>
     <loc>https://gopy.fun/posts.html</loc>
+    <lastmod>2022-10-22T10:56:43+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/posts/note/python-spider.html</loc>
+    <lastmod>2022-10-22T10:56:43+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/posts/note/js-note-2-es6.html</loc>
+    <lastmod>2022-09-11T17:00:43+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/posts/note/mongodb-note.html</loc>
     <lastmod>2022-05-24T22:56:43+08:00</lastmod>
   </url><url>
     <loc>https://gopy.fun/posts/note/python-flask-note.html</loc>
@@ -17,7 +23,7 @@
     <loc>https://gopy.fun/posts/note/python-note.html</loc>
     <lastmod>2022-05-24T17:56:43+08:00</lastmod>
   </url><url>
-    <loc>https://gopy.fun/posts/note/js-note.html</loc>
+    <loc>https://gopy.fun/posts/note/js-note-1-basic.html</loc>
     <lastmod>2022-05-20T00:56:43+08:00</lastmod>
   </url><url>
     <loc>https://gopy.fun/posts/note/html5-note.html</loc>

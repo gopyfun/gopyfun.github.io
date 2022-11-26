@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CDN on GoPY Fun</title>
     <link>https://gopy.fun/tags/cdn.html</link>
@@ -14,7 +14,7 @@
       
       <guid>https://gopy.fun/nav/code-cdn.html</guid>
       <description>以下是收集的JS CDN加速的一些网站，不断更新中：
-CND  BootCDN: 2022年启用新cdn域名，可惜国内部分节点无法访问（ex： https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js） jsDelivr: 可以加速npm、github、wordpress的代码， 中国访问可以替换为域名（&amp;lt;cdn.jsdelivr.net&amp;gt;） Microsoft Ajax Content Delivery Network Assets: 微软提供的ajax请求文件加速   参考 </description>
+CND BootCDN: 2022年启用新cdn域名，可惜国内部分节点无法访问（ex： https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js） jsDelivr: 可以加速npm、github、wordpress的代码， 中国访问可以替换为域名（&amp;lt;cdn.jsdelivr.net&amp;gt;） Microsoft Ajax Content Delivery Network Assets: 微软提供的ajax请求文件加速 参考 </description>
     </item>
     
   </channel>
