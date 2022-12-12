@@ -6,7 +6,61 @@
     <description>Recent content in Posts on GoPY Fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Nov 2022 19:48:57 +0800</lastBuildDate><atom:link href="https://gopy.fun/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Dec 2022 14:37:30 +0800</lastBuildDate><atom:link href="https://gopy.fun/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aapanel - 宝塔国际版安装和使用</title>
+      <link>https://gopy.fun/posts/linux/aapanel-tutorial.html</link>
+      <pubDate>Mon, 12 Dec 2022 14:37:30 +0800</pubDate>
+      
+      <guid>https://gopy.fun/posts/linux/aapanel-tutorial.html</guid>
+      <description>安装脚本
+# for centos yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://www.aapanel.com/script/install_6.0_en.sh &amp;amp;&amp;amp; bash install.sh aapanel # ubuntu / deepin wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;amp;&amp;amp; sudo bash install.sh aapanel # debian wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;amp;&amp;amp; bash install.sh aapanel </description>
+    </item>
+    
+    <item>
+      <title>Docker学习笔记</title>
+      <link>https://gopy.fun/posts/note/docker-note.html</link>
+      <pubDate>Mon, 12 Dec 2022 13:12:30 +0800</pubDate>
+      
+      <guid>https://gopy.fun/posts/note/docker-note.html</guid>
+      <description>清理docker docker-compose通过yml配置文件创建docker后删除
+docker-compose -f &amp;lt;config.yml&amp;gt; up -d docker-compose -f &amp;lt;config.yml&amp;gt; rm -v # stop container and remove it </description>
+    </item>
+    
+    <item>
+      <title>Node.JS 学习笔记</title>
+      <link>https://gopy.fun/posts/note/nodejs-note.html</link>
+      <pubDate>Fri, 09 Dec 2022 15:38:36 +0800</pubDate>
+      
+      <guid>https://gopy.fun/posts/note/nodejs-note.html</guid>
+      <description>项目实践 使用express-generator创建正式项目
+cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start </description>
+    </item>
+    
+    <item>
+      <title>调度系统研究</title>
+      <link>https://gopy.fun/posts/schedule-system-research.html</link>
+      <pubDate>Thu, 01 Dec 2022 21:30:05 +0800</pubDate>
+      
+      <guid>https://gopy.fun/posts/schedule-system-research.html</guid>
+      <description>目前收集到的现成的一些调度系统有：
+java：
+xxl-job： 分布式任务调度平台XXL-JOB PowerJoob： PowerJob/README_zhCN.md at master · PowerJob/PowerJob， 参考对比分析的文章：python分布式任务调度开源_比xxl-job 优秀的分布式定时任务调度框架 go
+基于go语言的开源调度系统整理 python
+Airflow： 浅谈调度工具——Airflow Maat（Airflow二开）：深度解析 | 基于DAG的分布式任务调度平台：Maat - 简书 其他
+php框架laravel的定时任务调度： codestudiohq/laravel-totem: Manage Your Laravel Schedule From A Web Dashboard </description>
+    </item>
+    
+    <item>
+      <title>TV直播源收藏【保持更新】</title>
+      <link>https://gopy.fun/posts/tv.html</link>
+      <pubDate>Mon, 28 Nov 2022 14:37:35 +0800</pubDate>
+      
+      <guid>https://gopy.fun/posts/tv.html</guid>
+      <description>家里有
+常用源 热门项目 涩涩源 https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u https://raw.githubusercontent.com/gjwj666/jichang/main/chuanmei2.m3u https://wuyun999.github.io/wuyun/zb/ss.txt `` `` `` `` </description>
+    </item>
+    
     <item>
       <title>Nmap命令学习</title>
       <link>https://gopy.fun/posts/linux/nmap.html</link>
@@ -55,13 +109,12 @@ const mul = (a, b=2) =&amp;gt; a*b; console.</description>
     </item>
     
     <item>
-      <title>MongoDB Note</title>
+      <title>MongoDB笔记</title>
       <link>https://gopy.fun/posts/note/mongodb-note.html</link>
       <pubDate>Tue, 24 May 2022 22:56:43 +0800</pubDate>
       
       <guid>https://gopy.fun/posts/note/mongodb-note.html</guid>
-      <description>install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:
-cat &amp;gt;&amp;gt; /usr/local/etc/mongod.conf &amp;lt;&amp;lt;&amp;#34;EOF&amp;#34; #配置文件开启强制验证 security: authorization: &amp;#34;enabled&amp;#34; EOF mongo &amp;gt; show dbs &amp;gt; use admin &amp;gt; db.createUser({ user: &amp;#39;admin&amp;#39;, // 用户名 pwd: &amp;#39;123456&amp;#39;, // 密码 roles:[{ role: &amp;#39;root&amp;#39;, // 角色 db: &amp;#39;admin&amp;#39; // 数据库 }] }) &amp;gt; exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 </description>
+      <description>I. install mongodb # docker docker pull mongo:4 # install mongodb 4 docker images # show images docker run --name mymongo -v /usr/local/var/docker/mongodb/data:/data/db -d mongo:4 docker ps docker logs mymongo # install mongo express docker pull mongo-express docker run --link mymongo:mongo -p 8081:8081 mongo-express # mac brew install mongodb-community brew services start mongodb/brew/mongodb-community # 1.1 init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.</description>
     </item>
     
     <item>

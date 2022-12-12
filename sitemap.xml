@@ -2,13 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://gopy.fun/</loc>
-    <lastmod>2022-11-27T19:48:57+08:00</lastmod>
+    <loc>https://gopy.fun/posts/linux/aapanel-tutorial.html</loc>
+    <lastmod>2022-12-12T14:37:30+08:00</lastmod>
   </url><url>
-    <loc>https://gopy.fun/posts/linux/nmap.html</loc>
-    <lastmod>2022-11-27T19:48:57+08:00</lastmod>
+    <loc>https://gopy.fun/</loc>
+    <lastmod>2022-12-12T14:37:30+08:00</lastmod>
   </url><url>
     <loc>https://gopy.fun/posts.html</loc>
+    <lastmod>2022-12-12T14:37:30+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/posts/note/docker-note.html</loc>
+    <lastmod>2022-12-12T13:12:30+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/categories.html</loc>
+    <lastmod>2022-12-10T12:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/nav.html</loc>
+    <lastmod>2022-12-10T12:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/categories/resource.html</loc>
+    <lastmod>2022-12-10T12:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/series.html</loc>
+    <lastmod>2022-12-10T12:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/tags.html</loc>
+    <lastmod>2022-12-10T12:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/tags/%E5%A4%9A%E5%AA%92%E4%BD%93.html</loc>
+    <lastmod>2022-12-10T12:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/nav/media-tv.html</loc>
+    <lastmod>2022-12-10T12:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/series/%E8%B5%84%E6%BA%90.html</loc>
+    <lastmod>2022-12-10T12:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/posts/note/nodejs-note.html</loc>
+    <lastmod>2022-12-09T15:38:36+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/posts/schedule-system-research.html</loc>
+    <lastmod>2022-12-01T21:30:05+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/posts/tv.html</loc>
+    <lastmod>2022-11-28T14:37:35+08:00</lastmod>
+  </url><url>
+    <loc>https://gopy.fun/posts/linux/nmap.html</loc>
     <lastmod>2022-11-27T19:48:57+08:00</lastmod>
   </url><url>
     <loc>https://gopy.fun/posts/note/python-spider.html</loc>
@@ -38,12 +77,6 @@
     <loc>https://gopy.fun/posts/soft/adobe.html</loc>
     <lastmod>2022-05-16T17:59:25+08:00</lastmod>
   </url><url>
-    <loc>https://gopy.fun/categories.html</loc>
-    <lastmod>2022-05-16T17:59:25+08:00</lastmod>
-  </url><url>
-    <loc>https://gopy.fun/tags.html</loc>
-    <lastmod>2022-05-16T17:59:25+08:00</lastmod>
-  </url><url>
     <loc>https://gopy.fun/tags/%E8%BD%AF%E4%BB%B6.html</loc>
     <lastmod>2022-05-16T17:59:25+08:00</lastmod>
   </url><url>
@@ -59,9 +92,6 @@
     <loc>https://gopy.fun/series/mac%E5%BC%80%E5%8F%91%E4%B8%93%E9%A2%98.html</loc>
     <lastmod>2022-05-16T17:33:03+08:00</lastmod>
   </url><url>
-    <loc>https://gopy.fun/series.html</loc>
-    <lastmod>2022-05-16T17:33:03+08:00</lastmod>
-  </url><url>
     <loc>https://gopy.fun/tags/%E6%95%99%E7%A8%8B.html</loc>
     <lastmod>2022-05-16T17:33:03+08:00</lastmod>
   </url><url>
@@ -70,12 +100,6 @@
   </url><url>
     <loc>https://gopy.fun/posts/mac/mac-dev-env.html</loc>
     <lastmod>2022-05-16T17:33:03+08:00</lastmod>
-  </url><url>
-    <loc>https://gopy.fun/nav.html</loc>
-    <lastmod>2022-05-15T12:58:39+08:00</lastmod>
-  </url><url>
-    <loc>https://gopy.fun/categories/resource.html</loc>
-    <lastmod>2022-05-15T12:58:39+08:00</lastmod>
   </url><url>
     <loc>https://gopy.fun/nav/code-style-guide.html</loc>
     <lastmod>2022-05-15T12:58:39+08:00</lastmod>
@@ -90,9 +114,6 @@
     <lastmod>2022-05-15T12:58:39+08:00</lastmod>
   </url><url>
     <loc>https://gopy.fun/tags/%E8%B5%84%E6%BA%90.html</loc>
-    <lastmod>2022-05-15T12:58:39+08:00</lastmod>
-  </url><url>
-    <loc>https://gopy.fun/series/%E8%B5%84%E6%BA%90.html</loc>
     <lastmod>2022-05-15T12:58:39+08:00</lastmod>
   </url><url>
     <loc>https://gopy.fun/tags/cdn.html</loc>

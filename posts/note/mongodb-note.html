@@ -5,10 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>MongoDB Note | GoPY Fun</title>
+<title>MongoDB笔记 | GoPY Fun</title>
 <meta name="keywords" content="">
-<meta name="description" content="install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:
-cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开启强制验证 security: authorization: &#34;enabled&#34; EOF mongo &gt; show dbs &gt; use admin &gt; db.createUser({ user: &#39;admin&#39;, // 用户名 pwd: &#39;123456&#39;, // 密码 roles:[{ role: &#39;root&#39;, // 角色 db: &#39;admin&#39; // 数据库 }] }) &gt; exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 ">
+<meta name="description" content="I. install mongodb # docker docker pull mongo:4 # install mongodb 4 docker images # show images docker run --name mymongo -v /usr/local/var/docker/mongodb/data:/data/db -d mongo:4 docker ps docker logs mymongo # install mongo express docker pull mongo-express docker run --link mymongo:mongo -p 8081:8081 mongo-express # mac brew install mongodb-community brew services start mongodb/brew/mongodb-community # 1.1 init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.">
 <meta name="author" content="">
 <link rel="canonical" href="https://gopy.fun/posts/note/mongodb-note.html">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
@@ -69,18 +68,16 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="MongoDB Note" />
-<meta property="og:description" content="install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:
-cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开启强制验证 security: authorization: &#34;enabled&#34; EOF mongo &gt; show dbs &gt; use admin &gt; db.createUser({ user: &#39;admin&#39;, // 用户名 pwd: &#39;123456&#39;, // 密码 roles:[{ role: &#39;root&#39;, // 角色 db: &#39;admin&#39; // 数据库 }] }) &gt; exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 " />
+</script><meta property="og:title" content="MongoDB笔记" />
+<meta property="og:description" content="I. install mongodb # docker docker pull mongo:4 # install mongodb 4 docker images # show images docker run --name mymongo -v /usr/local/var/docker/mongodb/data:/data/db -d mongo:4 docker ps docker logs mymongo # install mongo express docker pull mongo-express docker run --link mymongo:mongo -p 8081:8081 mongo-express # mac brew install mongodb-community brew services start mongodb/brew/mongodb-community # 1.1 init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gopy.fun/posts/note/mongodb-note.html" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-05-24T22:56:43+08:00" />
 <meta property="article:modified_time" content="2022-05-24T22:56:43+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="MongoDB Note"/>
-<meta name="twitter:description" content="install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:
-cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开启强制验证 security: authorization: &#34;enabled&#34; EOF mongo &gt; show dbs &gt; use admin &gt; db.createUser({ user: &#39;admin&#39;, // 用户名 pwd: &#39;123456&#39;, // 密码 roles:[{ role: &#39;root&#39;, // 角色 db: &#39;admin&#39; // 数据库 }] }) &gt; exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 "/>
+<meta name="twitter:title" content="MongoDB笔记"/>
+<meta name="twitter:description" content="I. install mongodb # docker docker pull mongo:4 # install mongodb 4 docker images # show images docker run --name mymongo -v /usr/local/var/docker/mongodb/data:/data/db -d mongo:4 docker ps docker logs mymongo # install mongo express docker pull mongo-express docker run --link mymongo:mongo -p 8081:8081 mongo-express # mac brew install mongodb-community brew services start mongodb/brew/mongodb-community # 1.1 init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4."/>
 
 
 <script type="application/ld+json">
@@ -91,7 +88,7 @@ cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开�
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "MongoDB Note",
+      "name": "MongoDB笔记",
       "item": "https://gopy.fun/posts/note/mongodb-note.html"
     }
   ]
@@ -101,14 +98,14 @@ cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开�
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "MongoDB Note",
-  "name": "MongoDB Note",
-  "description": "install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:\ncat \u0026gt;\u0026gt; /usr/local/etc/mongod.conf \u0026lt;\u0026lt;\u0026#34;EOF\u0026#34; #配置文件开启强制验证 security: authorization: \u0026#34;enabled\u0026#34; EOF mongo \u0026gt; show dbs \u0026gt; use admin \u0026gt; db.createUser({ user: \u0026#39;admin\u0026#39;, // 用户名 pwd: \u0026#39;123456\u0026#39;, // 密码 roles:[{ role: \u0026#39;root\u0026#39;, // 角色 db: \u0026#39;admin\u0026#39; // 数据库 }] }) \u0026gt; exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 ",
+  "headline": "MongoDB笔记",
+  "name": "MongoDB笔记",
+  "description": "I. install mongodb # docker docker pull mongo:4 # install mongodb 4 docker images # show images docker run --name mymongo -v /usr/local/var/docker/mongodb/data:/data/db -d mongo:4 docker ps docker logs mymongo # install mongo express docker pull mongo-express docker run --link mymongo:mongo -p 8081:8081 mongo-express # mac brew install mongodb-community brew services start mongodb/brew/mongodb-community # 1.1 init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.",
   "keywords": [
     
   ],
-  "articleBody": "install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:\ncat \u003e\u003e /usr/local/etc/mongod.conf \u003c\u003c\"EOF\" #配置文件开启强制验证 security: authorization: \"enabled\" EOF mongo \u003e show dbs \u003e use admin \u003e db.createUser({ user: 'admin', // 用户名 pwd: '123456', // 密码 roles:[{ role: 'root', // 角色 db: 'admin' // 数据库 }] }) \u003e exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 ",
-  "wordCount" : "94",
+  "articleBody": "I. install mongodb # docker docker pull mongo:4 # install mongodb 4 docker images # show images docker run --name mymongo -v /usr/local/var/docker/mongodb/data:/data/db -d mongo:4 docker ps docker logs mymongo # install mongo express docker pull mongo-express docker run --link mymongo:mongo -p 8081:8081 mongo-express # mac brew install mongodb-community brew services start mongodb/brew/mongodb-community # 1.1 init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:\ncat \u003e\u003e /usr/local/etc/mongod.conf \u003c\u003c\"EOF\" #配置文件开启强制验证 security: authorization: \"enabled\" EOF mongo \u003e show dbs \u003e use admin \u003e db.createUser({ user: 'admin', // 用户名 pwd: '123456', // 密码 roles:[{ role: 'root', // 角色 db: 'admin' // 数据库 }] }) \u003e exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 II. mongodb shell 操作 # 开启一个mongo shell 进程： docker exec -it mymongo mongo print('hello'); exit III MongoDB操作之 CRUD 文档主键 _id\n文档主键的唯一性\n支持所有数据类型（数组除外）\n复合主键\n默认的文档主键\n可以快速生成的12字节id\n包含创建时间\n创建文档：\ndb.collection.insert() db.collection.save() 模拟实操：\ninsertOne 写入单个文档 use test db.acc.insertOne({'_id':'acc1', 'name': 'aaa', 'age': 20}) # 第二次插入同个id会报错误 db.acc.insertOne({'_id':'acc1', 'name': 'aaa', 'age': 20}) # 发挥错误结果本身 try{ db.acc.insertOne({'_id':'acc1', 'name': 'aaa', 'age': 20}) } catch(e) { print(e) } #如果想自动生成_id, 省略创建文档中的_id字段 insertMany 写入多个文档 创建多个文档 insertMany，\n语法：\ndb.collection.insertMany() db..insertMany( [，＜document2\u003e，...]， { writeConcern:， ordered: 路效6226 } ) ordered参数用来决定 mongoDB是否要按顺序来写入这些文档如果 将 ordered参数设置为 false，mongoDB可以打乱文档写入的顺序，以便优化写入操作的性能，默认true 在顺序写入时，一旦遇到错误，操作便会退出，剩余的文档无论正确与否，都不会被写入\ndb.collection.insert() 创建单个或多个文档 db..insert( , { writeconcern:， ordered: } ) insertone, insertMany和 insert的区别 insertone和 insertMany命令不支持db.collection.explain()命令 insert支持 db.collection.explain()命令 另一个可以用来创建文档的命令 save db.collection. save()\ndb..save( , { writeConcern: } ) 查询 db.collenction.find()\ndb.collenction.find().pretty() # 美化打印 筛选文档：\n比较操作符 { ：{ $： }}\n$eq 匹配字段值相等的文档 $ne 匹配字段值不等的文档 收编92687 $gt 匹配字段值大于查询值的文档 $gte 匹配字段值大于或等于查询值的文档 $lt 匹配字段值小于查询值的文档 $lte 匹配字段值小于或等于查询值的文档\n$in 匹配字段值与任一查询值相等的文档 $nin 匹配字段值与任何查询值都不等的文档\ndb.acc.find({name:{$eq: \"alice\"} }) db.accounts.find( { name: { $in: [ \"alice\" \"charlie\" ] } }） # $nin 也会筛选出并不包含查询字段的文档 逻辑操作符 $not 匹配筛选条件不成立的文档 $and 匹配多个筛选条件全部成立的文档 $or 匹配至少一个筛选条件成立的文档 $nor 匹配多个筛选条件全部不成立的文档\ndb.accounts.find( balance: { $not: { $1t： 500 } }) 字段操作符 $exists 匹配包含查询字段的文档 $type 匹配字段类型符合查询值的文档\ndb. accounts.find( { { “_id.type\"：{ $exists: true }}) db. accounts.find( { \"id.type\"：[ $ne: \"checking\", $exists: true } }） $type :\n{field:{ $type: } } {field:{ $type: [ ，＜BSON type2\u003e,…]}}\n# 读取文档主键是字符串的银行账户文档\" \u003e db.accounts.find(+ id: $type:\"string\" }}） {\"id\"：\"account1\"，\"name\"：\"alice\"，\"balance\"： 100 } # 读取文档主键是对象主键或者是复合主键的银行账户文档\" \u003e db. accounts. find( { _id: { $type: L\"objectId\"， \"object \"] } } ) # 读取用户姓名是nul1的银行账户文档\" \u003e db.accounts.find( { name: { $type： \"null\" ] }） # 也可以使用对应的BSON类型序号作为$type操作符的参数 \u003e db.accounts.find( { id:{ $type: 2}}) {\"id\" accountl' 'name\" 'alice\" \"balance\" 100 } 数组操作符 $a11 匹配数组字段中包含所有查询值的文档 $elemMatch 匹配数组字段中至少存在一个值满足筛选条件的文档\n{ ：{ $all: [ ， … ] }\n创建包含数组和嵌套数组的文档\n\u003e db.accounts.insert ([ { name: \"jack\", balance: 2000， contact: [ \"11111111\"， \"Alabama\" \"US\" ] }, { name: \"karen\"， balance: 2500, contact: [ [\"22222222\"，\"33333333\"]，\"Beiiing\"， 'China'] } ]) \u003e db.accounts.find( { contact: { $all : [\"China\", \"Beijing\"] } } ) \u003e db.accounts. find( { contact: { $elemMatch:{ $gt:\"10000000\"， $1t： \"20000000\" # 将$a11与 $elemMatch结合在一起使用 # 读取包含一个在10000000至20000000之间，和一个在20000000至30000000之间的联系电话的银行账户文档\" \u003e db.accounts.find( { contact:{ $all:[ { $elemMatch: { $gt: \"10000000\" $1t：\"20000000\" }}, { $elemMatch: { $gt： \"20000000\"， $1t： \"30000000\" }} ] } }] 运算操作符 $regex 匹配满足正则表达式的文档\n兼容 PCRE v8.41正则表达式库 在和 $in操作符一起使用时，只能使用 /pattern/\n# 读取用户姓名以c或者j开头的银行账户文档\" \u003e db.accounts.find( { name:{ $in:[ /^c/, /^j/ ]}}) #读取用户姓名包含LIE(不区分大小写）的银行账户文档\" db.accounts.find( { name: { $regex: /LIE/， $options: \"i\"} } ) 文档游标 db.collection.find()返回一个文档集合游标 在不迭代游标的情况下，只列出前20个文档\nvar myCursor = db.accounts.find(); myCursor myCursor[1] // 游历完游标中所有的文档之后，或者在10分钟之后，游标便会自动关闭 // 可以使用 noCursorrimeout()函数来保持游标一直有效 var mycursor = db.accounts.find().noCursormimeout() // 在这之后，在不遍历游标的情况下，你需要主动关闭游标 myCursor.close() 游标函数 cursor.hasNext(） cursor.next() cursor.forEach(） cursor.1imit() cursor.skip() cursor.count(): 默认情况下，＜applyskipLimit\u003e为 false, 即 cursor.count(）不会考虑 cursor.skip( ）和 cursor.1imit（)的效果 cursor.sort(）: { field: ordering} , 1表示由小及大的正向排序，-1表示逆向排序 \u003e var myCursor = db.accounts.find( { name = \"george\" })； \u003e while( myCursor.hasNext() ）{ printjson(myCursor.next()); } \u003e myCursor.forEach(printjson) \u003e db.accounts.find( { name = \"george\" }).limit(1) \u003e db.accounts.find( { name = \"george\" }).skip(1) \u003e db.accounts.find( { name = \"george\" }).limit(0) # 等同不使用limit 返回所有 \u003e db.accounts.find( { name: \"george\" }).limit(1).count() # 统计所有 \u003e db.accounts.find( { name: \"george\" }).limit(1).count(true) # 统计limit后的数量 \u003e db.accounts.find().sort( { balance: -1, name: 1 }） \u003e db.accounts.find().sort( { balance: -1 }).limit(1) # cursor.skip()， cursor.1imit(), cursor.sort(）结合在一起使用时注意事项 # cursor.skip()在 cursor.1imit()之前执行 \u003e db.accounts.find().limit(5).skip(3) # cursor.sort()在cursor.skip()和 cursor.1imit()之前执行 \u003e db.accounts.find().skip(3).limit(5).sort( { balance:-1}) 文档投影 db.collection.find (, ) 不使用投影时，db.collection.find()返回符合筛选条件的完整文档 而使用投影可以有选择性的返回文档中的部分字段\n{ field: inclusion] 1表示返回字段，0表示不返回字段店\n# 只返回银行账户文档中的用户姓名\" \u003e db. accounts. find( {}, { name: 1 }) # 不返回银行账户文档中的用户姓名（也不返回文档主键）” \u003e db.accounts.find({}, { name: 0, _id:0} # 除了文档主键之外，我们不可以在投影文档中混合使用包含和不包含这两种投影操作 # 要么在投影文档中列出所有应该包含的字段，要么列出所有不应该包含的字段 \u003e db.accounts.find({},{ name: 1, balance: 0, id: 0 }） 注意事项\n2.2 2.3 2.4 基础应用 ",
+  "wordCount" : "693",
   "inLanguage": "zh-cn",
   "datePublished": "2022-05-24T22:56:43+08:00",
   "dateModified": "2022-05-24T22:56:43+08:00",
@@ -177,17 +174,32 @@ cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开�
   <header class="post-header">
     
     <h1 class="post-title">
-      MongoDB Note<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+      MongoDB笔记<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
     <div class="post-meta"><span title='2022-05-24 22:56:43 +0800 CST'>May 24, 2022</span>
 
 </div>
   </header> 
-  <div class="post-content"><h2 id="install-mongodb">install mongodb<a hidden class="anchor" aria-hidden="true" href="#install-mongodb">#</a></h2>
-<h3 id="install-for-mac">install for mac<a hidden class="anchor" aria-hidden="true" href="#install-for-mac">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install mongodb-community
+  <div class="post-content"><h2 id="i-install-mongodb">I. install mongodb<a hidden class="anchor" aria-hidden="true" href="#i-install-mongodb">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># docker</span>
+</span></span><span style="display:flex;"><span>docker pull mongo:4 <span style="color:#75715e"># install mongodb 4</span>
+</span></span><span style="display:flex;"><span>docker images <span style="color:#75715e"># show images</span>
+</span></span><span style="display:flex;"><span>docker run --name mymongo -v /usr/local/var/docker/mongodb/data:/data/db -d mongo:4
+</span></span><span style="display:flex;"><span>docker ps
+</span></span><span style="display:flex;"><span>docker logs mymongo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># install mongo express</span>
+</span></span><span style="display:flex;"><span>docker pull mongo-express
+</span></span><span style="display:flex;"><span>docker run --link mymongo:mongo -p 8081:8081 mongo-express
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mac </span>
+</span></span><span style="display:flex;"><span>brew install mongodb-community
 </span></span><span style="display:flex;"><span>brew services start mongodb/brew/mongodb-community
-</span></span></code></pre></div><h3 id="init-mongodb">init mongodb<a hidden class="anchor" aria-hidden="true" href="#init-mongodb">#</a></h3>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span></code></pre></div><h3 id="11-init-mongodb">1.1 init mongodb<a hidden class="anchor" aria-hidden="true" href="#11-init-mongodb">#</a></h3>
 <h4 id="set-auth-for-mongodb">set auth for mongodb<a hidden class="anchor" aria-hidden="true" href="#set-auth-for-mongodb">#</a></h4>
 <p>You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat &gt;&gt;  /usr/local/etc/mongod.conf &lt;&lt;<span style="color:#e6db74">&#34;EOF&#34;</span>
@@ -211,7 +223,252 @@ cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>brew services restart mongodb/brew/mongodb-community
 </span></span><span style="display:flex;"><span>mongo admin -u admin -p <span style="color:#ae81ff">123456</span>
-</span></span></code></pre></div><h2 id="基础应用">基础应用<a hidden class="anchor" aria-hidden="true" href="#基础应用">#</a></h2>
+</span></span></code></pre></div><h2 id="ii--mongodb-shell-操作">II.  mongodb shell 操作<a hidden class="anchor" aria-hidden="true" href="#ii--mongodb-shell-操作">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 开启一个mongo shell 进程： </span>
+</span></span><span style="display:flex;"><span>docker exec -it mymongo mongo 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;hello&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">exit</span>
+</span></span></code></pre></div><h2 id="iii-mongodb操作之-crud">III MongoDB操作之 CRUD<a hidden class="anchor" aria-hidden="true" href="#iii-mongodb操作之-crud">#</a></h2>
+<p>文档主键 _id</p>
+<ul>
+<li>
+<p>文档主键的唯一性</p>
+</li>
+<li>
+<p>支持所有数据类型（数组除外）</p>
+</li>
+<li>
+<p>复合主键</p>
+</li>
+<li>
+<p>默认的文档主键</p>
+</li>
+<li>
+<p>可以快速生成的12字节id</p>
+</li>
+<li>
+<p>包含创建时间</p>
+</li>
+</ul>
+<p>创建文档：</p>
+<pre tabindex="0"><code class="language-mongo" data-lang="mongo">db.collection.insert()
+db.collection.save()
+</code></pre><p>模拟实操：</p>
+<h4 id="insertone-写入单个文档">insertOne 写入单个文档<a hidden class="anchor" aria-hidden="true" href="#insertone-写入单个文档">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>use test
+</span></span><span style="display:flex;"><span>db.acc.insertOne<span style="color:#f92672">({</span><span style="color:#e6db74">&#39;_id&#39;</span>:<span style="color:#e6db74">&#39;acc1&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;aaa&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>: 20<span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 第二次插入同个id会报错误 </span>
+</span></span><span style="display:flex;"><span>db.acc.insertOne<span style="color:#f92672">({</span><span style="color:#e6db74">&#39;_id&#39;</span>:<span style="color:#e6db74">&#39;acc1&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;aaa&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>: 20<span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 发挥错误结果本身</span>
+</span></span><span style="display:flex;"><span>try<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  db.acc.insertOne<span style="color:#f92672">({</span><span style="color:#e6db74">&#39;_id&#39;</span>:<span style="color:#e6db74">&#39;acc1&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;aaa&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>: 20<span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> catch<span style="color:#f92672">(</span>e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  print<span style="color:#f92672">(</span>e<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#如果想自动生成_id, 省略创建文档中的_id字段</span>
+</span></span></code></pre></div><h4 id="insertmany-写入多个文档">insertMany 写入多个文档<a hidden class="anchor" aria-hidden="true" href="#insertmany-写入多个文档">#</a></h4>
+<p>创建多个文档 insertMany，</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>db.collection.insertMany<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db.&lt;collection&gt;.insertMany<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>&lt;document1&gt;，＜document2&gt;，...<span style="color:#f92672">]</span>，
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    writeConcern:&lt;document&gt;，
+</span></span><span style="display:flex;"><span>    ordered: &lt;boolean&gt; 路效6226
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>ordered参数用来决定 mongoDB是否要按顺序来写入这些文档如果 将 ordered参数设置为 false，mongoDB可以打乱文档写入的顺序，以便优化写入操作的性能，默认true
+在顺序写入时，一旦遇到错误，操作便会退出，剩余的文档无论正确与否，都不会被写入</p>
+<h4 id="dbcollectioninsert-创建单个或多个文档">db.collection.insert() 创建单个或多个文档<a hidden class="anchor" aria-hidden="true" href="#dbcollectioninsert-创建单个或多个文档">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>db.&lt;collection&gt;.insert<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>  &lt;document or array of documents&gt;,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  writeconcern:&lt;document&gt;，
+</span></span><span style="display:flex;"><span>  ordered:&lt;boolean&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><h4 id="insertone-insertmany和-insert的区别">insertone, insertMany和 insert的区别<a hidden class="anchor" aria-hidden="true" href="#insertone-insertmany和-insert的区别">#</a></h4>
+<ul>
+<li>insertone和 insertMany命令不支持db.collection.explain()命令</li>
+<li>insert支持 db.collection.explain()命令</li>
+</ul>
+<h4 id="另一个可以用来创建文档的命令-save">另一个可以用来创建文档的命令 save<a hidden class="anchor" aria-hidden="true" href="#另一个可以用来创建文档的命令-save">#</a></h4>
+<p>db.collection. save()</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>db.&lt;collection&gt;.save<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>  &lt;document&gt;,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    writeConcern:&lt;document&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><h4 id="查询">查询<a hidden class="anchor" aria-hidden="true" href="#查询">#</a></h4>
+<ul>
+<li>
+<p>db.collenction.find()</p>
+<ul>
+<li>db.collenction.find().pretty() # 美化打印</li>
+</ul>
+</li>
+<li>
+<p>筛选文档：</p>
+</li>
+</ul>
+<h5 id="比较操作符">比较操作符<a hidden class="anchor" aria-hidden="true" href="#比较操作符">#</a></h5>
+<p><code>{ &lt;field&gt;：{ $&lt;operator&gt;：&lt;value&gt; }}</code></p>
+<p>$eq 匹配字段值相等的文档
+$ne 匹配字段值不等的文档 收编92687
+$gt 匹配字段值大于查询值的文档
+$gte 匹配字段值大于或等于查询值的文档
+$lt 匹配字段值小于查询值的文档
+$lte 匹配字段值小于或等于查询值的文档</p>
+<p>$in 匹配字段值与任一查询值相等的文档
+$nin 匹配字段值与任何查询值都不等的文档</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>db.acc.find<span style="color:#f92672">({</span>name:<span style="color:#f92672">{</span>$eq: <span style="color:#e6db74">&#34;alice&#34;</span><span style="color:#f92672">}</span> <span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name: <span style="color:#f92672">{</span> $in: <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;alice&#34;</span> <span style="color:#e6db74">&#34;charlie&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">}</span> <span style="color:#f92672">}</span>）
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $nin 也会筛选出并不包含查询字段的文档</span>
+</span></span></code></pre></div><h5 id="逻辑操作符">逻辑操作符<a hidden class="anchor" aria-hidden="true" href="#逻辑操作符">#</a></h5>
+<p>$not 匹配筛选条件不成立的文档
+$and 匹配多个筛选条件全部成立的文档
+$or 匹配至少一个筛选条件成立的文档
+$nor 匹配多个筛选条件全部不成立的文档</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>db.accounts.find<span style="color:#f92672">(</span> balance: <span style="color:#f92672">{</span> $not: <span style="color:#f92672">{</span> $1t： <span style="color:#ae81ff">500</span> <span style="color:#f92672">}</span> <span style="color:#f92672">})</span>
+</span></span></code></pre></div><h5 id="字段操作符">字段操作符<a hidden class="anchor" aria-hidden="true" href="#字段操作符">#</a></h5>
+<p>$exists 匹配包含查询字段的文档
+$type 匹配字段类型符合查询值的文档</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>db. accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> <span style="color:#f92672">{</span> “_id.type<span style="color:#e6db74">&#34;：{ </span>$exists<span style="color:#e6db74">: true }})
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">db. accounts.find( { &#34;</span>id.type<span style="color:#e6db74">&#34;：[ </span>$ne<span style="color:#e6db74">: &#34;</span>checking<span style="color:#e6db74">&#34;, </span>$exists<span style="color:#e6db74">: true } }）
+</span></span></span></code></pre></div><p>$type :</p>
+<blockquote>
+<p>{field:{ $type: <!-- raw HTML omitted --> } }
+{field:{ $type: [ <!-- raw HTML omitted -->，＜BSON type2&gt;,&hellip;]}}</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 读取文档主键是字符串的银行账户文档&#34;</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span>+ id: $type:<span style="color:#e6db74">&#34;string&#34;</span> <span style="color:#f92672">}}</span>）
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span>：<span style="color:#e6db74">&#34;account1&#34;</span>，<span style="color:#e6db74">&#34;name&#34;</span>：<span style="color:#e6db74">&#34;alice&#34;</span>，<span style="color:#e6db74">&#34;balance&#34;</span>： <span style="color:#ae81ff">100</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 读取文档主键是对象主键或者是复合主键的银行账户文档&#34;</span>
+</span></span><span style="display:flex;"><span>&gt; db. accounts. find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> _id: <span style="color:#f92672">{</span> $type: L<span style="color:#e6db74">&#34;objectId&#34;</span>， <span style="color:#e6db74">&#34;object &#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">}</span> <span style="color:#f92672">}</span> <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 读取用户姓名是nul1的银行账户文档&#34;</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name: <span style="color:#f92672">{</span> $type： <span style="color:#e6db74">&#34;null&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">}</span>）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 也可以使用对应的BSON类型序号作为$type操作符的参数</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> id:<span style="color:#f92672">{</span> $type: 2<span style="color:#f92672">}})</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;id&#34;</span> accountl<span style="color:#e6db74">&#39; &#39;</span>name<span style="color:#e6db74">&#34; &#39;alice&#34;</span> <span style="color:#e6db74">&#34;balance&#34;</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">}</span>
+</span></span></code></pre></div><h5 id="数组操作符">数组操作符<a hidden class="anchor" aria-hidden="true" href="#数组操作符">#</a></h5>
+<p>$a11 匹配数组字段中包含所有查询值的文档
+$elemMatch 匹配数组字段中至少存在一个值满足筛选条件的文档</p>
+<blockquote>
+<p>{ <!-- raw HTML omitted -->：{ $all: [ <!-- raw HTML omitted -->，<!-- raw HTML omitted --> &hellip; ] }</p>
+</blockquote>
+<p>创建包含数组和嵌套数组的文档</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; db.accounts.insert <span style="color:#f92672">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    name: <span style="color:#e6db74">&#34;jack&#34;</span>,
+</span></span><span style="display:flex;"><span>    balance: 2000，
+</span></span><span style="display:flex;"><span>    contact: <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;11111111&#34;</span>， <span style="color:#e6db74">&#34;Alabama&#34;</span> <span style="color:#e6db74">&#34;US&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    name: <span style="color:#e6db74">&#34;karen&#34;</span>，
+</span></span><span style="display:flex;"><span>    balance: 2500,
+</span></span><span style="display:flex;"><span>    contact: <span style="color:#f92672">[</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;22222222&#34;</span>，<span style="color:#e6db74">&#34;33333333&#34;</span><span style="color:#f92672">]</span>，<span style="color:#e6db74">&#34;Beiiing&#34;</span>， <span style="color:#e6db74">&#39;China&#39;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> contact: <span style="color:#f92672">{</span> $all : <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;China&#34;</span>, <span style="color:#e6db74">&#34;Beijing&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">}</span> <span style="color:#f92672">}</span> <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts. find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> contact: <span style="color:#f92672">{</span> $elemMatch:<span style="color:#f92672">{</span> $gt:<span style="color:#e6db74">&#34;10000000&#34;</span>， $1t： <span style="color:#e6db74">&#34;20000000&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将$a11与 $elemMatch结合在一起使用</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 读取包含一个在10000000至20000000之间，和一个在20000000至30000000之间的联系电话的银行账户文档&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> 
+</span></span><span style="display:flex;"><span>  contact:<span style="color:#f92672">{</span> $all:<span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">{</span> $elemMatch: <span style="color:#f92672">{</span> $gt: <span style="color:#e6db74">&#34;10000000&#34;</span> $1t：<span style="color:#e6db74">&#34;20000000&#34;</span> <span style="color:#f92672">}}</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">{</span> $elemMatch: <span style="color:#f92672">{</span> $gt： <span style="color:#e6db74">&#34;20000000&#34;</span>， $1t： <span style="color:#e6db74">&#34;30000000&#34;</span> <span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">]</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}]</span>
+</span></span></code></pre></div><h5 id="运算操作符">运算操作符<a hidden class="anchor" aria-hidden="true" href="#运算操作符">#</a></h5>
+<p><code>$regex</code> 匹配满足正则表达式的文档</p>
+<p>兼容 PCRE v8.41正则表达式库
+在和 $in操作符一起使用时，只能使用 <code>/pattern/&lt;options&gt;</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 读取用户姓名以c或者j开头的银行账户文档&#34;</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name:<span style="color:#f92672">{</span> $in:<span style="color:#f92672">[</span> /^c/, /^j/ <span style="color:#f92672">]}})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#读取用户姓名包含LIE(不区分大小写）的银行账户文档&#34;</span>
+</span></span><span style="display:flex;"><span>db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name: <span style="color:#f92672">{</span> $regex: /LIE/， $options: <span style="color:#e6db74">&#34;i&#34;</span><span style="color:#f92672">}</span> <span style="color:#f92672">}</span> <span style="color:#f92672">)</span>
+</span></span></code></pre></div><h4 id="文档游标">文档游标<a hidden class="anchor" aria-hidden="true" href="#文档游标">#</a></h4>
+<p><code>db.collection.find()</code>返回一个文档集合游标
+在不迭代游标的情况下，只列出前20个文档</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myCursor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">accounts</span>.<span style="color:#a6e22e">find</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myCursor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myCursor</span>[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 游历完游标中所有的文档之后，或者在10分钟之后，游标便会自动关闭
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 可以使用 noCursorrimeout()函数来保持游标一直有效
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mycursor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">accounts</span>.<span style="color:#a6e22e">find</span>().<span style="color:#a6e22e">noCursormimeout</span>()
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 在这之后，在不遍历游标的情况下，你需要主动关闭游标
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">myCursor</span>.<span style="color:#a6e22e">close</span>()
+</span></span></code></pre></div><h5 id="游标函数">游标函数<a hidden class="anchor" aria-hidden="true" href="#游标函数">#</a></h5>
+<ul>
+<li>cursor.hasNext(）</li>
+<li>cursor.next()</li>
+<li>cursor.forEach(）</li>
+<li>cursor.1imit()</li>
+<li>cursor.skip()</li>
+<li>cursor.count(<!-- raw HTML omitted -->): 默认情况下，＜applyskipLimit&gt;为 false, 即 cursor.count(）不会考虑 cursor.skip( ）和 cursor.1imit（)的效果</li>
+<li>cursor.sort(<!-- raw HTML omitted -->）: { field: ordering} ,  1表示由小及大的正向排序，-1表示逆向排序</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; var myCursor <span style="color:#f92672">=</span> db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;george&#34;</span> <span style="color:#f92672">})</span>；
+</span></span><span style="display:flex;"><span>&gt; <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span> myCursor.hasNext<span style="color:#f92672">()</span> ）<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    printjson<span style="color:#f92672">(</span>myCursor.next<span style="color:#f92672">())</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; myCursor.forEach<span style="color:#f92672">(</span>printjson<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;george&#34;</span> <span style="color:#f92672">})</span>.limit<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;george&#34;</span> <span style="color:#f92672">})</span>.skip<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;george&#34;</span> <span style="color:#f92672">})</span>.limit<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span> <span style="color:#75715e"># 等同不使用limit 返回所有</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name:  <span style="color:#e6db74">&#34;george&#34;</span> <span style="color:#f92672">})</span>.limit<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>.count<span style="color:#f92672">()</span> <span style="color:#75715e"># 统计所有</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> name:  <span style="color:#e6db74">&#34;george&#34;</span> <span style="color:#f92672">})</span>.limit<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>.count<span style="color:#f92672">(</span>true<span style="color:#f92672">)</span> <span style="color:#75715e"># 统计limit后的数量</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">()</span>.sort<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> balance: -1, name: <span style="color:#ae81ff">1</span> <span style="color:#f92672">}</span>）
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">()</span>.sort<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> balance: -1 <span style="color:#f92672">})</span>.limit<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cursor.skip()， cursor.1imit(), cursor.sort(）结合在一起使用时注意事项</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cursor.skip()在 cursor.1imit()之前执行</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">()</span>.limit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>.skip<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cursor.sort()在cursor.skip()和 cursor.1imit()之前执行</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">()</span>.skip<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span>.limit<span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>.sort<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> balance:-1<span style="color:#f92672">})</span>
+</span></span></code></pre></div><h4 id="文档投影">文档投影<a hidden class="anchor" aria-hidden="true" href="#文档投影">#</a></h4>
+<p>db.collection.find (<!-- raw HTML omitted -->, <!-- raw HTML omitted -->)
+不使用投影时，db.collection.find()返回符合筛选条件的完整文档
+而使用投影可以有选择性的返回文档中的部分字段</p>
+<p>{ field: inclusion]
+1表示返回字段，0表示不返回字段店</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 只返回银行账户文档中的用户姓名&#34;</span>
+</span></span><span style="display:flex;"><span>&gt; db. accounts. find<span style="color:#f92672">(</span> <span style="color:#f92672">{}</span>, <span style="color:#f92672">{</span> name: <span style="color:#ae81ff">1</span> <span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 不返回银行账户文档中的用户姓名（也不返回文档主键）”</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">({}</span>, <span style="color:#f92672">{</span> name: 0, _id:0<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 除了文档主键之外，我们不可以在投影文档中混合使用包含和不包含这两种投影操作 </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 要么在投影文档中列出所有应该包含的字段，要么列出所有不应该包含的字段</span>
+</span></span><span style="display:flex;"><span>&gt; db.accounts.find<span style="color:#f92672">({}</span>,<span style="color:#f92672">{</span> name: 1, balance: 0, id: <span style="color:#ae81ff">0</span> <span style="color:#f92672">}</span>）
+</span></span></code></pre></div><p>注意事项</p>
+<h3 id="22">2.2<a hidden class="anchor" aria-hidden="true" href="#22">#</a></h3>
+<h3 id="23">2.3<a hidden class="anchor" aria-hidden="true" href="#23">#</a></h3>
+<h3 id="24">2.4<a hidden class="anchor" aria-hidden="true" href="#24">#</a></h3>
+<h2 id="基础应用">基础应用<a hidden class="anchor" aria-hidden="true" href="#基础应用">#</a></h2>
 
 
   </div>

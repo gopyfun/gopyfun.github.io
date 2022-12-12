@@ -145,6 +145,75 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Aapanel - 宝塔国际版安装和使用<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安装脚本
+# for centos yum install -y wget &amp;&amp; wget -O install.sh http://www.aapanel.com/script/install_6.0_en.sh &amp;&amp; bash install.sh aapanel # ubuntu / deepin wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;&amp; sudo bash install.sh aapanel # debian wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;&amp; bash install.sh aapanel </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-12 14:37:30 +0800 CST'>December 12, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Aapanel - 宝塔国际版安装和使用" href="https://gopy.fun/posts/linux/aapanel-tutorial.html"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Docker学习笔记<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>清理docker docker-compose通过yml配置文件创建docker后删除
+docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; rm -v # stop container and remove it </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-12 13:12:30 +0800 CST'>December 12, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Docker学习笔记" href="https://gopy.fun/posts/note/docker-note.html"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Node.JS 学习笔记<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>项目实践 使用express-generator创建正式项目
+cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-09 15:38:36 +0800 CST'>December 9, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Node.JS 学习笔记" href="https://gopy.fun/posts/note/nodejs-note.html"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>调度系统研究<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>目前收集到的现成的一些调度系统有：
+java：
+xxl-job： 分布式任务调度平台XXL-JOB PowerJoob： PowerJob/README_zhCN.md at master · PowerJob/PowerJob， 参考对比分析的文章：python分布式任务调度开源_比xxl-job 优秀的分布式定时任务调度框架 go
+基于go语言的开源调度系统整理 python
+Airflow： 浅谈调度工具——Airflow Maat（Airflow二开）：深度解析 | 基于DAG的分布式任务调度平台：Maat - 简书 其他
+php框架laravel的定时任务调度： codestudiohq/laravel-totem: Manage Your Laravel Schedule From A Web Dashboard </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-01 21:30:05 +0800 CST'>December 1, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 调度系统研究" href="https://gopy.fun/posts/schedule-system-research.html"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>TV直播源收藏【保持更新】
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>家里有
+常用源 热门项目 涩涩源 https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u https://raw.githubusercontent.com/gjwj666/jichang/main/chuanmei2.m3u https://wuyun999.github.io/wuyun/zb/ss.txt `` `` `` `` </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-11-28 14:37:35 +0800 CST'>November 28, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to TV直播源收藏【保持更新】" href="https://gopy.fun/posts/tv.html"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Nmap命令学习<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
@@ -201,15 +270,14 @@ const mul = (a, b=2) =&gt; a*b; console....</p>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>MongoDB Note<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>MongoDB笔记<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>install mongodb install for mac brew install mongodb-community brew services start mongodb/brew/mongodb-community init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4.2, BTW, if you want to active authorization, may try this conf:
-cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开启强制验证 security: authorization: &#34;enabled&#34; EOF mongo &gt; show dbs &gt; use admin &gt; db.createUser({ user: &#39;admin&#39;, // 用户名 pwd: &#39;123456&#39;, // 密码 roles:[{ role: &#39;root&#39;, // 角色 db: &#39;admin&#39; // 数据库 }] }) &gt; exit brew services restart mongodb/brew/mongodb-community mongo admin -u admin -p 123456 基础应用 </p>
+    <p>I. install mongodb # docker docker pull mongo:4 # install mongodb 4 docker images # show images docker run --name mymongo -v /usr/local/var/docker/mongodb/data:/data/db -d mongo:4 docker ps docker logs mymongo # install mongo express docker pull mongo-express docker run --link mymongo:mongo -p 8081:8081 mongo-express # mac brew install mongodb-community brew services start mongodb/brew/mongodb-community # 1.1 init mongodb set auth for mongodb You can login mongodb direct without password when your mongodb version grate or enquit v4....</p>
   </div>
   <footer class="entry-footer"><span title='2022-05-24 22:56:43 +0800 CST'>May 24, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to MongoDB Note" href="https://gopy.fun/posts/note/mongodb-note.html"></a>
+  <a class="entry-link" aria-label="post link to MongoDB笔记" href="https://gopy.fun/posts/note/mongodb-note.html"></a>
 </article>
 
 <article class="post-entry"> 
@@ -224,87 +292,6 @@ cat &gt;&gt; /usr/local/etc/mongod.conf &lt;&lt;&#34;EOF&#34; #配置文件开�
   </div>
   <footer class="entry-footer"><span title='2022-05-24 18:00:43 +0800 CST'>May 24, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Python Flask Note" href="https://gopy.fun/posts/note/python-flask-note.html"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Python note<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Index. 内容 基本部分笔记记录在这里其他内容参考：
-Python Flask Note 开始、python开发环境配置以及IDE配置 在开始写python项目钱，我们必须先安装python的环境、虚拟环境以及IDE。IDE的配置后面有专门的笔记记录下，这部分内容也可以单独开设一个专题。
-python的安装 python的IDE配置 python的环境变量配置 虚拟环境 python3 -m venv venv source ./venv/bin/activate deactivate pip 安装和 源设置 一、基础部分 学习世界： 2022-10-21 1.1 变量 Python变量的命名规范：
-必须是数字或字母或下换线组成. 不能是数字开头，更不能是纯数字 不能用python的关键字 不要用中文 不要太长 1.2 常量 变量的形式：
-print(123) 字母大写的变量 可以 认为是常量。 python里没有绝对意义的常量，都可以被覆盖 1.3 数据类型 数字 文字 布尔： True 、 False 1.4 控制语句 判断语句 语句结构：
-if 1: pass elif 2: pass else: pass 循环语句 语句结构：
-while True: pass i = 1 while i &lt;= 100: print(1) i = i &#43; 1 break:让当前这个循环立即停止，用在while语句中 Q: for 循环中可以用吗？...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-24 17:56:43 +0800 CST'>May 24, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Python note" href="https://gopy.fun/posts/note/python-note.html"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>JavaScript笔记（一）: 基础js知识<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 常用技术栈
-标准：ES5、 ES6、 H5、 CSS3 编译工具：Gulp、 Grunt、 Webpack 基础库 ： jQuery 。。。 模块化：Common JS、 CMD、 AMD、 UMD、 ES6 Module 框架 ： Vue、 React、 Angular UI框架：Bootstrap、 ElementUl、 Vux、 AntDesign (mobile) 、ionic WebSocket：SockJS 数据可视化 Echarts、 Bmap 动画 - Animate. css 流程控制 - Redux (thunk、 saga、observab le)、 Vuex 函数式编程 - underscore、 lodash、 immutable、rxjs CSS预处理器 sass、 less 移动开发 一react native、 ionic、 Weex 中间语言 typescr ipt 服务端开发 Nodejs、 Express、 KOA、 SockJS 一、JS 基础 1.1 变量 JavaScript 提供八种不同的数据类型，它们是：...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-20 00:56:43 +0800 CST'>May 20, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to JavaScript笔记（一）: 基础js知识" href="https://gopy.fun/posts/note/js-note-1-basic.html"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>HTML重学 &amp; HTML5笔记<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>HTML标签 HTML声明类型 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;/html&gt; 行内标签 &lt;a&gt;&lt;/a&gt;: a (Anchor) href属性: 指向跳转的目的地 target属性：_blank 表示在新窗口打开 段落标签 &lt;ul&gt;&lt;/ul&gt;:
-&lt;ol&gt;&lt;/ol&gt;:
-input : &lt;input type=&#34;text&#34;&gt;
-css基础 HTML 元素都是以矩形为基础, 每个 HTML 元素所占有的矩形空间由这三个重要的属性来控制： - 内边距 padding、 - 外边距 margin 、 - 边框 border。
-css中的绝对单位与相对单位 像素是一个长度单位，它告诉浏览器应该如何调整元素的大小和位置。 其实除了 px，CSS 也有其他单位供我们使用。
-单位长度的类型可以分成 2 种：相对和绝对。 绝对单位与长度的物理单位相关。 例如，in 和 mm 分别代表着英寸和毫米。 绝对长度单位会接近屏幕上的实际测量值，不过不同屏幕的分辨率会存在差异，这就可能会造成误差。
-相对单位长度，比如 em 和 rem，它们的实际值会依赖其他长度的值而决定。 比如 em 的大小基于元素字体的字体大小。 如果使用它来设置 font-size 值，它的值会跟随父元素的 font-size 值来改变。
-Note: 有些单位长度选项是相对视窗大小来改变值的， 这种设定符合响应式网页设计的原则。
-css优先等级 内联样式 &gt; id &gt; class...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-17 14:56:43 +0800 CST'>May 17, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to HTML重学 &amp; HTML5笔记" href="https://gopy.fun/posts/note/html5-note.html"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Adobe<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Adobe软件下载备份
-软件下载 vposy破解（mac一般安装2021 sp版），默认解压密码 @vposy,
-说明： 大师版：全家桶安装包，压缩包里含有所有Adobe软件，需要全部下载后方可解压安装； SP版：单个软件安装包，按需下载，无需下载所有软件。 vposy破解Adobe全系更新（密码：3jek） 网友备份1（密码：7wx1） PR2022破解版本下载
-PR2022 v22 didixk破解（密码：oj96） </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-16 17:59:25 +0800 CST'>May 16, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Adobe" href="https://gopy.fun/posts/soft/adobe.html"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>苹果开发环境部署<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>mac开发环境说明 这个是我个人喜欢部署的mac软件的环境，记录备用
-一、基础环境 1.1 Homebrew安装 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; # 如果安装失败或请求失败，需要绕过ssl验证 /bin/bash -c &#34;$(curl -fsSL --insecure https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; # 以上方法还无法下载，就先把install.sh 这个文件直接下载到本地，然后执行安装 bash install.sh # 使用国内源(不建议) /bin/zsh -c &#34;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&#34; homebrew安装后，可以使用以下命令进行管理
-brew version brew install {name} brew install --cask {name} brew list brew search brew 1.2 zsh安装配置 二、系统核心命令操作 2.1 开启允许所有软件安装 OSX移除下载镜像的quarantine属性 苹果系统有一个GateKeeper保护机制（自 OSX 10.5 加入）。从互联网上下载来的文件，会被自动打上com.apple.quarantine标志，翻译过来就是免疫隔离，系统根据这个附加属性对这个文件作出限制。 在安装软件的时候需要移除quarantine属性，步骤如下：
-# 开启任何来源代码 sudo spctl --master-disable # 移除quarantine属性代码 sudo xattr -r -d com.apple.quarantine xxx.dmg # 安装Command Line Tools 工具 xcode-select --install # 对应用签名 sudo codesign --force --deep --sign - {应用路径} 如遇如下错误：...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-16 17:33:03 +0800 CST'>May 16, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 苹果开发环境部署" href="https://gopy.fun/posts/mac/mac-dev-env.html"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
