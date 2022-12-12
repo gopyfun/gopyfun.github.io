@@ -13,8 +13,8 @@
       <pubDate>Mon, 12 Dec 2022 14:37:30 +0800</pubDate>
       
       <guid>https://gopy.fun/posts/linux/aapanel-tutorial.html</guid>
-      <description>安装脚本
-# for centos yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://www.aapanel.com/script/install_6.0_en.sh &amp;amp;&amp;amp; bash install.sh aapanel # ubuntu / deepin wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;amp;&amp;amp; sudo bash install.sh aapanel # debian wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;amp;&amp;amp; bash install.sh aapanel </description>
+      <description>aapanel是宝塔面板的国际版，不需要登录和绑定账号，可以免去很多麻烦，下面是官方的安装脚本：
+# for centos yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://www.aapanel.com/script/install_6.0_en.sh &amp;amp;&amp;amp; bash install.sh aapanel # ubuntu / deepin wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;amp;&amp;amp; sudo bash install.sh aapanel # debian wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &amp;amp;&amp;amp; bash install.sh aapanel 需要说明的是 aapanel汉化 可以参考项目：gacjie/aapanel_chinese: 基于aapanel 制做的中文包</description>
     </item>
     
     <item>
