@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Docker学习笔记 | GoPY Fun</title>
 <meta name="keywords" content="">
-<meta name="description" content="清理docker docker-compose通过yml配置文件创建docker后删除
+<meta name="description" content="开发环境 # docker run -p 127.0.0.1:3307:3306 --name mysql -v ~/workspace/db/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7 清理docker docker-compose通过yml配置文件创建docker后删除
 docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; rm -v # stop container and remove it ">
 <meta name="author" content="">
 <link rel="canonical" href="https://gopy.fun/posts/note/docker-note.html">
@@ -70,7 +70,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="Docker学习笔记" />
-<meta property="og:description" content="清理docker docker-compose通过yml配置文件创建docker后删除
+<meta property="og:description" content="开发环境 # docker run -p 127.0.0.1:3307:3306 --name mysql -v ~/workspace/db/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7 清理docker docker-compose通过yml配置文件创建docker后删除
 docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; rm -v # stop container and remove it " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gopy.fun/posts/note/docker-note.html" /><meta property="article:section" content="posts" />
@@ -79,7 +79,7 @@ docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker学习笔记"/>
-<meta name="twitter:description" content="清理docker docker-compose通过yml配置文件创建docker后删除
+<meta name="twitter:description" content="开发环境 # docker run -p 127.0.0.1:3307:3306 --name mysql -v ~/workspace/db/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7 清理docker docker-compose通过yml配置文件创建docker后删除
 docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; rm -v # stop container and remove it "/>
 
 
@@ -103,12 +103,12 @@ docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; 
   "@type": "BlogPosting",
   "headline": "Docker学习笔记",
   "name": "Docker学习笔记",
-  "description": "清理docker docker-compose通过yml配置文件创建docker后删除\ndocker-compose -f \u0026lt;config.yml\u0026gt; up -d docker-compose -f \u0026lt;config.yml\u0026gt; rm -v # stop container and remove it ",
+  "description": "开发环境 # docker run -p 127.0.0.1:3307:3306 --name mysql -v ~/workspace/db/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7 清理docker docker-compose通过yml配置文件创建docker后删除\ndocker-compose -f \u0026lt;config.yml\u0026gt; up -d docker-compose -f \u0026lt;config.yml\u0026gt; rm -v # stop container and remove it ",
   "keywords": [
     
   ],
-  "articleBody": "清理docker docker-compose通过yml配置文件创建docker后删除\ndocker-compose -f up -d docker-compose -f rm -v # stop container and remove it ",
-  "wordCount" : "18",
+  "articleBody": "开发环境 # docker run -p 127.0.0.1:3307:3306 --name mysql -v ~/workspace/db/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7 清理docker docker-compose通过yml配置文件创建docker后删除\ndocker-compose -f up -d docker-compose -f rm -v # stop container and remove it ",
+  "wordCount" : "32",
   "inLanguage": "zh-cn",
   "datePublished": "2022-12-12T13:12:30+08:00",
   "dateModified": "2022-12-12T13:12:30+08:00",
@@ -183,7 +183,10 @@ docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; 
 
 </div>
   </header> 
-  <div class="post-content"><h2 id="清理docker">清理docker<a hidden class="anchor" aria-hidden="true" href="#清理docker">#</a></h2>
+  <div class="post-content"><h2 id="开发环境">开发环境<a hidden class="anchor" aria-hidden="true" href="#开发环境">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span>docker run -p 127.0.0.1:3307:3306 --name mysql -v ~/workspace/db/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span>root  -d mysql:5.7
+</span></span></code></pre></div><h2 id="清理docker">清理docker<a hidden class="anchor" aria-hidden="true" href="#清理docker">#</a></h2>
 <p>docker-compose通过yml配置文件创建docker后删除</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose -f &lt;config.yml&gt; up -d
 </span></span><span style="display:flex;"><span>docker-compose -f &lt;config.yml&gt; rm -v <span style="color:#75715e"># stop container and remove it</span>
@@ -199,7 +202,7 @@ docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; 
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://gopy.fun/">GoPY Fun</a></span>
+    <span>&copy; 2023 <a href="https://gopy.fun/">GoPY Fun</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

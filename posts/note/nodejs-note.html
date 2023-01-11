@@ -8,7 +8,9 @@
 <title>Node.JS 学习笔记 | GoPY Fun</title>
 <meta name="keywords" content="">
 <meta name="description" content="项目实践 使用express-generator创建正式项目
-cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start ">
+cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start # 这样启动不会实时刷新js文件，需要安装nodemon实时刷新 cnpm install nodemon -S # 将 package.json 文件中 # &#34;start&#34;: &#34;node ./bin/www&#34; # 修改为 # &#34;start&#34;: &#34;nodemon ./bin/www&#34; # 即可 安装数据库mysql支持
+cd ~/workspace/Node/blog cnpm install sequelize -S cnpm install mysql2 -S cnpm install sequelize-cli -g 模型 迁移和种子
+cd ~/workspace/Node/blog sequelize init # 配置好mysql配置后，初始化db sequelize db:create --charset &#39;utf8mb4&#39; # create table migration, 会生成迁移文件和 article模型 sequelize model:generate --name Article --attributes title:string,content:text # 执行迁移操作 sequelize db:migrate # 添加种子文件 sequelize seed:generate --name article # 去seed文件中修改 添加需要的数据 # 执行添加种子操作 sequelize db:seed:all express开发流程如下： 添加评论">
 <meta name="author" content="">
 <link rel="canonical" href="https://gopy.fun/posts/note/nodejs-note.html">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
@@ -71,7 +73,9 @@ if (!doNotTrack) {
 }
 </script><meta property="og:title" content="Node.JS 学习笔记" />
 <meta property="og:description" content="项目实践 使用express-generator创建正式项目
-cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start " />
+cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start # 这样启动不会实时刷新js文件，需要安装nodemon实时刷新 cnpm install nodemon -S # 将 package.json 文件中 # &#34;start&#34;: &#34;node ./bin/www&#34; # 修改为 # &#34;start&#34;: &#34;nodemon ./bin/www&#34; # 即可 安装数据库mysql支持
+cd ~/workspace/Node/blog cnpm install sequelize -S cnpm install mysql2 -S cnpm install sequelize-cli -g 模型 迁移和种子
+cd ~/workspace/Node/blog sequelize init # 配置好mysql配置后，初始化db sequelize db:create --charset &#39;utf8mb4&#39; # create table migration, 会生成迁移文件和 article模型 sequelize model:generate --name Article --attributes title:string,content:text # 执行迁移操作 sequelize db:migrate # 添加种子文件 sequelize seed:generate --name article # 去seed文件中修改 添加需要的数据 # 执行添加种子操作 sequelize db:seed:all express开发流程如下： 添加评论" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gopy.fun/posts/note/nodejs-note.html" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-09T15:38:36+08:00" />
@@ -80,7 +84,9 @@ cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Node.JS 学习笔记"/>
 <meta name="twitter:description" content="项目实践 使用express-generator创建正式项目
-cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start "/>
+cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start # 这样启动不会实时刷新js文件，需要安装nodemon实时刷新 cnpm install nodemon -S # 将 package.json 文件中 # &#34;start&#34;: &#34;node ./bin/www&#34; # 修改为 # &#34;start&#34;: &#34;nodemon ./bin/www&#34; # 即可 安装数据库mysql支持
+cd ~/workspace/Node/blog cnpm install sequelize -S cnpm install mysql2 -S cnpm install sequelize-cli -g 模型 迁移和种子
+cd ~/workspace/Node/blog sequelize init # 配置好mysql配置后，初始化db sequelize db:create --charset &#39;utf8mb4&#39; # create table migration, 会生成迁移文件和 article模型 sequelize model:generate --name Article --attributes title:string,content:text # 执行迁移操作 sequelize db:migrate # 添加种子文件 sequelize seed:generate --name article # 去seed文件中修改 添加需要的数据 # 执行添加种子操作 sequelize db:seed:all express开发流程如下： 添加评论"/>
 
 
 <script type="application/ld+json">
@@ -103,12 +109,12 @@ cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 
   "@type": "BlogPosting",
   "headline": "Node.JS 学习笔记",
   "name": "Node.JS 学习笔记",
-  "description": "项目实践 使用express-generator创建正式项目\ncnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start ",
+  "description": "项目实践 使用express-generator创建正式项目\ncnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start # 这样启动不会实时刷新js文件，需要安装nodemon实时刷新 cnpm install nodemon -S # 将 package.json 文件中 # \u0026#34;start\u0026#34;: \u0026#34;node ./bin/www\u0026#34; # 修改为 # \u0026#34;start\u0026#34;: \u0026#34;nodemon ./bin/www\u0026#34; # 即可 安装数据库mysql支持\ncd ~/workspace/Node/blog cnpm install sequelize -S cnpm install mysql2 -S cnpm install sequelize-cli -g 模型 迁移和种子\ncd ~/workspace/Node/blog sequelize init # 配置好mysql配置后，初始化db sequelize db:create --charset \u0026#39;utf8mb4\u0026#39; # create table migration, 会生成迁移文件和 article模型 sequelize model:generate --name Article --attributes title:string,content:text # 执行迁移操作 sequelize db:migrate # 添加种子文件 sequelize seed:generate --name article # 去seed文件中修改 添加需要的数据 # 执行添加种子操作 sequelize db:seed:all express开发流程如下： 添加评论",
   "keywords": [
     
   ],
-  "articleBody": "项目实践 使用express-generator创建正式项目\ncnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start ",
-  "wordCount" : "22",
+  "articleBody": "项目实践 使用express-generator创建正式项目\ncnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start # 这样启动不会实时刷新js文件，需要安装nodemon实时刷新 cnpm install nodemon -S # 将 package.json 文件中 # \"start\": \"node ./bin/www\" # 修改为 # \"start\": \"nodemon ./bin/www\" # 即可 安装数据库mysql支持\ncd ~/workspace/Node/blog cnpm install sequelize -S cnpm install mysql2 -S cnpm install sequelize-cli -g 模型 迁移和种子\ncd ~/workspace/Node/blog sequelize init # 配置好mysql配置后，初始化db sequelize db:create --charset 'utf8mb4' # create table migration, 会生成迁移文件和 article模型 sequelize model:generate --name Article --attributes title:string,content:text # 执行迁移操作 sequelize db:migrate # 添加种子文件 sequelize seed:generate --name article # 去seed文件中修改 添加需要的数据 # 执行添加种子操作 sequelize db:seed:all express开发流程如下： 添加评论\nsequelize model:generate --name Comment --attributes articleId:integer,content:text sequelize seed:generate --name comment ",
+  "wordCount" : "112",
   "inLanguage": "zh-cn",
   "datePublished": "2022-12-09T15:38:36+08:00",
   "dateModified": "2022-12-09T15:38:36+08:00",
@@ -192,6 +198,41 @@ cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 
 </span></span><span style="display:flex;"><span>cd blog
 </span></span><span style="display:flex;"><span>cnpm i <span style="color:#75715e"># 安装所有依赖</span>
 </span></span><span style="display:flex;"><span>DEBUG<span style="color:#f92672">=</span>blog:* npm start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 这样启动不会实时刷新js文件，需要安装nodemon实时刷新</span>
+</span></span><span style="display:flex;"><span>cnpm install nodemon -S
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 将 package.json 文件中 </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;start&#34;: &#34;node ./bin/www&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修改为</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;start&#34;: &#34;nodemon ./bin/www&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 即可</span>
+</span></span></code></pre></div><p>安装数据库mysql支持</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/workspace/Node/blog
+</span></span><span style="display:flex;"><span>cnpm install sequelize -S
+</span></span><span style="display:flex;"><span>cnpm install mysql2 -S
+</span></span><span style="display:flex;"><span>cnpm install sequelize-cli -g
+</span></span></code></pre></div><p>模型 迁移和种子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/workspace/Node/blog
+</span></span><span style="display:flex;"><span>sequelize init
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 配置好mysql配置后，初始化db</span>
+</span></span><span style="display:flex;"><span>sequelize db:create --charset <span style="color:#e6db74">&#39;utf8mb4&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># create table migration, 会生成迁移文件和 article模型</span>
+</span></span><span style="display:flex;"><span>sequelize model:generate --name Article --attributes title:string,content:text
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 执行迁移操作</span>
+</span></span><span style="display:flex;"><span>sequelize db:migrate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加种子文件</span>
+</span></span><span style="display:flex;"><span>sequelize seed:generate --name article
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 去seed文件中修改 添加需要的数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 执行添加种子操作</span>
+</span></span><span style="display:flex;"><span>sequelize db:seed:all
+</span></span></code></pre></div><p>express开发流程如下：
+<img loading="lazy" src="https://cdn.jsdelivr.net/gh/gopyfun/CDN/img/202212/Snipaste_2022-12-12_21-08-03.jpg" alt=""  />
+</p>
+<p>添加评论</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sequelize model:generate --name Comment --attributes articleId:integer,content:text
+</span></span><span style="display:flex;"><span>sequelize seed:generate --name comment
 </span></span></code></pre></div>
 
   </div>
@@ -204,7 +245,7 @@ cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://gopy.fun/">GoPY Fun</a></span>
+    <span>&copy; 2023 <a href="https://gopy.fun/">GoPY Fun</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

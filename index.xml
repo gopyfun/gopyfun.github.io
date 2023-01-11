@@ -23,7 +23,7 @@
       <pubDate>Mon, 12 Dec 2022 13:12:30 +0800</pubDate>
       
       <guid>https://gopy.fun/posts/note/docker-note.html</guid>
-      <description>清理docker docker-compose通过yml配置文件创建docker后删除
+      <description>开发环境 # docker run -p 127.0.0.1:3307:3306 --name mysql -v ~/workspace/db/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7 清理docker docker-compose通过yml配置文件创建docker后删除
 docker-compose -f &amp;lt;config.yml&amp;gt; up -d docker-compose -f &amp;lt;config.yml&amp;gt; rm -v # stop container and remove it </description>
     </item>
     
@@ -48,7 +48,9 @@ https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u </description>
       
       <guid>https://gopy.fun/posts/note/nodejs-note.html</guid>
       <description>项目实践 使用express-generator创建正式项目
-cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start </description>
+cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start # 这样启动不会实时刷新js文件，需要安装nodemon实时刷新 cnpm install nodemon -S # 将 package.json 文件中 # &amp;#34;start&amp;#34;: &amp;#34;node ./bin/www&amp;#34; # 修改为 # &amp;#34;start&amp;#34;: &amp;#34;nodemon ./bin/www&amp;#34; # 即可 安装数据库mysql支持
+cd ~/workspace/Node/blog cnpm install sequelize -S cnpm install mysql2 -S cnpm install sequelize-cli -g 模型 迁移和种子
+cd ~/workspace/Node/blog sequelize init # 配置好mysql配置后，初始化db sequelize db:create --charset &amp;#39;utf8mb4&amp;#39; # create table migration, 会生成迁移文件和 article模型 sequelize model:generate --name Article --attributes title:string,content:text # 执行迁移操作 sequelize db:migrate # 添加种子文件 sequelize seed:generate --name article # 去seed文件中修改 添加需要的数据 # 执行添加种子操作 sequelize db:seed:all express开发流程如下： 添加评论</description>
     </item>
     
     <item>

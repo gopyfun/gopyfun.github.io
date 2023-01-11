@@ -162,7 +162,7 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>清理docker docker-compose通过yml配置文件创建docker后删除
+    <p>开发环境 # docker run -p 127.0.0.1:3307:3306 --name mysql -v ~/workspace/db/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7 清理docker docker-compose通过yml配置文件创建docker后删除
 docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; rm -v # stop container and remove it </p>
   </div>
   <footer class="entry-footer"><span title='2022-12-12 13:12:30 +0800 CST'>December 12, 2022</span></footer>
@@ -176,7 +176,9 @@ docker-compose -f &lt;config.yml&gt; up -d docker-compose -f &lt;config.yml&gt; 
   </header>
   <div class="entry-content">
     <p>项目实践 使用express-generator创建正式项目
-cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start </p>
+cnpm install express-generator -g cd ~/workspace/Node express --view=ejs blog # 指定ejs模板 cd blog cnpm i # 安装所有依赖 DEBUG=blog:* npm start # 这样启动不会实时刷新js文件，需要安装nodemon实时刷新 cnpm install nodemon -S # 将 package.json 文件中 # &#34;start&#34;: &#34;node ./bin/www&#34; # 修改为 # &#34;start&#34;: &#34;nodemon ./bin/www&#34; # 即可 安装数据库mysql支持
+cd ~/workspace/Node/blog cnpm install sequelize -S cnpm install mysql2 -S cnpm install sequelize-cli -g 模型 迁移和种子
+cd ~/workspace/Node/blog sequelize init # 配置好mysql配置后，初始化db sequelize db:create --charset &#39;utf8mb4&#39; # create table migration, 会生成迁移文件和 article模型 sequelize model:generate --name Article --attributes title:string,content:text # 执行迁移操作 sequelize db:migrate # 添加种子文件 sequelize seed:generate --name article # 去seed文件中修改 添加需要的数据 # 执行添加种子操作 sequelize db:seed:all express开发流程如下： 添加评论...</p>
   </div>
   <footer class="entry-footer"><span title='2022-12-09 15:38:36 +0800 CST'>December 9, 2022</span></footer>
   <a class="entry-link" aria-label="post link to Node.JS 学习笔记" href="https://gopy.fun/posts/note/nodejs-note.html"></a>
@@ -302,7 +304,7 @@ const mul = (a, b=2) =&gt; a*b; console....</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://gopy.fun/">GoPY Fun</a></span>
+    <span>&copy; 2023 <a href="https://gopy.fun/">GoPY Fun</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
